@@ -1,0 +1,135 @@
+\begin{thebibliography}{10}
+
+\bibitem{alanCarlton}
+Alan Carlton.
+\newblock {Information-centric networking could fix these Internet problems}
+  kernel description, 2016.
+
+\bibitem{Ahlgren2012}
+Bengt Ahlgren, Christian Dannewits, Claudio Imbreenda, Dirk Kutscher, and
+  Börje Ohlman.
+\newblock A survey of information-centric networking.
+\newblock {\em IEEE Communications Magazine}, 50(7), 2012.
+
+\bibitem{Jacobson2009}
+Van Jacobson, Diana~K Smetters, James~D Thornton, Michael~F Plass, Nicholas~H
+  Briggs, and Rebecca~L Braynard.
+\newblock Networking named content.
+\newblock In {\em Proceedings of the 5th international conference on Emerging
+  networking experiments and technologies}, pages 1--12. ACM, 2009.
+
+\bibitem{Greek-ICN-networking-survey-2014}
+George Xylomenos, Christopher~N Ververidis, Vasilios~A Siris, Nikos Fotiou,
+  Christos Tsilopoulos, Xenofon Vasilakos, Konstantinos~V Katsaros, and
+  George~C Polyzos.
+\newblock A survey of information-centric networking research.
+\newblock {\em IEEE Communications Surveys \& Tutorials}, 16(2):1024--1049,
+  2014.
+
+\bibitem{Ahlgreniot}
+Anders Lindgren, Fehmi~Ben Abdesslem, Bengt Ahlgren, Olov Schelen, and
+  Adeel~Mohammad Malik.
+\newblock Design choices for the iot in information-centric networks.
+\newblock {\em IEEE Consumer Communications and Networking Conference}, 2016.
+
+\bibitem{iotchop}
+M.~Amadeo, C.~Campolo, J.~Quevedo, D.~Corujo, A.~Molinaro, A.~Iera, R.~L.
+  Aguiar, and A.~V. Vasilakos.
+\newblock Information-centric networking for the internet of things: challenges
+  and opportunities.
+\newblock {\em IEEE Network}, 30(2):92--100, March 2016.
+
+\bibitem{icniotexpinwild}
+Emmanuel Baccelli, Christian Mehlis, Oliver Hahm, Thomas~C. Schmidt, and
+  Matthias W\"{a}hlisch.
+\newblock Information centric networking in the iot: Experiments with ndn in
+  the wild.
+\newblock In {\em Proceedings of the 1st ACM Conference on Information-Centric
+  Networking}, ACM-ICN '14, pages 77--86, New York, NY, USA, 2014. ACM.
+
+\bibitem{RIOT}
+Riot.
+\newblock \url{https://riot-os.org/} visited 2017-10-10.
+
+\bibitem{yanqui}
+Yanqiu Wu.
+\newblock Adapting information-centric networking to small sensor nodes for
+  hetrogeneous iot network.
+\newblock 2016.
+
+\bibitem{6185525}
+Ieee standard for local and metropolitan area networks--part 15.4: Low-rate
+  wireless personal area networks (lr-wpans) amendment 1: Mac sublayer.
+\newblock {\em IEEE Std 802.15.4-2011 (Amendment to IEEE Std 802.15.4-2011)},
+  pages 1--225, April 2012.
+
+\bibitem{radio-electronic-802-15-4}
+Ian Poole.
+\newblock Ieee 802.15.4 technology and standard.
+\newblock
+  \url{http://www.radio-electronics.com/info/wireless/ieee-802-15-4/wireless-standard-technology.php}
+  visited 2017-07-22.
+
+\bibitem{rfc791}
+{Internet Protocol, Darpa Internet program protocol specification}.
+\newblock {RFC 791}, September 1981.
+
+\bibitem{rfc2460}
+Steve Deering and R.~Hinden.
+\newblock {Internet Protocol, Version 6 (IPv6) Specification}.
+\newblock {RFC 2460}, December 1998.
+
+\bibitem{rfc4944}
+Steve Deering and R.~Hinden.
+\newblock {Transmission of IPv6 Packets over IEEE 802.15.4 Networks}.
+\newblock {RFC 4944}, September 2007.
+
+\bibitem{mqtt}
+Mqtt.
+\newblock \url{http://www.mqtt.org} visited 2017-08-01.
+
+\bibitem{hunkeler2008mqtt}
+Urs Hunkeler, Hong~Linh Truong, and Andy Stanford-Clark.
+\newblock Mqtt-s—a publish/subscribe protocol for wireless sensor networks.
+\newblock In {\em Communication systems software and middleware and workshops,
+  2008. comsware 2008. 3rd international conference on}, pages 791--798. IEEE,
+  2008.
+
+\bibitem{MQTT-SN}
+Andy Stanford-Clark and Hong~Linh Truong.
+\newblock Mqtt for sensor networks(mqtt-sn), version 1.2.
+\newblock
+  \url{http://mqtt.org/new/wp-content/uploads/2009/06/MQTT-SN_spec_v1.2.pdf}
+  visited 2017-07-28, 2008.
+
+\bibitem{rfc7959}
+Z.~Shelby, K.~Hartke, and C.~Bormann.
+\newblock {The Constrained Application Protocol (CoAP)}.
+\newblock {RFC 7959}, June 2014.
+
+\bibitem{CCN-LITE}
+Ccn-lite, content centric netowrking lite platform.
+\newblock \url{http://www.ccn-lite.net/} visited 2017-08-20.
+
+\bibitem{contiki-os}
+Contiki-os.
+\newblock \url{http://www.contiki-os.org} visited 2017-07-24.
+
+\bibitem{6LBR}
+6lbr.
+\newblock \url{http://cetic.github.io/6lbr/} visited 2017-08-20.
+
+\bibitem{Sparrow}
+Sparrow application layer.
+\newblock \url{https://github.com/sics-iot/sparrow} visited 2017-08-20.
+
+\bibitem{CC2650}
+Texas instruments, cc2650 sensortag.
+\newblock \url{http://www.ti.com/tool/cc2650stk} visited 2017-09-20.
+
+\bibitem{RP3}
+Raspberry pi 3.
+\newblock \url{https://www.raspberrypi.org/products/raspberry-pi-3-model-b/}
+  visited 2017-09-20.
+
+\end{thebibliography}

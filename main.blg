@@ -1,0 +1,84 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: sample.bib
+Warning--entry type for "alanCarlton" isn't style-file defined
+--line 6 of file sample.bib
+Warning--I'm ignoring rfc4944's extra "howpublished" field
+--line 46 of file sample.bib
+Warning--I'm ignoring rfc2460's extra "howpublished" field
+--line 56 of file sample.bib
+Warning--I'm ignoring rfc791's extra "howpublished" field
+--line 65 of file sample.bib
+Warning--entry type for "radio-electronic-802-15-4" isn't style-file defined
+--line 108 of file sample.bib
+Warning--entry type for "contiki-os" isn't style-file defined
+--line 114 of file sample.bib
+Warning--entry type for "mqtt" isn't style-file defined
+--line 119 of file sample.bib
+Warning--entry type for "MQTT-SN" isn't style-file defined
+--line 132 of file sample.bib
+Warning--I'm ignoring rfc7959's extra "howpublished" field
+--line 145 of file sample.bib
+Warning--entry type for "6LBR" isn't style-file defined
+--line 165 of file sample.bib
+Warning--entry type for "Sparrow" isn't style-file defined
+--line 171 of file sample.bib
+Warning--entry type for "RIOT" isn't style-file defined
+--line 176 of file sample.bib
+Warning--entry type for "CCN-LITE" isn't style-file defined
+--line 183 of file sample.bib
+Warning--entry type for "CC2650" isn't style-file defined
+--line 189 of file sample.bib
+Warning--entry type for "RP3" isn't style-file defined
+--line 195 of file sample.bib
+Warning--empty booktitle in yanqui
+Warning--empty author in 6185525
+Warning--empty author in rfc791
+Warning--empty institution in rfc791
+Warning--empty institution in rfc2460
+Warning--empty institution in rfc4944
+Warning--empty institution in rfc7959
+You've used 24 entries,
+            1791 wiz_defined-function locations,
+            567 strings with 7446 characters,
+and the built_in function-call counts, 4271 in all, are:
+= -- 353
+> -- 191
+< -- 4
++ -- 76
+- -- 52
+* -- 225
+:= -- 627
+add.period$ -- 64
+call.type$ -- 24
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 31
+duplicate$ -- 195
+empty$ -- 477
+format.name$ -- 52
+if$ -- 996
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 9
+newline$ -- 112
+num.names$ -- 14
+pop$ -- 112
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 127
+stack$ -- 0
+substring$ -- 142
+swap$ -- 48
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 7
+while$ -- 28
+width$ -- 26
+write$ -- 222
+(There were 22 warnings)

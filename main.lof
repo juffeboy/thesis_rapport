@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1}{\ignorespaces Topology structures in 802.15.4 networks. Star structure on the left, Peer-to-peer on the right.\relax }}{7}{figure.caption.3}
+\contentsline {figure}{\numberline {2}{\ignorespaces The simplified OSI model, an example TCP/IP stack and an illustration of an example 6LowPAN protocol stacks.\relax }}{8}{figure.caption.4}
+\contentsline {figure}{\numberline {3}{\ignorespaces The CCN architecture builed up by content routers (CR), forwarding information base (FIB), pending interest table (PIT) and content store (CS), inspired by [ref survey ICN]\relax }}{12}{figure.caption.5}
+\contentsline {figure}{\numberline {4}{\ignorespaces Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 153 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.\relax }}{16}{figure.caption.7}
+\contentsline {figure}{\numberline {5}{\ignorespaces Latencies in milliseconds for peek interest requess of sizes from 93 byte to 153 byte. The latencies stays stable at around 123 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 135 ms instead.\relax }}{16}{figure.caption.8}
+\contentsline {figure}{\numberline {6}{\ignorespaces Write same as with debugging, or is this graph necessary??\relax }}{17}{figure.caption.9}
+\contentsline {figure}{\numberline {7}{\ignorespaces Histogram of ping latencies result. A majority of the roundtrips end up in the 24-28 ms span.\relax }}{17}{figure.caption.10}
+\contentsline {figure}{\numberline {8}{\ignorespaces Histogram of CCN-peek latencies result. Almost all of the roundtrips ended up in the 24-28 ms interval.\relax }}{17}{figure.caption.11}

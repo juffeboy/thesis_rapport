@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=4cm,bottom=4cm,left=4cm,right=4cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[font={small,it}]{caption}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{multirow}
+\pgfdeclarelayer{f}
+\pgfsetlayers{main,f}
+
+\title{Evaluating the use of ICN for Internet of things}
+\author{Johan Carlquist}
+
+\begin{document}
+\maketitle
+\input{section/abstract.tex}
+\newpage
+
+\tableofcontents
+\newpage
+%\listoffigures
+%\newpage
+
+\input{section/introduction.tex}
+
+\newpage
+
+\input{section/background.tex}
+\newpage
+\input{section/Experiment-implementation.tex}
+
+%\input{section/body.tex}
+
+%\input{section/related_work.tex}
+\newpage
+\input{section/resultat/ping-peek.tex}
+
+\newpage
+\input{section/resultat/suitable.tex}
+
+\newpage
+\input{section/discussion.tex}
+
+\input{section/conclusion.tex}
+
+\newpage
+
+%\bibliographystyle{abbrv}
+\bibliographystyle{unsrt}
+\bibliography{sample}
+
+\end{document}

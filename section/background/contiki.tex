@@ -1,0 +1,11 @@
+\subsection{Contiki-OS}
+Contiki OS is an open source operating system that is suitable for network-connected, memory-constrained focusing for Internet of Things devices\cite{contiki-os}. It focus on wireless technologies and implement number of IoT protocols including 6LoWPAN, IEEE 802.15.4, RPL, CoAP and MQTT. Contiki provides a full IP network stack with protocols as IPv4, IPv6, TCP, UDP and HTTP. It is designed to operate with extrem low-power systems.
+
+\subsubsection{6LBR}
+In order to connect a device to the Internet one can use the 6LowPAN Border Router, 6LBR\cite{6LBR}. It is implemented on Contiki-OS and provide interconnection between IP and 6LowPAN networks. The router assumes an Ethernet interface on the IP side and 802.15.4 on the sensor side. Devices connected to the 802.15.4-to-Ethernet gateway can reach and be reachable to/from the Internet. There is no native support for IPv4, altough there are mechanisms to achive some IPv4 funcitonallity through a NAT64. [is this contributing any to the thesis? Or should it be more focus on Sparrow.]
+
+\subsubsection{Sparrow}
+Sparrow is a commnunication format that encapsulates different types of payload on top of IPv6/UDP \cite{Sparrow}. The Sparrow border router is based on the original Contiki border router but it has been improved with additional features. It acts as the RPL root and handles all the routing towards the sensors and maintains the network as a whole. The software makes it possible to initiate and hold communications with the remote sensortags. The border router connects the sensor network to the local host (Linux/OS-X or other), making it possible for the applications on the host to reach nodes in the sensor network. 
+
+\subsubsection{CCN-lite portation}
+A former thesis worker at SICS implemented and ported a version of the CCN-lite\cite{CCN-LITE} to the Contiki-OS platform in 2016\cite{yanqui}. The software is to be considered laying in the application layer and will not replace any other layers in the OSI model. It handles all necessary functionallity that the regular CCN-lite application provide. Depending on how much memory that is available at the hardware, one can tune in how many entries that the PIT-table and the content store can hold. 
