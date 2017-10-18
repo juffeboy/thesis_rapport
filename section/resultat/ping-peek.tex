@@ -7,14 +7,6 @@ The purpose of this experiment is to measure the roundtrip time, latency, betwee
 
 \begin{itemize}
     \item formulera purpose of this experiment, på en högre nivå, vad är det som motiverar varför dessa mätningar görs.
-    \item Berätta mer om stacken, ipv6 6lowpan. 
-Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets conatining a full IPv6 header(containing 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in these experiments only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. 
-
-
-
-    \item exprimental setup behöver bild och förfinas.
-    \item Underliggande antagande att paketstorleken bör vara lika.
-    \item Mätuppsättning ger sunda värden, visa på histogramen. Detta säger att vi kan använda oss utav medianen i sin helhet.
     \item Skriv om skillnaden i RTT pga av prints.
 
 \end{itemize}
@@ -59,8 +51,8 @@ Ping and peek differs how the total packet size transmitted over the radio is ch
 \\\\
 There is an underlaying assumption that the size of the outgoing packets from the wireless radio has to be the same in both cases ping and peek. The reason is that the time spent on transmissioning the bits on the wireless link should be kept the same in both cases otherwise it could affect the result giving shorter roundtrip times for one system.
 Ping and peek use the same network protocols up until 6LowPAN(IP layer), the header sizes of UDP and ICMPv6 are the same at 8 byte each. But CCN has an application header of 16 bytes and the shortest name possible of the named data is one byte. To make a ping message equal to the CCN header and the name, the experiment will use a ping payload of \textit{17 + 5 * X}. 
-\\\\Table \ref{tab:packetSizes} shows the mapping of the size of named CCN peek data, the ping payload and how big their total size will be on the 802.15.4 radio link. The total packet range is an interval of five bytes from 93 up to 153 bytes. 
-Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 153 bytes.
+\\\\Table \ref{tab:packetSizes} shows the mapping of the size of named CCN peek data, the ping payload and how big their total size will be on the 802.15.4 radio link. The total packet range is an interval of five bytes from 93 up to 148 bytes. 
+Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 148 bytes.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{figures/latency.png}
@@ -155,7 +147,7 @@ Ping     & 17     & 22     & 27      & 32      & 37      & 42      & 47      & 5
 
 \end{axis}
 \end{tikzpicture}
-\caption{Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 153 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.}
+\caption{Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 148 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.}
 %\caption{The difference between minimum, median and average values is neglectable between packet sizes of 108-123.}
 %Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 153 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.
 \label{fig:pingRTT}
@@ -187,7 +179,7 @@ Ping     & 17     & 22     & 27      & 32      & 37      & 42      & 47      & 5
 
 \end{axis}
 \end{tikzpicture}
-\caption{Latencies in milliseconds for peek interest requess of sizes from 93 byte to 153 byte. The latencies stays stable at around 123 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 135 ms instead.}
+\caption{Latencies in milliseconds for peek interest requess of sizes from 93 byte to 148 byte. The latencies stays stable at around 123 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 135 ms instead.}
 \label{fig:peekwoutdbRTT}
 \end{figure}
 %Latencies in milliseconds for peek interest requests of sizes from 93 byte to 153 byte. The latencies stays stable at around 123 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 135 ms instead.

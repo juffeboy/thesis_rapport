@@ -14,22 +14,22 @@ Some of the main features in the ICN architecture are the possibility of in-netw
 \begin{itemize}
 \item motivation, one type of ICN architecture. 
 \end{itemize}
-The CCN communication is driven by consumers of data, there are two types of packets in CCN, \textit{Interest} and \textit{Data}. A consumer issue an \textit{Interest} message to request an information object on the network. Any node that recieved the interest and containing the requested information, will respond by sending the \textit{Data} back to the \textit{Interest} issuer. A \textit{Data} packet is only sent in response to an \textit{Interest} message, upon response, the interest message will cease to exist in the network.
+The CCN communication is driven by consumers of data. There are two types of packets in CCN, \textit{Interest} and \textit{Data}. A consumer issues an \textit{Interest} message to request an information object on the network. Any node that recieved the interest and containing the requested information, will respond by sending the \textit{Data} back to the \textit{Interest} issuer. A \textit{Data} packet is only sent in response to an \textit{Interest} message, upon response, the interest message will cease to exist in the network.
 \\\\
-A key feature of CCN is that the content names are hierarchical, this allows name resolution and routing information to be aggregated which in turn is critical in order to scale the network. The content name can be similar to the way we access URLs, for example a valid content name could be \textit{/sics.se/kista/floor/six/sensor/two/temperature}. However, there is no strict need for it to be human-readable or a URL. The prefix \textit{/sics.se/kista/floor/six/sensor/two/} could easily be exchanged to become either a hash value or just an integer, say \textit{2} (representing the sensor two), whereby the same data could be accessable by the name \textit{/2/temperature}.
+A key feature of CCN is that the content names are hierarchical. This allows name resolution and routing information to be aggregate which in turn is critical in order to scale the network. The content name can be similar to the way we access URLs, for example a valid content name could be \textit{/sics.se/kista/floor/six/sensor/two/temperature}. However, there is neither a strict need for them to be human-readable nor tobe a URL. The prefix \textit{/sics.se/kista/floor/six/sensor/two/} could easily be exchanged to become either a hash value or just an integer, say \textit{2} (representing the sensor two), whereby the same data could be accessable by the name \textit{/2/temperature}.
 \\\\
 It is to be considered an interest hit when any part of the interest name equals the named prefix of the data, for example is it possible that \textit{/2/temperature} could be match by \textit{/2/temperature/sequence$\_$1}. If the data is produced periodically with sequence numbering, a consumer can `follow' the data by the same manner once it has a starting point. Another advantage with periodically and sequencing, is that it provide the possibility to ask for data that has not yet been produced. A consumer could potentially issue an \textit{interest} request a short time before the \textit{data} has been produced, which would firstly get the data directly to the user and secondly minimise the latency on the network[ref to bengt2](No performance evaluation of this has been done to date, the thesis will try to answer the feasability of this.). 
 \\\\
 Even though there are a lot of similiarities to regular routers IP, there are a lot of differences between a CCN router and a regular IP router.
 Every Content Router (CR) maintain three main data structures: The Forwarding Information Base (FIB), the Pending Interest Table (PIT) and the Content Store (CS).
 
-The FIB is used to map information to on which output interface a Interest message should be forwarded to in order to reach its content. It is very similar to a regular FIB in a IP router, with the major difference that the CCN FIB allow lists of outgoing interfaces instead if just a single entry per object.
+The FIB is used to map information to on which output interface a Interest message should be forwarded to in order to reach its content. It is very similar to a regular FIB in a IP router, with the major difference that the CCN FIB allows lists of outgoing interfaces instead if just a single entry per object.
 
-The PIT maintain a table for all incoming \textit{interests} request recieved by the CR, their current state and a mapping to which face they came from[Bengt]. When the data packet for a particular \textit{interest} arrives to a CR, the data packet will be forwarded back ,on a reverse path, towards the face that exist in the corresponding PIT entry. After the data packet has been forwarded towards the requester, its entry in the PIT will be erased. Whenever an entry is dropped or lost, for instance due to timeouts, it is up to the consumer to issue a new interest request[?].\
+The PIT maintain a table for all incoming \textit{interests} request recieved by the CR, their current state and a mapping to which face they came from[Bengt]. When the data packet for a particular \textit{interest} arrives to a CR, the data packet will be forwarded back on a reverse path, towards the face that exist in the corresponding PIT entry. After the data packet has been forwarded towards the requester, its entry in the PIT will be erased. Whenever an entry is dropped or lost, for instance due to timeouts, it is up to the consumer to issue a new interest request[?].\
 
 The CS act as a local cache for information objects that has passed through the CR.
 \\\\
-With the use of the CRs, CCN has great support for data caching. As stated earlier, once a \textit{interest} is receievd, the CR will look through its CS in order to find matching data. Once the data is on the reverse path to the consumer, it will be put in the CS for an limited period of time for futher use. Although there is several benefits using the cache in a distributed network system, it should be pointed out that this is not a long-term storage since a router can not hold infinite number of data. Nor is it useful for data object that is requested at most once, since the benefits only occur when the data is requested a second time. [bengt][surveyiot].
+With the use of the CRs, CCN has great support for data caching. As stated earlier, once a \textit{interest} is receievd, the CR will look through its CS in order to find matching data. Once the data is on the reverse path to the consumer, it will be put in the CS for an limited period of time for futher use. Although there is several benefits using the cache in a distributed network system, it should be pointed out that this is not a long-term storage since a router can not hold infinite number of data. Nor is it useful for data object that is requested at most once, since the benefits only occur when the data is requested a second time \cite{Ahlgreniot}\cite{Ahlgren2012}. %[Ahlgren2][surveyiot].
 \\\\
 An example of CCN in action is illustraded in figure \ref{fig:CCN-architecture}. Here, a subscriber wants to retrive the indoor temperature data from the producer.
 Subscriber1 sends an \textit{interest} for data \textit{/temp/indoor} towards CR1. When it arrives, CR1 looks for data in its CS that matches the requested prefix of the interest. Since there is no match in the CS, the router performs a lookup on the longest prefix that matches its FIB in order to decide where to forward the incoming interest. When the match in the FIB is found, the router inserts the interest, with the incoming interface, into the PIT.\\
@@ -50,13 +50,13 @@ When subscriber2 later on wants the same content, he sends an \textit{interest} 
 
 
 \subsubsection{Using ICN for IoT}
-The usage of IoT devices most often implies an information centric pattern. In many scenarios, the main goal are the data and services and it is less important to communicate with a specific device[iot icn]. Where users and/or devices rather consume content, generated by an IoT device, through the network than connecting directly to a specific device or host. Therefore one could argue that naming the data is more important than the devices.\\
-Depending on topology structure of the IoT network, the caching mechanisms ICN provides could help constrained IoT devices avoid unnecessary transmissions when distributing its data into multiple places. Storing cached data in the network could also potentially save battery and network bandwidth of an IoT device.
+The usage of IoT devices most often implies an information centric pattern. In many scenarios, the main goal are the data and services and it is less important to communicate with a specific device \cite{Ahlgreniot}. Where users and/or devices rather consume content, generated by an IoT device, through the network than connecting directly to a specific device or host. Therefore one could argue that naming the data is more important than naming the devices.\\
+Depending on topology structure of the IoT network, the caching mechanisms ICN provides could help constrained IoT devices to avoid unnecessary transmissions when distributing its data into multiple places. Storing cached data in the network could also potentially save battery and network bandwidth of an IoT device.
 
 
 
 
-There are several reasons why to use an ICN approach in the IoT domain. Everything is always depending on application and usage, but here are some pros and cons using ICN in the IoT domain.
+There are several reasons why it is better to use an ICN approach in the IoT domain. Everything always depends on application and usage, but there are some pros and cons using ICN in the IoT domain.
 
 \begin{itemize}
 	\item + naming of data
@@ -72,10 +72,12 @@ There are several reasons why to use an ICN approach in the IoT domain. Everythi
 
 
 \subsubsection{CCN-lite}
-CCN-lite is a lightweighted, functionally interoperable implementation of CCN \cite{CCN-LITE}. There are several platforms that are supported such as UNIX, Linux, Android, Arduino and several other. It use a small code base of C, less than 2000 lines of code, without any compromise of the CCN functionallity. CCN-lite runs over UDP and Ethernet, and support packet fragmentation.
+CCN-lite is a lightweighted, functionally interoperable implementation of CCN \cite{CCN-LITE}. There are several platforms that are supported such as UNIX, Linux, Android, Arduino and several other. It uses a small code base of C, less than 2000 lines of code, without any compromise of the CCN functionallity. CCN-lite runs over UDP and Ethernet, and support packet fragmentation.
 \\
-A previous thesis worker at SICS implemented a version of CCN-lite to the Contiki-OS platform.
 
+\begin{itemize}
+	\item 
+\end{itemize}
 
 
 
