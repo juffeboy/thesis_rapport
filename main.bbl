@@ -11,6 +11,16 @@ Bengt Ahlgren, Christian Dannewits, Claudio Imbreenda, Dirk Kutscher, and
 \newblock A survey of information-centric networking.
 \newblock {\em IEEE Communications Magazine}, 50(7), 2012.
 
+\bibitem{mqtt}
+Mqtt.
+\newblock \url{http://www.mqtt.org} visited 2017-08-01.
+
+\bibitem{yanqui}
+Yanqiu Wu.
+\newblock Adapting information-centric networking to small sensor nodes for
+  hetrogeneous iot network.
+\newblock 2016.
+
 \bibitem{Jacobson2009}
 Van Jacobson, Diana~K Smetters, James~D Thornton, Michael~F Plass, Nicholas~H
   Briggs, and Rebecca~L Braynard.
@@ -51,12 +61,6 @@ Emmanuel Baccelli, Christian Mehlis, Oliver Hahm, Thomas~C. Schmidt, and
 Riot.
 \newblock \url{https://riot-os.org/} visited 2017-10-10.
 
-\bibitem{yanqui}
-Yanqiu Wu.
-\newblock Adapting information-centric networking to small sensor nodes for
-  hetrogeneous iot network.
-\newblock 2016.
-
 \bibitem{6185525}
 Ieee standard for local and metropolitan area networks--part 15.4: Low-rate
   wireless personal area networks (lr-wpans) amendment 1: Mac sublayer.
@@ -83,10 +87,6 @@ Steve Deering and R.~Hinden.
 Steve Deering and R.~Hinden.
 \newblock {Transmission of IPv6 Packets over IEEE 802.15.4 Networks}.
 \newblock {RFC 4944}, September 2007.
-
-\bibitem{mqtt}
-Mqtt.
-\newblock \url{http://www.mqtt.org} visited 2017-08-01.
 
 \bibitem{hunkeler2008mqtt}
 Urs Hunkeler, Hong~Linh Truong, and Andy Stanford-Clark.
@@ -115,10 +115,6 @@ Ccn-lite, content centric netowrking lite platform.
 Contiki-os.
 \newblock \url{http://www.contiki-os.org} visited 2017-07-24.
 
-\bibitem{6LBR}
-6lbr.
-\newblock \url{http://cetic.github.io/6lbr/} visited 2017-08-20.
-
 \bibitem{Sparrow}
 Sparrow application layer.
 \newblock \url{https://github.com/sics-iot/sparrow} visited 2017-08-20.
@@ -126,6 +122,10 @@ Sparrow application layer.
 \bibitem{CC2650}
 Texas instruments, cc2650 sensortag.
 \newblock \url{http://www.ti.com/tool/cc2650stk} visited 2017-09-20.
+
+\bibitem{Firefly}
+Zolertia firefly.
+\newblock \url{https://zolertia.io/product/firefly/} visited 2017-09-20.
 
 \bibitem{RP3}
 Raspberry pi 3.

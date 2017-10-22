@@ -18,22 +18,27 @@
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Using ICN for IoT}{subsection.2.2}% 18
 \BOOKMARK [3][-]{subsubsection.2.2.3}{CCN-lite}{subsection.2.2}% 19
 \BOOKMARK [2][-]{subsection.2.3}{Contiki-OS}{section.2}% 20
-\BOOKMARK [3][-]{subsubsection.2.3.1}{6LBR}{subsection.2.3}% 21
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Sparrow}{subsection.2.3}% 22
-\BOOKMARK [3][-]{subsubsection.2.3.3}{CCN-lite portation}{subsection.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.4}{Hardware}{section.2}% 24
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Texas Instrument CC2650 SensorTag}{subsection.2.4}% 25
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Raspberry Pi 3}{subsection.2.4}% 26
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Sparrow}{subsection.2.3}% 21
+\BOOKMARK [3][-]{subsubsection.2.3.2}{CCN-lite portation}{subsection.2.3}% 22
+\BOOKMARK [2][-]{subsection.2.4}{Hardware}{section.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Texas Instrument CC2650 SensorTag}{subsection.2.4}% 24
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Zolertia Firefly Slip radio}{subsection.2.4}% 25
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Raspberry Pi 3}{subsection.2.4}% 26
 \BOOKMARK [1][-]{section.3}{Experiment implementation/setup}{}% 27
-\BOOKMARK [2][-]{subsection.3.1}{Delimitations}{section.3}% 28
-\BOOKMARK [1][-]{section.4}{ping/peek performance test 1}{}% 29
-\BOOKMARK [2][-]{subsection.4.1}{Purpose}{section.4}% 30
-\BOOKMARK [2][-]{subsection.4.2}{Exprimental setup}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.3}{Result}{section.4}% 32
-\BOOKMARK [1][-]{section.5}{Suitable evaluation test}{}% 33
-\BOOKMARK [2][-]{subsection.5.1}{Purpose}{section.5}% 34
-\BOOKMARK [2][-]{subsection.5.2}{Method}{section.5}% 35
-\BOOKMARK [2][-]{subsection.5.3}{Result}{section.5}% 36
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 37
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 38
-\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 39
+\BOOKMARK [2][-]{subsection.3.1}{sensor}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.2}{gateway}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.3}{Communication flow between gateway and sensor}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.4}{Sensor hooked up to computer}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.5}{CCN application}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.6}{Delimitations}{section.3}% 33
+\BOOKMARK [1][-]{section.4}{ping/peek performance test 1}{}% 34
+\BOOKMARK [2][-]{subsection.4.1}{Purpose}{section.4}% 35
+\BOOKMARK [2][-]{subsection.4.2}{Exprimental setup}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.3}{Result}{section.4}% 37
+\BOOKMARK [1][-]{section.5}{Suitable evaluation test}{}% 38
+\BOOKMARK [2][-]{subsection.5.1}{Purpose}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.2}{Method}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.3}{Result}{section.5}% 41
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 42
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 43
+\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 44

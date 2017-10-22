@@ -21,8 +21,6 @@ Warning--entry type for "MQTT-SN" isn't style-file defined
 --line 132 of file sample.bib
 Warning--I'm ignoring rfc7959's extra "howpublished" field
 --line 145 of file sample.bib
-Warning--entry type for "6LBR" isn't style-file defined
---line 165 of file sample.bib
 Warning--entry type for "Sparrow" isn't style-file defined
 --line 171 of file sample.bib
 Warning--entry type for "RIOT" isn't style-file defined
@@ -33,6 +31,8 @@ Warning--entry type for "CC2650" isn't style-file defined
 --line 189 of file sample.bib
 Warning--entry type for "RP3" isn't style-file defined
 --line 195 of file sample.bib
+Warning--entry type for "Firefly" isn't style-file defined
+--line 200 of file sample.bib
 Warning--empty booktitle in yanqui
 Warning--empty author in 6185525
 Warning--empty author in rfc791
@@ -42,7 +42,7 @@ Warning--empty institution in rfc4944
 Warning--empty institution in rfc7959
 You've used 24 entries,
             1791 wiz_defined-function locations,
-            567 strings with 7446 characters,
+            568 strings with 7476 characters,
 and the built_in function-call counts, 4271 in all, are:
 = -- 353
 > -- 191
