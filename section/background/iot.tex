@@ -12,8 +12,8 @@ Write about the growing nubmer if devices. How they're coming into play and wher
 \subsubsection{IEEE 802.15.4}
 The IEEE 802.15.4 standard intends to offer the fundamental lower network layers for wireless personal area networks (WPAN).  The standard focus is on providing a low cost, low power consumption and low data rates between inexpensive wireless devices. 
 The standard only provides the MAC and PHY layers, leaving the upper layers to be chosen by the applicant\cite{6185525} \cite{radio-electronic-802-15-4}. Due to the special PHY layer and to keep the transmission times short and resistant against failures, it does not exchange standard Ethernet frames with maximum transmission unit (MTU) of 1500 octets. The MTU of 802.15.4 is instead set to 127 octets. The communication range is set up to 10 meter and a maximum data transfer rate limited at 250kbit/s. Depending on wireless technology and how constrained the device is, the maximum transmission speed can be set to as low as 20 kbit/s.
-[<rewrite this>]
-It is important to stress that the 802.15.4 standard does not compete with the regular 802.11 standard, where costs are not as critical and security and speed are more demanded. Today transfer rates up to gigabites is possible with the latest 802.11 standard, these speeds are hardly unneccesary in the IoT domain.[<\/rewrite this>]
+%[<rewrite this>]
+%It is important to stress that the 802.15.4 standard does not compete with the regular 802.11 standard, where costs are not as critical and security and speed are more demanded. Today transfer rates up to gigabites is possible with the latest 802.11 standard, these speeds are hardly unneccesary in the IoT domain.[<\/rewrite this>]
 \\\\
 There are two different types of network nodes that can exist in a 802.15.4 network\cite{radio-electronic-802-15-4}. Full functional device(FFD) and reduced function device(RFD). A FFD node implements all communication funcionallity the 802.15.4 standard offer, it can communicate with any other device in the network. A FFD node may therefore also route data from other nodes. When doing that the node is also called a cooardinator. If all communication in the network is routed through a dedicated FFD node, it is called a PAN coardinatior. A RFD has a reduced level of functionallity and is meant to be extremly simple. Such devices are always an end node in a network and can only communicate through or with a FFD. They can never act as a cooardinator due to their limited capabilities.
 \\\\
@@ -77,7 +77,7 @@ While HTTP uses TCP as transportation protocol, CoAP data is sent asynchronously
 CoAP defines four different type of messages: confirmable, non-confirmable, acknowledgment, reset. They occupy 2 bit out of 32 bit of the total CoAP header.
 A confirmable message provides reliability by retransmitting a message until a recipient sends an Acknowledgment message with the same Message ID back to the requester. If a requested message can not be handled by the recipient, a reset message will replied instead. When a message does not require reliable transmission (no acknowledgment is needed), a non-confirmable message is sent. These non-confirmable messages will still have a message ID in order to detect duplication.
 
-[note, maybe reorder so first coap, then request/response, then Messages? Add about in network caching? Also add source to second paragraph]
+%[note, maybe reorder so first coap, then request/response, then Messages? Add about in network caching? Also add source to second paragraph]
 
 
 
