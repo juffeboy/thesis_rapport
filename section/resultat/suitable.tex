@@ -1,7 +1,32 @@
 \section{Suitable evaluation test}
 \subsection{Purpose}
 Follow sequence and periodicity from sensor
+The purpose of this experiment is to create a suitable software that follows the periodicity of the data created by a sensor node.
+
+The interval time between the data created by the sensor is known beforehand from the requestor.
+
+\subsection{Delim}
+It is not a purpose to find the latest sequence number, this is given at first hand.
+
+
 \subsection{Method}
 Develop software
+
+\begin{itemize}
+\item Follow interval on sensor
+\item Come to the right sensor
+\item First timeout, usage of PIT, one time subscription model
+\item After timeout, Algoritm usage to follow/correct
+
+\end{itemize}
+
+
+
+
 \subsection{Result}
 Suitable.
+
+
+
+
+Jag har skapat ett program som gör att man kan följa datat som skapas hos en sensor med en konstant interval tid. 
