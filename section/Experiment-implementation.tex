@@ -1,7 +1,7 @@
 \section{Experiment implementation/setup}
-The experiment testbed used for this project includes CCN-lite code implemented on Contiki-OS for the sensor nodes. Firefly Slip-radios is based on Raspberry Pis to act as border routers. Suitable communication software described in previous sections enables the transmitting of data between the border router and the sensor nodes. The topology of the network is to be considered a star network. In this experiment layout, illustrated in figure [insert figure], the communication scenario is between a node and its border router.
+The experiment testbed used in this project includes CCN-lite application software runned on both Contiki-OS and on Linux. Firefly Slip-radios is based on Raspberry Pis to act as border routers. Suitable communication software described in previous sections enables the transmitting of data between the border router and the sensor nodes. The topology of the network is to be considered a star network. In this experiment layout, illustrated in figure [insert figure], the communication scenario is between a node and its border router.
 
-The experiment testbed used in this project includes CCN-lite application software runned on both Contiki-OS and on Linux. 
+
 
 \begin{itemize}
 	\item Show setup,
@@ -22,7 +22,11 @@ Kanske kapa dirr från performance setups första stycke?
 \subsection{Sensor hooked up to computer}
 för att läsa av värdena på sensorn, är den uppkopplad till datorn. Där kan man över USB läsa av alla debugg värden.
 
-\subsection{CCN application}
+\subsection{CCN application gateway}
+Has the possibility to send CCN interest requests and recieve data them. A peek latency tool has been developed to get the peek times.
+This application is sending the interest request through the gateway described in previous paragraph.
+
+\subsection{Sensor CCN application}
 The CCN application used for the sensors has a simple structure. Once the sensor has booted Contiki with CCN, it starts listening for incoming \textit{interest}-requests from the network and to produce content objects.
 
 When an \textit{interest} message is received at the sensor, a lookup in the cache will be performed to see if there is any matching content available. If there is a match in the \textit{content storage}, then the data will be responded toward the issuer. Otherwise, the \textit{interest} will become an entry in the \textit{pending interest table} and no respond toward the user until the requested data has been produced.

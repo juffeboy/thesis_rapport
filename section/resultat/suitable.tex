@@ -5,8 +5,44 @@ The purpose of this experiment is to create a suitable software that follows the
 
 The interval time between the data created by the sensor is known beforehand from the requestor.
 
+
+Anledningen till att vi vill göra detta test är för att se om det är möjligt att använda sig av ICNs pull strategi för att hämta data, istället för en klassiskt publish subscribe system som beskrivs under MQTT. Är det möjligt att klienten kan erhålla datat så snabbt som möjligt det har tillverkats från sensorn. 
+
+The purpose of this experiment is to evaluate the feasibility of the `one-time subscription'-model described by Ahlgren et al in [ref to paper]. How to retrieve a stable 
+
+
+
+\begin{itemize}
+\item retreieve data ass soon as it has been possible.
+\item one time subscription
+\item long time interval
+
+\item refer to MQTT difference
+\item CCN.
+\end{itemize}
+The purpose of this experiment is to evaluate the feasibility of the `one-time subscription' approach decsribed by Ahlgren et al [ref?]. 
+The purpose 
+
+The purpose of this experiment is to evaluate the feasibility of retrieving data from a producer as soon as it has been created. The result show 
+
+
+The purpose of this experiment is to investigate the possibility for a client to retreive produced data from a sensor as soon as it has been created over a regular basis. The result show if such a possibility exists with data produced with a constant interval over a long period of time. 
+The communication patterns of ICN and CCN is by natural pull-based, which is in contradiction to a regular publish/subscribe protocol such as MQTT. When using a publish/subscribe communication protocol, it can send the newly produced data directly towards a consumer. 
+
+With the CCN possibility of storing \textit{interest} requests at the sensors, combined with the `one-time' subscription approach, it could be possible to achive the same functionallity with ICN. It is interesting to see how such a combination would perform over time. 
+
+
+
+The purpose of this experiment is to measure the roundtrip time, latency, between a sensornode and a border gateway using ping and CCN peek commands. The results show which of these alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is to large, then CCN would be considered not suitable to be used for a IoT device. From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
+
+A regular publish/subscrieb protocol pushes the data from the producer to a broker to 
+
+
+The purpose of this experiment is to investigate the ability for a client to retrieve the produced data from a sensor as soon as it has been created. 
+
+
 \subsection{Delim}
-It is not a purpose to find the latest sequence number, this is given at first hand.
+It is not a purpose to find the latest sequence number, this is given at first hand. There are several different types of techniques to get the latest sequence number, but it is out of scope of this paper. 
 
 
 \subsection{Method}
@@ -15,12 +51,39 @@ Develop software
 \begin{itemize}
 \item Follow interval on sensor
 \item Come to the right sensor
-\item First timeout, usage of PIT, one time subscription model
+\item First timeout, usage of PIT, one time subscription model. Describe the one time subscription model.
 \item After timeout, Algoritm usage to follow/correct
 
 \end{itemize}
 
+\begin{itemize}
+\item Algortim. \\
+The algorithm that was created for the consumer works as follows. 
+It is shown in \ref{alg:onetime}
 
+
+\end{itemize}
+
+
+\begin{algorithm}[H]
+ \KwData{this text}
+ \KwResult{how to write algorithm with \LaTeX2e }
+ initialization\;
+ next = reference time\;
+ rtt$\_$min\;
+ rtt$\_$target = rtt$\_$min * \textit{x}\;
+ \While{infinity}{
+  rtt = send$\_$interest$\_$receive$\_$data\;
+  \If{not timeout}{
+   srtt = $\alpha$ * rtt + ($\alpha$ - 1) *  srtt\;
+   corr = srtt - rtt$\_$target\;
+   }
+   next$\_$time = next$\_$time + interval + corr\;
+   sleep(next$\_$time - current$\_$time)\;
+ }
+ \caption{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.}
+ \label{alg:onetime}
+\end{algorithm}
 
 
 \subsection{Result}
