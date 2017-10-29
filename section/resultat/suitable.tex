@@ -60,25 +60,24 @@ Develop software
 \item Algortim. \\
 The algorithm that was created for the consumer works as follows. 
 It is shown in \ref{alg:onetime}
-
-
+\item SmoothRTT \\
+	Instead of using the RTT time only and then subtract it from the interval time, a smoother has been put in to place in order to make the rtt times less bipolar[hoppande].  
+\item Rtt target
 \end{itemize}
 
 
 \begin{algorithm}[H]
- \KwData{this text}
- \KwResult{how to write algorithm with \LaTeX2e }
- initialization\;
  next = reference time\;
  rtt$\_$min\;
  rtt$\_$target = rtt$\_$min * \textit{x}\;
+ $\alpha$ = 0 <= $\alpha$ <= 1\;
  \While{infinity}{
   rtt = send$\_$interest$\_$receive$\_$data\;
   \If{not timeout}{
-   srtt = $\alpha$ * rtt + ($\alpha$ - 1) *  srtt\;
+   srtt = $\alpha$ $\times$ rtt + ($\alpha$ - 1) $\times$  srtt\;
    corr = srtt - rtt$\_$target\;
    }
-   next$\_$time = next$\_$time + interval + corr\;
+   next$\_$time = next$\_$time + interval$\_$time + corr\;
    sleep(next$\_$time - current$\_$time)\;
  }
  \caption{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.}
@@ -89,7 +88,31 @@ It is shown in \ref{alg:onetime}
 \subsection{Result}
 Suitable.
 
+\begin{itemize}
+\item Show that the algorithm can follow the interval and period over time. (show this with standard case 0.1 first.)\\
+\end{itemize}
+The results regarding latencies when using $\alpha$ = 0.1 and \textit{rtt$\_$target} = 2.5 is shown in figure[0.1], where the interval sequence number is shown on the x-axis and the roundtrip latency is shown on the y-axis. The same axis layout holds for figures[all figures], all of which regards the roundtrips from the consumers perspective. 
+The results, illustrated in figure [fig], shows that the latency is stable between 90-100 ms, the srtt is stable with a small varians around 95 ms and that the corr factor is stable around 5 ms aswell. This results indicate that the consumer can retrieve the data in a stable manner.\\\\
+The corresponding time from a sensors perspective is shown in figures [show all figures], where the interval sequence number is shown on the x-axis and the age of the data is shown on the y-axis. Since the sensor is making use of the PIT, the y-axis show the time between it recieved the \textit{interest} til the \textit{data} was created and responded towards the requestor. Figure [0.1] show that the age of the \textit{interest} is very stable at 62 ms (8 tick). The movement few movements up and down has to do with 
+[Write about that this is indicating that it works!]
+
+
+\begin{itemize}
+\item Show difference between using $\alpha$ = 0.1, 0.9 and 1.
+\end{itemize}
+When $\alpha$ is changed to 0.9, the resulting curves, illustrated in figure [gw0.9] and [s0.9], shows an more alternating form. It alternates between values from 87 ms up to 117 ms in latency and the age of the \textit{interests} at the sensor is pending between 56 ms and 70 ms. This is due to the fact that the srtt has less importance and influence as $\alpha$ grows, and the time when next \textit{interest} is sent is more dependent on the latency time of the previous one. 
+When $\alpha$ is set to 1, illustrated in figure [gw1] and [s1], the latency times alternate between 87 ms and 117 ms as well as in $\alpha$ = 0.9, but here the frequency is greater. In this case, the smoothing is not available and therefore the correction is only dependent on the last roundtrip time. 
 
 
 
-Jag har skapat ett program som gör att man kan följa datat som skapas hos en sensor med en konstant interval tid. 
+
+
+\begin{itemize}
+\item Show that it can handle diff in the interval. The producer has a different interval than the consumer. Works great without problems for positive changes, where the producer is creating the data at a slower interval, say 1.2 second per data.
+\item Show difference in time. 
+\end{itemize}
+All of the previous results was made under the assumption that the two intervals are relative the same, one interval second on the sensor is almost the same as one interval second on the GW. To illustrate the functionallity when the sensor is providing data at different periodicity than the GW, other tests has been made.\\\\
+In figure [gwdrift + 2$\%$] and [sdrift + 2$\%$], the sensor is creating the data with an interval of one second + 2$\%$ and the gw still use an interval period of one second. 
+The results shows that the system is still stable over time, even though here is a positive drift in time on the sensor. The time it takes for an \textit{interest} to be consumed by the sensor is around 78 ms. The latency from the gw is overall higher, 105 ms to 125 ms, in comparission to without any difference in the time intervals, but the variation of srtt is still small and at the same levels. This is logic since the \textit{interest} is sent earlier from the GW towards the sensor, but at the the same intervals due to the algorithm. There is a cap though, when the \textit{interests} starts to timeout, the system will stop working properly and no data will be received at the gw. The drift on the sensor can not be greater, compared to the gw, than the timeout that the gw is setting on the \textit{interest}-packet when they are issued. Furthermore, the srtt is always greater than rtt$\_$target which provide stability in the system.
+
+
