@@ -29,7 +29,7 @@
 \BOOKMARK [2][-]{subsection.3.2}{gateway}{section.3}% 29
 \BOOKMARK [2][-]{subsection.3.3}{Communication flow between gateway and sensor}{section.3}% 30
 \BOOKMARK [2][-]{subsection.3.4}{Sensor hooked up to computer}{section.3}% 31
-\BOOKMARK [2][-]{subsection.3.5}{CCN application gateway}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.5}{Gateway CCN application}{section.3}% 32
 \BOOKMARK [2][-]{subsection.3.6}{Sensor CCN application}{section.3}% 33
 \BOOKMARK [2][-]{subsection.3.7}{Delimitations}{section.3}% 34
 \BOOKMARK [1][-]{section.4}{ping/peek performance test 1}{}% 35
@@ -41,6 +41,7 @@
 \BOOKMARK [2][-]{subsection.5.2}{Delim}{section.5}% 41
 \BOOKMARK [2][-]{subsection.5.3}{Method}{section.5}% 42
 \BOOKMARK [2][-]{subsection.5.4}{Result}{section.5}% 43
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 44
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 45
-\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 46
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Different intervals}{subsection.5.4}% 44
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 45
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 46
+\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 47

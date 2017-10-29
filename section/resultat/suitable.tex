@@ -49,23 +49,41 @@ It is not a purpose to find the latest sequence number, this is given at first h
 Develop software
 
 \begin{itemize}
-\item Follow interval on sensor
+\item Follow interval on sensor, becomes a problem due to the fact that there is two different clocks. One on sensor that is producing at a certain interval speed, and one at the client that wants to consume at a regular interval speed.
 \item Come to the right sensor
 \item First timeout, usage of PIT, one time subscription model. Describe the one time subscription model.
 \item After timeout, Algoritm usage to follow/correct
+
+
+\item The algoritm.\\
+The algorithm, shown in figure \ref{fig:onetime}, used in this project is a first trial in order to try to retreive the data with a one time subscription approach described earlier. 
+The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It is calculates when to send the next request, towards the sensor, based by the round trip time of the current interval. It borrows the smoothed round trip time (srtt) technic from TCP, which makes the system more tolerent if one latency value is varying a lot from the normal. One must set a round trip target (rtt$\_$target) that the algortihm should try to follow, the target should be a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that has to be calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target, and represent the difference in time between the two systems. It is added to the time it should send the next request, together with the interval time of the periodicity.
+
+
 
 \end{itemize}
 
 \begin{itemize}
 \item Algortim. \\
 The algorithm that was created for the consumer works as follows. 
-It is shown in \ref{alg:onetime}
+It is shown in \ref{fig:onetime}
+\item diff rttmin rtt$\_$target\\
+	When using the pit, one can not retrieve the same latency times as in the previous measurement where the data was replied directly upon request. Instead, one must set a round trip target that is related to the minimum round trip time. The difference between rtt$\_$target and rtt$\_$min defines how large the time span is that we can regulate. The smaller differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences between the two intervals between the sensor and the gateway, if it gets less the algortihm stops working properly.
+
+	The reason of using the rtt$\_$target is that we want to send the \textit{interest} request at a confortable distance before the data has been created.
+	Instead, the request must be initiated before the 
+
 \item SmoothRTT \\
-	Instead of using the RTT time only and then subtract it from the interval time, a smoother has been put in to place in order to make the rtt times less bipolar[hoppande].  
-\item Rtt target
+	In order to calculate when to send the next request towards the sensor, one could use the rtt and subtract it from the interval. 
+	However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this and make the latencies more stable over time, the smooth rtt is introduced. It uses a factor, $\alpha$, to decide how the current value should be weighted in comparison to the previous values. The greater $\alpha$ becomes, the importance the older values has and vice versa.
+	If the srtt becomes to long, then we are to early initiating the request. At the same time, if the srtt becomes to short, then we are to late initiating the request.
+
+\item Corr \\
+	The difference in clock time between the sensor and the gw is measured with corr.
 \end{itemize}
 
-
+   
+\begin{figure}
 \begin{algorithm}[H]
  next = reference time\;
  rtt$\_$min\;
@@ -80,9 +98,11 @@ It is shown in \ref{alg:onetime}
    next$\_$time = next$\_$time + interval$\_$time + corr\;
    sleep(next$\_$time - current$\_$time)\;
  }
- \caption{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.}
- \label{alg:onetime}
+
 \end{algorithm}
+\caption{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.}
+    \label{fig:onetime}
+\end{figure}
 
 
 \subsection{Result}
@@ -105,8 +125,7 @@ When $\alpha$ is set to 1, illustrated in figure [gw1] and [s1], the latency tim
 
 
 
-
-
+\subsubsection{Different intervals}
 \begin{itemize}
 \item Show that it can handle diff in the interval. The producer has a different interval than the consumer. Works great without problems for positive changes, where the producer is creating the data at a slower interval, say 1.2 second per data.
 \item Show difference in time. 
@@ -114,5 +133,13 @@ When $\alpha$ is set to 1, illustrated in figure [gw1] and [s1], the latency tim
 All of the previous results was made under the assumption that the two intervals are relative the same, one interval second on the sensor is almost the same as one interval second on the GW. To illustrate the functionallity when the sensor is providing data at different periodicity than the GW, other tests has been made.\\\\
 In figure [gwdrift + 2$\%$] and [sdrift + 2$\%$], the sensor is creating the data with an interval of one second + 2$\%$ and the gw still use an interval period of one second. 
 The results shows that the system is still stable over time, even though here is a positive drift in time on the sensor. The time it takes for an \textit{interest} to be consumed by the sensor is around 78 ms. The latency from the gw is overall higher, 105 ms to 125 ms, in comparission to without any difference in the time intervals, but the variation of srtt is still small and at the same levels. This is logic since the \textit{interest} is sent earlier from the GW towards the sensor, but at the the same intervals due to the algorithm. There is a cap though, when the \textit{interests} starts to timeout, the system will stop working properly and no data will be received at the gw. The drift on the sensor can not be greater, compared to the gw, than the timeout that the gw is setting on the \textit{interest}-packet when they are issued. Furthermore, the srtt is always greater than rtt$\_$target which provide stability in the system.
+\begin{itemize}
+	\item show diff in time negative, shorter time.
+\end{itemize}
+The system keeps beeing stable although the sensor period interval is less, -2$\%$, compared to the interval of the gw. The roundtrips are shorter than when the two intervals are the same and the age of the \textit{interests} are smaller too. The majority of the latencies is between 65 to 75 ms, as seen in figure [gw98], and the time it took to consumed the interest was around 40 ms as seen in figure [s98]. The reason why this is still stable is because the difference between rtt$\_$target and rtt$\_$min, 88 ms - 38 ms = 50 ms, is greater than the negative drift of -2 $\%$, approximatly 23 ms, of the sensors interval clock. Once the drift is greater than the difference between rtt$\_$min and rtt$\_$target, the system becomes unstable.
+
+
+
+
 
 
