@@ -1,50 +1,35 @@
 \section{Suitable evaluation test}
 \subsection{Purpose}
-Follow sequence and periodicity from sensor
-The purpose of this experiment is to create a suitable software that follows the periodicity of the data created by a sensor node.
-
-The interval time between the data created by the sensor is known beforehand from the requestor.
-
-
-Anledningen till att vi vill göra detta test är för att se om det är möjligt att använda sig av ICNs pull strategi för att hämta data, istället för en klassiskt publish subscribe system som beskrivs under MQTT. Är det möjligt att klienten kan erhålla datat så snabbt som möjligt det har tillverkats från sensorn. 
-
-The purpose of this experiment is to evaluate the feasibility of the `one-time subscription'-model described by Ahlgren et al in [ref to paper]. How to retrieve a stable 
 
 
 
-\begin{itemize}
-\item retreieve data ass soon as it has been possible.
-\item one time subscription
-\item long time interval
 
-\item refer to MQTT difference
-\item CCN.
-\end{itemize}
-The purpose of this experiment is to evaluate the feasibility of the `one-time subscription' approach decsribed by Ahlgren et al [ref?]. 
-The purpose 
+%Anledningen till att vi vill göra detta test är att se om det är möjligt att använda sig av ICNs pull strategi för att hämta data kontinuerligt från en sensor. Det vore intressant att se om det är möjligt att skapa ett system där användaren får datat så fort det har skapats hos sensorn, där tiden det tar från att datat har skapats tills dess att användaren har det är så liten som möjligt. Vanligtvis användes diverse publish subscribe system som t.ex MQTT för att erhålla datat så snabbt som möjligt som användare. Där pushas datat ut från sensorn då det tillverkats. Istället för denna push model, är det av intresse att utvärdera ICNs pull strategi tillsammans med `one-time subscription'-modellen som Ahlgren et al beskriver i [ref.]. Resultatet visar om det är möjligt att combinera de två tänken för att erhålla datat så snabbt som möjligt samt hur stabilt ett sådant system skulle kunna tänkas vara.  
 
-The purpose of this experiment is to evaluate the feasibility of retrieving data from a producer as soon as it has been created. The result show 
+%The result show if such a possibility exists with data produced with a constant interval over a long period of time. 
+%The communication patterns of ICN and CCN is by natural pull-based, which is in contradiction to a regular publish/subscribe protocol such as MQTT. When using a publish/subscribe communication protocol, it can send the newly produced data directly towards a consumer. 
 
+%With the CCN possibility of storing \textit{interest} requests at the sensors, combined with the `one-time' subscription approach described by Ahlgrens et al[ref], it could be possible to achive the same functionallity with ICN. It is interesting to see how such a combination would perform over time. 
 
-The purpose of this experiment is to investigate the possibility for a client to retreive produced data from a sensor as soon as it has been created over a regular basis. The result show if such a possibility exists with data produced with a constant interval over a long period of time. 
-The communication patterns of ICN and CCN is by natural pull-based, which is in contradiction to a regular publish/subscribe protocol such as MQTT. When using a publish/subscribe communication protocol, it can send the newly produced data directly towards a consumer. 
+%%
+%The reason to do this experiement is to see if it is possible to use the ICNs pull strategy to retrieve data continuously from a sensor. 
 
-With the CCN possibility of storing \textit{interest} requests at the sensors, combined with the `one-time' subscription approach, it could be possible to achive the same functionallity with ICN. It is interesting to see how such a combination would perform over time. 
+%\begin{itemize}
+%\item retreieve data ass soon as it has been possible.
+%\item one time subscription
+%\item long time interval
+%\item Follow sequence and periodicity from sensor
+%\item The interval time between the data created by the sensor is known beforehand from the requestor.
+%\item refer to MQTT difference
+%\item CCN.
+%\end{itemize}
 
+The purpose of this experiment is to create a suitable software for a consumer that follows an interval and retrieves the data created periodically by a sensor node. The consumer should be able to recieve the data as soon as it has been created at the sensor. This should be possible over a interval with arbitrary length and the data is produced at a periodic interval. Usually a publish subscribe communication such as MQTT handle this by pushing the data towards the consumer when the data is created. 
+With the CCN possibility of storing \textit{interest} requests at the sensors combined with the `one-time' subscription approach, described by Ahlgrens et al in \cite{Ahlgreniot} where the consumer sends an \textit{interest} in advance for future data, it could be possible to achive the same functionallity with ICN. The results show how such an system would perform over time and if it is a feasible replacement to the publish subscribe approach. 
 
-
-The purpose of this experiment is to measure the roundtrip time, latency, between a sensornode and a border gateway using ping and CCN peek commands. The results show which of these alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is to large, then CCN would be considered not suitable to be used for a IoT device. From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
-
-A regular publish/subscrieb protocol pushes the data from the producer to a broker to 
-
-
-The purpose of this experiment is to investigate the ability for a client to retrieve the produced data from a sensor as soon as it has been created. 
-
-
-\subsection{Delim}
-It is not a purpose to find the latest sequence number, this is given at first hand. There are several different types of techniques to get the latest sequence number, but it is out of scope of this paper. 
-
-
+Although the purpose is to follow the sequence numbering of the data, it is out of the scope of this thesis to find the latest sequence number. This is considered to be known for the system in advance.
+%\subsection{Delim}
+%It is not a purpose to find the latest sequence number, this is given at first hand. There are several different types of techniques to get the latest sequence number, but it is out of scope of this paper. 
 \subsection{Method}
 Develop software
 
@@ -53,31 +38,28 @@ Develop software
 \item Come to the right sensor
 \item First timeout, usage of PIT, one time subscription model. Describe the one time subscription model.
 \item After timeout, Algoritm usage to follow/correct
-
-
 \item The algoritm.\\
-The algorithm, shown in figure \ref{fig:onetime}, used in this project is a first trial in order to try to retreive the data with a one time subscription approach described earlier. 
-The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It is calculates when to send the next request, towards the sensor, based by the round trip time of the current interval. It borrows the smoothed round trip time (srtt) technic from TCP, which makes the system more tolerent if one latency value is varying a lot from the normal. One must set a round trip target (rtt$\_$target) that the algortihm should try to follow, the target should be a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that has to be calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target, and represent the difference in time between the two systems. It is added to the time it should send the next request, together with the interval time of the periodicity.
-
-
-
 \end{itemize}
 
 \begin{itemize}
-\item Algortim. \\
-The algorithm that was created for the consumer works as follows. 
-It is shown in \ref{fig:onetime}
-\item diff rttmin rtt$\_$target\\
-	When using the pit, one can not retrieve the same latency times as in the previous measurement where the data was replied directly upon request. Instead, one must set a round trip target that is related to the minimum round trip time. The difference between rtt$\_$target and rtt$\_$min defines how large the time span is that we can regulate. The smaller differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences between the two intervals between the sensor and the gateway, if it gets less the algortihm stops working properly.
+\item Algorithm
+\end{itemize}
+The algorithm, shown in figure \ref{fig:onetime}, developed in this project is a first attempt to retreive the data with a one time subscription approach described earlier. 
+The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It calculates when to send the next request, towards the sensor, based on the round trip time of the current interval. It borrows the smoothed round trip time (srtt) technic from TCP, which makes the system more tolerent if one latency value is varying a lot from the normal. One must set a round trip target (rtt$\_$target) that the algortihm should try to follow, the target should be a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that has to be calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target, and represent the difference in time between the two systems. It is added to the time it should send the next request, together with the interval time of the periodicity.\\\\
+\begin{itemize}
+\item diff rttmin rtt$\_$target
+\end{itemize}
+When using the pit, one can not retrieve the same latency times as in the previous measurement where the data was replied directly upon request. Instead, one must set a round trip target that is related to the minimum round trip time. The difference between rtt$\_$target and rtt$\_$min defines how large the time span is that we can regulate. The smaller differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences between the two intervals between the sensor and the gateway, if it gets less the algortihm stops working properly.
 
-	The reason of using the rtt$\_$target is that we want to send the \textit{interest} request at a confortable distance before the data has been created.
-	Instead, the request must be initiated before the 
-
-\item SmoothRTT \\
-	In order to calculate when to send the next request towards the sensor, one could use the rtt and subtract it from the interval. 
-	However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this and make the latencies more stable over time, the smooth rtt is introduced. It uses a factor, $\alpha$, to decide how the current value should be weighted in comparison to the previous values. The greater $\alpha$ becomes, the importance the older values has and vice versa.
-	If the srtt becomes to long, then we are to early initiating the request. At the same time, if the srtt becomes to short, then we are to late initiating the request.
-
+The reason of using the rtt$\_$target is that we want to send the \textit{interest} request at a confortable distance before the data has been created.
+Instead, the request must be initiated before the\\\\
+\begin{itemize}
+\item Smoothed RTT
+\end{itemize}
+In order to calculate when to send the next request towards the sensor, one could use the rtt and subtract it from the interval. 
+However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this and make the latencies more stable over time, the smoothed rtt is used in the algortihm. It uses a factor, $\alpha$, to decide how the current value should be weighted in comparison to the previous values. The greater $\alpha$ becomes, the less importance the older values has and vice versa when $\alpha$ becomes smaller, the importance of older values grows.
+If the latencies of the srtt is high, then the \textit{interest} request is sent to early towards the sensor. At the same time, if the srtt latency becomes to short, then the request are sent to late.\\\\
+\begin{itemize}
 \item Corr \\
 	The difference in clock time between the sensor and the gw is measured with corr.
 \end{itemize}
@@ -111,7 +93,7 @@ Suitable.
 \begin{itemize}
 \item Show that the algorithm can follow the interval and period over time. (show this with standard case 0.1 first.)\\
 \end{itemize}
-The results regarding latencies when using $\alpha$ = 0.1 and \textit{rtt$\_$target} = 2.5 is shown in figure[0.1], where the interval sequence number is shown on the x-axis and the roundtrip latency is shown on the y-axis. The same axis layout holds for figures[all figures], all of which regards the roundtrips from the consumers perspective. 
+The results regarding latencies when using $\alpha$ = 0.1 and \textit{rtt$\_$target} = 2.5 is shown in figure[0.1], where the interval sequence number is shown on the x-axis and the roundtrip latency is shown on the y-axis. The same axis layout holds for figures[all figures], all of which regards the round trip times from the consumers perspective. 
 The results, illustrated in figure [fig], shows that the latency is stable between 90-100 ms, the srtt is stable with a small varians around 95 ms and that the corr factor is stable around 5 ms aswell. This results indicate that the consumer can retrieve the data in a stable manner.\\\\
 The corresponding time from a sensors perspective is shown in figures [show all figures], where the interval sequence number is shown on the x-axis and the age of the data is shown on the y-axis. Since the sensor is making use of the PIT, the y-axis show the time between it recieved the \textit{interest} til the \textit{data} was created and responded towards the requestor. Figure [0.1] show that the age of the \textit{interest} is very stable at 62 ms (8 tick). The movement few movements up and down has to do with 
 [Write about that this is indicating that it works!]

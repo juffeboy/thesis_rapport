@@ -39,10 +39,9 @@
 \contentsline {subsection}{\numberline {4.3}Result}{19}{subsection.4.3}
 \contentsline {section}{\numberline {5}Suitable evaluation test}{24}{section.5}
 \contentsline {subsection}{\numberline {5.1}Purpose}{24}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Delim}{25}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Method}{25}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Result}{26}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}Different intervals}{27}{subsubsection.5.4.1}
+\contentsline {subsection}{\numberline {5.2}Method}{24}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Result}{26}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Different intervals}{26}{subsubsection.5.3.1}
 \contentsline {section}{\numberline {6}Discussion}{28}{section.6}
 \contentsline {section}{\numberline {7}Conclusion}{28}{section.7}
 \contentsline {subsection}{\numberline {7.1}Future work}{28}{subsection.7.1}
