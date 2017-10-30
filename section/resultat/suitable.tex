@@ -45,19 +45,21 @@ Develop software
 \item Algorithm
 \end{itemize}
 The algorithm, shown in figure \ref{fig:onetime}, developed in this project is a first attempt to retreive the data with a one time subscription approach described earlier. 
-The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It calculates when to send the next request, towards the sensor, based on the round trip time of the current interval. It borrows the smoothed round trip time (srtt) technic from TCP, which makes the system more tolerent if one latency value is varying a lot from the normal. One must set a round trip target (rtt$\_$target) that the algortihm should try to follow, the target should be a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that has to be calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target, and represent the difference in time between the two systems. It is added to the time it should send the next request, together with the interval time of the periodicity.\\\\
+The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It calculates when to send the next request, towards the sensor, based on the round trip time of the current interval. The smoothed round trip time (srtt) technique makes the system more tolerent handling if a latency value differ a lot from the normal. One must set a round trip target (rtt$\_$target) that the algortihm should try to follow, it should be a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that is calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target, represents the difference in time between the two systems and how much they differ. Together with the interval rate that the data is produced and when the current interval started, the correction factor is added to decide when to send the request. \\\\
+
+
 \begin{itemize}
 \item diff rttmin rtt$\_$target
 \end{itemize}
-When using the pit, one can not retrieve the same latency times as in the previous measurement where the data was replied directly upon request. Instead, one must set a round trip target that is related to the minimum round trip time. The difference between rtt$\_$target and rtt$\_$min defines how large the time span is that we can regulate. The smaller differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences between the two intervals between the sensor and the gateway, if it gets less the algortihm stops working properly.
+The reason of using the rtt$\_$target is that we want to send the \textit{interest} request at a comfortable distance before the data has been created.
+When using the pit, one can not retrieve the same latency values as in the previous measurement where the data was replied directly from the sensors cache. Instead, one must set a round trip target that is related to the minimum round trip time. The difference between rtt$\_$target and rtt$\_$min defines how large the time span is that the algorithm can regulate. The smaller differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences between the two intervals between the sensor and the gateway, if it gets less the algortihm stops working properly.
 
-The reason of using the rtt$\_$target is that we want to send the \textit{interest} request at a confortable distance before the data has been created.
-Instead, the request must be initiated before the\\\\
+
 \begin{itemize}
 \item Smoothed RTT
 \end{itemize}
 In order to calculate when to send the next request towards the sensor, one could use the rtt and subtract it from the interval. 
-However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this and make the latencies more stable over time, the smoothed rtt is used in the algortihm. It uses a factor, $\alpha$, to decide how the current value should be weighted in comparison to the previous values. The greater $\alpha$ becomes, the less importance the older values has and vice versa when $\alpha$ becomes smaller, the importance of older values grows.
+However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this and make the latencies more stable over time, the smoothed rtt is used in the algortihm. It uses a factor, $\alpha$, to decide how the current round trip time should be weighted in comparison to the previous latency values. The greater $\alpha$ becomes, the less importance the older values has and vice versa when $\alpha$ becomes smaller, the importance of older values grows.
 If the latencies of the srtt is high, then the \textit{interest} request is sent to early towards the sensor. At the same time, if the srtt latency becomes to short, then the request are sent to late.\\\\
 \begin{itemize}
 \item Corr \\
@@ -102,10 +104,10 @@ The corresponding time from a sensors perspective is shown in figures [show all 
 \begin{itemize}
 \item Show difference between using $\alpha$ = 0.1, 0.9 and 1.
 \end{itemize}
-When $\alpha$ is changed to 0.9, the resulting curves, illustrated in figure [gw0.9] and [s0.9], shows an more alternating form. It alternates between values from 87 ms up to 117 ms in latency and the age of the \textit{interests} at the sensor is pending between 56 ms and 70 ms. This is due to the fact that the srtt has less importance and influence as $\alpha$ grows, and the time when next \textit{interest} is sent is more dependent on the latency time of the previous one. 
-When $\alpha$ is set to 1, illustrated in figure [gw1] and [s1], the latency times alternate between 87 ms and 117 ms as well as in $\alpha$ = 0.9, but here the frequency is greater. In this case, the smoothing is not available and therefore the correction is only dependent on the last roundtrip time. 
+When $\alpha$ is changed to 0.9, the resulting curves, illustrated in figure [gw0.9] and [s0.9], shows a more alternating form. The latencies ranges from 87 ms to 117 ms, and most ofthen they are either at the both ends spectrum or at 97 ms. The age of the \textit{interests} is at the same time pending between 56 ms to 70 ms. This is due to the fact that the srtt has less importance and influence as $\alpha$ grows. Instead, the time when next interest is sent is more dependent of the current latency time. 
+This results shows that the algoritm have no problem handling a shifting rtt and that the system stays stable. When the rtts start to alternate, it is hard for the system to stop. 
 
-
+When $\alpha$ is set to 1, illustrated in figure [gw1] and [s1], the latency times alternate between 87 ms and 117 ms as well as in $\alpha$ = 0.9, but here the frequency is greater. In this case, the smoothing is not available and therefore the correction is only dependent on the last roundtrip time. The algortim works and can handle easily handle when changing $\alpha$ to 0.9 or 1, but this is also due to the high rtt$\_$target.  If the gap between rtt$\_$target and rtt$\_$min shrinks, the risk of instability and retrieving older data grows.
 
 \subsubsection{Different intervals}
 \begin{itemize}
