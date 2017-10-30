@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {5.1}Purpose}{24}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Method}{24}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Result}{25}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Different intervals}{26}{subsubsection.5.3.1}
-\contentsline {section}{\numberline {6}Discussion}{28}{section.6}
-\contentsline {section}{\numberline {7}Conclusion}{28}{section.7}
-\contentsline {subsection}{\numberline {7.1}Future work}{28}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {5.3.1}Different intervals at the sensor}{26}{subsubsection.5.3.1}
+\contentsline {section}{\numberline {6}Discussion}{32}{section.6}
+\contentsline {section}{\numberline {7}Conclusion}{32}{section.7}
+\contentsline {subsection}{\numberline {7.1}Future work}{32}{subsection.7.1}
