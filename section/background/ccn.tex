@@ -11,9 +11,9 @@ Some of the main features in the ICN architecture are the possibility of in-netw
 
 
 
-\begin{itemize}
-\item motivation, one type of ICN architecture. 
-\end{itemize}
+%\begin{itemize}
+%\item motivation, one type of ICN architecture. 
+%\end{itemize}
 The CCN communication is driven by consumers of data. There are two types of packets in CCN, \textit{Interest} and \textit{Data}. A consumer issues an \textit{Interest} message to request an information object on the network. Any node that recieved the interest and containing the requested information, will respond by sending the \textit{Data} back to the \textit{Interest} issuer. A \textit{Data} packet is only sent in response to an \textit{Interest} message, upon response, the interest message will cease to exist in the network.
 \\\\
 A key feature of CCN is that the content names are hierarchical. This allows name resolution and routing information to be aggregate which in turn is critical in order to scale the network. The content name can be similar to the way we access URLs, for example a valid content name could be \textit{/sics.se/kista/floor/six/sensor/two/temperature}. However, there is neither a strict need for them to be human-readable nor tobe a URL. The prefix \textit{/sics.se/kista/floor/six/sensor/two/} could easily be exchanged to become either a hash value or just an integer, say \textit{2} (representing the sensor two), whereby the same data could be accessable by the name \textit{/2/temperature}.

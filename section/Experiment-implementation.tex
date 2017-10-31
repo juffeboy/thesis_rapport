@@ -18,6 +18,9 @@ The gateway used is the Firefly Slip radio together together with a Raspberry Pi
 
 \subsection{Communication flow between gateway and sensor}
 Kanske kapa dirr från performance setups första stycke?
+...
+In this experiment, a sensornode is connected via USB to a computer where one can monitor messages from the sensor. Through a 802.15.4 radio network, the sensor connect to a border router with Sparrow software running on it. All communication and message passing will be made between the the gateway and the sensornode over the 802.15.4 network. Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets containing a full IPv6 header(of size 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in in the implementation covered in this thesis, only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. 
+\\\\
 
 \subsection{Sensor hooked up to computer}
 för att läsa av värdena på sensorn, är den uppkopplad till datorn. Där kan man över USB läsa av alla debugg värden.
