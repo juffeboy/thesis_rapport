@@ -8,6 +8,7 @@ The purpose of this experiment is to measure the roundtrip time, latency, betwee
 \begin{itemize}
     \item formulera purpose of this experiment, på en högre nivå, vad är det som motiverar varför dessa mätningar görs.
     \item Skriv om skillnaden i RTT pga av prints.
+    \item Lägg till förändringen som gjorts med hjälp av den experimentella approachen, från 130 ms till 30 ms.
 
 \end{itemize}
 %\begin{itemize}
@@ -18,17 +19,17 @@ The purpose of this experiment is to measure the roundtrip time, latency, betwee
 %    \item How is roundtrip time measured?
 %\end{itemize}
 
-\subsection{Exprimental setup}
+\subsection{Method}
 ...
-In this experiment, a sensornode is connected via USB to a computer where one can monitor messages from the sensor. Through a 802.15.4 radio network, the sensor connect to a border router with Sparrow software running on it. All communication and message passing will be made between the the gateway and the sensornode over the 802.15.4 network. Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets containing a full IPv6 header(of size 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in these experiments only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. 
+In this experiment, a sensornode is connected via USB to a computer where one can monitor messages from the sensor. Through a 802.15.4 radio network, the sensor connect to a border router with Sparrow software running on it. All communication and message passing will be made between the the gateway and the sensornode over the 802.15.4 network. Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets containing a full IPv6 header(of size 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in in the implementation covered in this thesis, only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. 
 \\\\
 %The roundtrip time will be measured with the ping6 command live tool which uses the ICMPv6 protocol. A similar tool has been developed to measure the latency for a CCN-peek %request. 
 %The roundtrip time in both cases is calculated as:
 %\begin{center}\textit{latency (roundtrip) = 2 x transmission time + processing time}\end{center}
 %where transmission time is the time it takes to transfer the data on the radio and processing time is the time it takes for a node to process the request. Queueing delay is %a possibility in the system, such delay is here included under processing time.
 %\\\\
-The roundtrip time will be measured using the ping6 command live tool which uses the ICMPv6 protocol. A similar tool has been developed to measure the latency for a CCN-peek request. Both tools are used in the similar way as in figure \ref{fig:latency}, where the requestor/consumer is on the left-hand side and the sensor/producer is on the right-hand side. Time is represented on the Y-axis going from the top of the figure to the bottom. 
-The latency is measured in time units from the requestors perspective, it starts when the interest/ping has been sent from the requestor and stops when the requested data has been replyed from the sensor. [Although these latency tests are measured in time units from the requestors perspective, when possible, processing time will be conducted from the sensor when possible. This is to verify that the roundtrip values are valid. ]. As seen in figure \ref{fig:latency}, one can translate the roundtrip-calculation into the equation:
+The roundtrip time is be measured using the ping6 command live tool which uses the ICMPv6 protocol. A similar tool has been developed to measure the latency for a CCN-peek request. Both tools are used in the similar way as in figure \ref{fig:latency}, where the requestor/consumer is on the left-hand side and the sensor/producer is on the right-hand side. Time is represented on the Y-axis going from the top of the figure to the bottom. 
+The latency is measured in time units from the requestors perspective, it starts when the interest/ping has been sent from the requestor and stops when the requested data has been replyed from the sensor. As seen in figure \ref{fig:latency}, one can translate the roundtrip-calculation into the equation:
 \begin{equation} \label{eq:1}
 \textit{latency (roundtrip) = interest transmission time + data transmission time + processing time}
 \end{equation}
@@ -68,39 +69,31 @@ Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one fram
 %\item How long does the roundtrip take for ping, peek.\\
 % [When the debugging tool is turned on it will print out information (for instance if the interest object was found or not) on the terminal console. One reason to have two test, one with and without debugging turned on, is to validate that information is correct which can be done with debugging turned on. Another reason is to show how much processing power something as simple as printing can affect the overall latency]. 
 
-The results from the latency times with ping6 are shown in figure \ref{fig:pingRTT}, where packet size, in bytes, sent on the radio link is shown on the x-axis and the latency time, in milliseconds, on the y-axis. The same axis layout holds for figure \ref{fig:peekwoutdbRTT} and \ref{fig:peekwdbRTT}, but those figures shows the roundtrip time for CCN peek with and without debugging turned on. The results, illustrade in figure \ref{fig:pingRTT}, show that the median latency for a ping6 request is very close to around 25 ms from 93 bytes in packet size up to 123 bytes. The median latency when sending a CCN peek request without debugging, shown in figure \ref{fig:peekwoutdbRTT} is little above 25 ms for packet sizes the fragmentation limit. Roundtrip times when debugging is turned on, illustrated in figure \ref{fig:peekwdbRTT}, show a median of around 50 ms. The 20-25 ms difference (around 100$\%$) between the two peek results shows that there is a lot that can slow down the processing power, in this particular case it is only due to printing out massive amount of information toward the user in the terminal.\\\\
+The results from the latency times with ping6 are shown in figure \ref{fig:pingRTT}, where packet size, in bytes, sent on the radio link is shown on the x-axis and the latency time, in milliseconds, on the y-axis. The same axis layout holds for figure \ref{fig:peekwoutdbRTT} and \ref{fig:peekwdbRTT}, but those figures shows the roundtrip time for CCN peek in two different cases. One is with the essential information printed out on the debugging console. The other one does not print anything on the debugging console. \\\\
+The results, illustrade in figure \ref{fig:pingRTT}, show that the median latency for a ping6 request is very close to around 25 ms from 93 bytes in packet size up to 123 bytes. The median latency when sending a CCN peek request without debugging, shown in figure \ref{fig:peekwoutdbRTT} is little above 25 ms for packet sizes the fragmentation limit. Roundtrip times when debugging is turned on, illustrated in figure \ref{fig:peekwdbRTT}, show a median of around 50 ms. The 20-25 ms difference (around 100$\%$) between the two peek results shows that there is a lot that can slow down the processing power, in this particular case it is only due to printing out massive amount of information toward the user in the terminal.\\\\
+When the experiments started, the measurements showed that the round trip times was around 130 ms in median values. Those latencies was considered very high and unrealistic. It resulted in an investigation regarding where the processing time was spent on the sensor. Several timing checkpoints was set out and it showed later that there was code that put the sensor in sleep mode for 100 ms every time the sensor retrieved an \textit{interest}. It also revield several flaws in the CCN-lite portation that needed to be handled. When they were fixed, the result was a more optimal code base and better performing latency values which is shown in the previous paragraph.\\\\
 %\item The difference in time. Point that it much conclude that the proccessing time of CCN is the bottleneck.\\
 %The peek (from now only regarded without debugging) latency time is steady 90 ms slower compared to the ping counterpart. This indicates that most time differences between them must lay in the overhead it takes to process an incoming peek request for a sensornode. This makes sense when considering the differences between ping and peek, where ping responds as soon as possible, peek has to look up the content, process it and then respond toward the requester.
-The CCN peek (from here on only concerning without debugging) latency time is only a few milliseconds apart from the ping counterpart when the same amount of data sent of the network. This indicates that, in a bigger perspective, the time it takes to process an incoming CCN interest is almost negligible for the sensornode although it is constrained. Although the difference is very small, when comparing latencies in figure \ref{fig:pingRTT} and figure \ref{fig:peekwoutdbRTT} one can clearly see the small jump between them. This makes sense when considering that peek has to look up the content, process it and then respond to the requester, whereas ping would more or less respond direclty. Experiments to find out where most of the overhead time of CCN latencies went to, attempts of additional tests were done. Unfortunately the time resolution of the sensor node put an end to suchs experiements, whereas the sensor only have a resolution of 1/128 seconds (more of this later).
+The CCN peek (from here on only concerning without debugging) latency time is only a few milliseconds apart from the ping counterpart when the same amount of data sent of the network. This indicates that, in a bigger perspective, the time it takes to process an incoming CCN interest is almost negligible for the sensornode although it is constrained. Although the difference is very small, when comparing latencies in figure \ref{fig:pingRTT} and figure \ref{fig:peekwoutdbRTT} one can see the small jump between them. This makes sense when considering that peek has to look up the content, process it and then respond to the requester, whereas ping would more or less respond direclty. 
+The time resolution on the sensor equals to 1/128th second, equvivalent to 7.8 ms. Unforturnately, this makes it impossible to further investigate in the details of where the processing time is spent on the sensor. The couple of milliseconds in difference between a CCN peek and ping is not enough for the time resolution.
 %\item The similarities regarding the curves flatness \\
 \\\\
 In all tests, the latency remain relativly flat even though the packet size is increasing, except the region around 123 byte to 128 byte. This indicates that the transmission delay has small to none overall effect on the latency. It also corresponds well to the fact that it theoretically takes 0.5 ms to send 127 bytes on a link that has a transmission rate of 250 kbit/s.
 %\item The min values. Do we really get the lowest values?\\
 \\\\
+The fifteen to twenty millisecond jump in latency from 123 byte to 128 byte can be seen in all tests and is due to the 127 byte MTU of 802.15.4 which result in packet fragmentation at 127 bytes. The latency remains stable even after the fragmentation limit, which makes sense considering the flatness of the latency described above.
+\\\\
 %All measurements show a five to ten ms difference between the minimum latency and the median latency. Even though there was only a couple of such minimum values per hundred latency iterations, they show that the latency could be improved. There has been attempts to find the reason why this glitch occurs but without any success[Continue?].
 All measurements show a five to ten milliseconds difference between the minimium latency and the average/median latency. The histogram for the ping and peek latency measurements are illustrated in figure \ref{fig:histPing} and \ref{fig:histPeek}. They show the number of roundtrips, for application sizes of 17, 22 and 27 bytes, that can be categorised together and thereby see if there is any outliers that can be obmitted. Both histograms show that there is only a few such outliers and the absolute majority of the roundtrips lay around 24-28 ms. This inidicates that, even though the average and median latencies are close to each other, the median value is the correct way of measurement.
-%\item The similarities regarding fragmentation.
-\\\\
-The fifteen to twenty millisecond jump in latency from 123 byte to 128 byte can be seen in all tests and is due to the 127 byte MTU of 802.15.4 which result in packet fragmentation at 127 bytes. The latency remains stable even after the fragmentation limit, which makes sense considering the flatness of the latency described above.
-
-%\end{itemize}
-
-
-%\section{Discussion}
 
 
 
-%\begin{table}[]
-%\centering
-%\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
-%\cline{1-14}
-%CCN Peek & 1 (17) & 6 (22) & 11 (27) & 16 (32) & 21 (37) & 26 (42) & 31 (47) & 36 (52) & 41 (57) & 46 (62) & 51 (67) & 56 (72) & 61 (77) &  \\ \cline{1-14}
-%Ping     & 17     & 22     & 27      & 32      & 37      & 42      & 47      & 52      & 57      & 62      & 67      & 72      & 77      &  \\ \cline{1-14}
-%802.15.4 & 93     & 98     & 103     & 108     & 113     & 118     & 123     & 128     & 132     & 138     & 143     & 148     & 153     &  \\ \cline{1-14}
-%\end{tabular}
-%\caption{Row one show the length of the data, in byte, name used in peek added with length of the CCN header in parenthethis. Row two show the payload of a ping message. Row three show the amount of data that is sent on the 802.15.4 radio %toward the sensor node.}
-%\label{tab:packetSizes}
-%\end{table}
+
+
+
+
+
+
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
