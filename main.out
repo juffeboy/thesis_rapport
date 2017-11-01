@@ -24,8 +24,8 @@
 \BOOKMARK [2][-]{subsection.3.1}{Setup}{section.3}% 24
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Hardware}{subsection.3.1}% 25
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Software}{subsection.3.1}% 26
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Communication flow between gateway and sensor}{subsection.3.1}% 27
-\BOOKMARK [3][-]{subsubsection.3.1.4}{Debug}{subsection.3.1}% 28
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Communication between gateway and sensor}{subsection.3.1}% 27
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Retrieve data}{subsection.3.1}% 28
 \BOOKMARK [1][-]{section.4}{Latency performance evaluation}{}% 29
 \BOOKMARK [2][-]{subsection.4.1}{Method}{section.4}% 30
 \BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 31
