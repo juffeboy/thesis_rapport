@@ -1,0 +1,16 @@
+\subsubsection{Software}
+There are some software running on the hardware in order to make everything to work. \todo{Rewrite all this. Arugment why we need this software on the hardware. Also describe very shortly the ccn application software. Also refer to background.}
+
+\paragraph{Gateway CCN application}
+Has the possibility to send CCN interest requests and recieve data them. A peek latency tool has been developed to get the peek times.
+This application is sending the interest request through the gateway described in previous paragraph.
+
+\paragraph{Sensor CCN application}
+The CCN application used for the sensors has a simple structure. Once the sensor has booted Contiki with CCN, it starts listening for incoming \textit{interest}-requests from the network and to produce content objects.
+
+When an \textit{interest} message is received at the sensor, a lookup in the cache will be performed to see if there is any matching content available. If there is a match in the \textit{content storage}, then the data will be responded toward the issuer. Otherwise, the \textit{interest} will become an entry in the \textit{pending interest table} and no respond toward the user until the requested data has been produced.
+
+In every period a new content object is created. This object is cached into the \textit{content storage} to be retreived later on by an \textit{interest} request. There is also a lookup in the PIT to see if the newly created object already has an pending \textit{interest} request. If so, the object will be sent out towards the issuer and the request is to be considered consumed. Once the storage is full, the content will be removed from the \textit{content storage} in a FIFO-queue fashion.
+
+
+\paragraph{Ping6}

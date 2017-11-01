@@ -1,7 +1,8 @@
 \section{Implementation}
 
-\subsection{Utveckla problem statement}
+
 \begin{itemize}
+\item Utveckla problem statement
 \item This is the problem
 \item Continue more in depth than problem statement in chap 1.
 \item That leds us to these experiments and why theyre done.
@@ -9,25 +10,21 @@
 
 
 \subsection{Setup}
-Describe which stuff used in the thesis. Also which code has been written.
+
+Some info about why this is the setup. Maybe because of the previous section.
 \begin{itemize}
 \item Hardware, copy from current background.
-\item Communication flow between gateway and sensor
-\item CCN application Sensor
-\item CCN application Gateway
-\item Delim in setup
+\item Software, CCN application for SN and GW and write about ping6.
+\item Communication flow between gateway and sensor. EVERYthing thats happening then, from application layer from gw to sn.
+\item Debugging/printing to collect information.
+\item delim in setup (mayBE)
 \end{itemize}
 
 
+\input{section/implementation/hardware.tex}
 
+\input{section/implementation/software.tex}
 
+\input{section/implementation/communication.tex}
 
-
-
-
-
-
-
-
-
-
+\input{section/implementation/debug.tex}

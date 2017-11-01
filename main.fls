@@ -263,6 +263,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithmic.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithmic.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux
 OUTPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux
@@ -345,10 +347,16 @@ INPUT /Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.png
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
-INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/background/hardware.tex
-INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/background/hardware.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/hardware.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/hardware.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/software.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/software.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/communication.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/communication.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/debug.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/debug.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/resultat/ping-peek.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/resultat/ping-peek.tex
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm

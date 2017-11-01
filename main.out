@@ -20,21 +20,19 @@
 \BOOKMARK [2][-]{subsection.2.3}{Contiki-OS}{section.2}% 20
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Sparrow}{subsection.2.3}% 21
 \BOOKMARK [3][-]{subsubsection.2.3.2}{CCN-lite portation}{subsection.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.4}{Hardware}{section.2}% 23
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Texas Instrument CC2650 SensorTag}{subsection.2.4}% 24
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Zolertia Firefly Slip radio}{subsection.2.4}% 25
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Raspberry Pi 3}{subsection.2.4}% 26
-\BOOKMARK [1][-]{section.3}{Implementation}{}% 27
-\BOOKMARK [2][-]{subsection.3.1}{Utveckla problem statement}{section.3}% 28
-\BOOKMARK [2][-]{subsection.3.2}{Setup}{section.3}% 29
-\BOOKMARK [1][-]{section.4}{Latency performance evaluation}{}% 30
-\BOOKMARK [2][-]{subsection.4.1}{Method}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 32
-\BOOKMARK [1][-]{section.5}{Suitable evaluation test}{}% 33
-\BOOKMARK [2][-]{subsection.5.1}{Purpose}{section.5}% 34
-\BOOKMARK [2][-]{subsection.5.2}{Method}{section.5}% 35
-\BOOKMARK [2][-]{subsection.5.3}{Result}{section.5}% 36
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Different intervals at the sensor}{subsection.5.3}% 37
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 38
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 39
-\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 40
+\BOOKMARK [1][-]{section.3}{Implementation}{}% 23
+\BOOKMARK [2][-]{subsection.3.1}{Setup}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Hardware}{subsection.3.1}% 25
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Software}{subsection.3.1}% 26
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Communication flow between gateway and sensor}{subsection.3.1}% 27
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Debug}{subsection.3.1}% 28
+\BOOKMARK [1][-]{section.4}{Latency performance evaluation}{}% 29
+\BOOKMARK [2][-]{subsection.4.1}{Method}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 31
+\BOOKMARK [1][-]{section.5}{Suitable evaluation test}{}% 32
+\BOOKMARK [2][-]{subsection.5.1}{Method}{section.5}% 33
+\BOOKMARK [2][-]{subsection.5.2}{Result}{section.5}% 34
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Different intervals at the sensor}{subsection.5.2}% 35
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 36
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 37
+\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 38

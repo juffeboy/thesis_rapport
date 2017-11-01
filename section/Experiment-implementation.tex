@@ -1,6 +1,5 @@
 \section{Experiment implementation/setup}
-The experiment testbed used in this project includes CCN-lite application software runned on both Contiki-OS and on Linux. Firefly Slip-radios is based on Raspberry Pis to act as border routers. Suitable communication software described in previous sections enables the transmitting of data between the border router and the sensor nodes. The topology of the network is to be considered a star network. In this experiment layout, illustrated in figure [insert figure], the communication scenario is between a node and its border router.
-
+The experiment testbed used in this project includes CCN-lite application software runned on both Contiki-OS and on Linux. Firefly Slip-radios based on Raspberry Pis acts as border routers. Suitable communication software described in previous sections enables the transmitting of data between the border router and the sensor nodes. The topology of the network a star network. In this experiment layout, illustrated in figure [insert figure], the communication scenario is between a node and its border router.
 
 
 \begin{itemize}
@@ -17,9 +16,7 @@ The gateway used is the Firefly Slip radio together together with a Raspberry Pi
 
 
 \subsection{Communication flow between gateway and sensor}
-Kanske kapa dirr från performance setups första stycke?
-...
-In this experiment, a sensornode is connected via USB to a computer where one can monitor messages from the sensor. Through a 802.15.4 radio network, the sensor connect to a border router with Sparrow software running on it. All communication and message passing will be made between the the gateway and the sensornode over the 802.15.4 network. Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets containing a full IPv6 header(of size 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in in the implementation covered in this thesis, only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. 
+In this experiment, a sensornode is connected via USB to a computer where one can monitor messages from the sensor. Through a 802.15.4 radio network, the sensor connect to a border router with Sparrow software running on it. All communication and message passing will be made between the the gateway and the sensornode over the 802.15.4 network. Above the 802.15.4 radio in the networking stack, data is encapsulated into 6LowPAN packets containing a full IPv6 header(of size 40 bytes). There are possibilites in Contiki-OS to compress the IP and networking headers by different strategies, but in in the implementation covered in this thesis, only the uncompressed 40 bytes IPv6 header will be considered. Thereafter the application data is encapsulated by either UDP or ICMPv6 as ther transportation protocol, both of those headers consist of 8 bytes. \todo{Behöver utvecklas för att ta med hela flödet, från application på GW till APP på sensor.}
 \\\\
 
 \subsection{Sensor hooked up to computer}
