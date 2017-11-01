@@ -2,8 +2,9 @@
 There are some software running on the hardware in order to make everything to work. \todo{Rewrite all this. Arugment why we need this software on the hardware. Also describe very shortly the ccn application software. Also refer to background.}
 
 \paragraph{Gateway CCN application}
-Has the possibility to send CCN interest requests and recieve data them. A peek latency tool has been developed to get the peek times.
-This application is sending the interest request through the gateway described in previous paragraph.
+%Has the possibility to send CCN interest requests and recieve data them. A peek latency tool has been developed to get the peek times.
+%This application is sending the interest request through the gateway described in previous paragraph.
+The CCN-lite application used on the border gateway has the possibility to send \textit{interest} requests and recieve the \textit{data} for the request it has sent. To issue an \textit{interest} request, the CCN peek application is used. It can create, encapsulate and send out requests on the radiolink and also recieve the corresponding . Additional functionality has, in this thesis, been added to this software to make it possible to calculate the latency times for creating, sending an \textit{interest} and recieving the \textit{data}. Throughout this thesis, CCN peek and peek is used interchangably in order to describe the round trip time from initiating a request to the time when that data has been responded. 
 
 \paragraph{Sensor CCN application}
 The CCN application used for the sensors has a simple structure. Once the sensor has booted Contiki with CCN, it starts listening for incoming \textit{interest}-requests from the network and to produce content objects.
@@ -14,3 +15,4 @@ In every period a new content object is created. This object is cached into the 
 
 
 \paragraph{Ping6}
+The command live tool Ping6 sends a ... Instead of sending a CCN peek toward
