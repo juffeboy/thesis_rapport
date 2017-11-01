@@ -1,16 +1,17 @@
 
-\section{ping/peek performance test 1}
-\subsection{Purpose}
+\section{Latency performance evaluation}
+%\subsection{Purpose}
 The purpose of this experiment is to measure the roundtrip time, latency, between a sensornode and a border gateway using ping and CCN peek commands. The results show which of these alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is to large, then CCN would be considered not suitable to be used for a IoT device. From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
 
-[Make the nice picture and write about why that picture is interesting. This could be something in the beginning of the result section, the arguments could be around it. Showing the roundtrip time and processing time.]
+%%[Make the nice picture and write about why that picture is interesting. This could be something in the beginning of the result section, the arguments could be around it. Showing the roundtrip time and processing time.]
 
-\begin{itemize}
-    \item formulera purpose of this experiment, på en högre nivå, vad är det som motiverar varför dessa mätningar görs.
-    %\item Skriv om skillnaden i RTT pga av prints.
-    %\item Lägg till förändringen som gjorts med hjälp av den experimentella approachen, från 130 ms till 30 ms.
+%%\begin{itemize}
+%%    \item formulera purpose of this experiment, på en högre nivå, vad är det som motiverar varför dessa mätningar görs.
+%%\item Skriv om skillnaden i RTT pga av prints.
+%%\item Lägg till förändringen som gjorts med hjälp av den experimentella approachen, från 130 ms till 30 ms.
+%%\end{itemize}
 
-\end{itemize}
+
 %\begin{itemize}
 %    \item How long time does it take to roundtrip a ping,peek packet?
 %    \item How big difference is it between them
@@ -55,7 +56,8 @@ Ping and peek use the same network protocols up until 6LowPAN(IP layer), the hea
 Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 148 bytes.
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures/latency.png}
+    \centering
+    \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{figures/latency.png}
     %\caption{Star topology structure on the left, Peer-to-peer on the right. write where it is taken from?}
     \caption{The roundtrip measurement is the time it takes for a client to initiate a request, and get data as a response. Transmission time is the time the bits spent on the wire or radio. Processing time is calculated from the time an interest was received til it was sent back to the requestor.}
     \label{fig:latency}
