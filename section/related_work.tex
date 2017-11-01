@@ -1,50 +1,10 @@
 \subsection{Related work}
-%\begin{itemize}
-%	\item MQTT - the most popular application layer protocol for IoT networks. Designed to be a lightweight communication protocol between machine devices. Although its popularity, it comes with shortages %such as TCP only, large overheads [Remove??]
-%	\item ICN as a whole - Several studies describe the benefits when using ICN. A majority of them come from the academic work 
-%							Several studies describe the benefits using ICN on a conceptual level, few studies show the real implementation regarding replacing the IP network -> there are exceptions.
-%	\item IoT and ICN/CCN - Due to the high likelyness between IoT and ICN, several studies has shown that there can be benefits when using ICN in the IoT domain. 
-%	\item CCN - CCN is one of the candidates available, 
-%	\item Outline ideas as `onetime subscriptions' n others. 
-%	\item Yanquie
-%\end{itemize}
-
-When Jacobson et al. publicated the paper \textit{Networking named content} in 2009 it sparked ideas of an alternative approach of communicating in contrast to current IP networking \cite{Jacobson2009}. They implemented a prototype which replaced IP with CCN in the network stack and proved that it could be a potential alternative for the future Internet.
-Since then, several research papers have been published comparing different ICN alternatives and their potential benefits and trade-offs when implemented as a network service\cite{Ahlgren2012}. Studies prove that it could be a suitable replacement of current IP networking structures, but there is a need for more performance analysis and studies\cite{Ahlgren2012}\cite{Greek-ICN-networking-survey-2014}.
-
-However, it was not until the last couple of years that the research community started to investigate the feasibility and applicability of using ICN in the IoT domain. Several studies, the majority being literature studies and theories, have been conducted recently or are currently ongoing. There only seem to be two implementation studies available to date.
-
-In a concept study conducted by Ahlgren et al. \cite{Ahlgreniot}, they conclude that an advantage with ICN, the naming of data, is independent of the device that produces it. The decoupling between a publisher and subscriber of data could improve performance in lossy networks\todo{Behöver koppla named data till IoT-context - Namngivet sensordata}.Challenges reside in the naming of data that is produced periodically over time where a major issue is to retrieve the \textit{latest} value in that sequence. Potential solutions could be to implement a \textit{one-time subscription}, where the request is stored in the cache at the node until the data becomes available\cite{Ahlgreniot}. 
-
-In another study provided by Amadeo et al. \cite{iotchop} argues ICN is by nature close to the IoT domain. They also conclude that there is a need of further investigations regarding if ICN should be implemented as an overlay of existing IP infrastructure, coexist with IP, or if it should be a replacement in the same manner as proposed in \cite{Jacobson2009}.
-
-Baccelli et al. were first to implement a portation for CCN-lite to the IoT operating system RIOT \cite{icniotexpinwild}\cite{RIOT}. That project was the first trial of implementing ICN without any IP protocol. They compared their CCN-lite implemententation and a regular 6LowPAN/IPv6/RPL approach and saw that there were several advantages using ICN over IP. Although they identified several areas where further work needs to be done, they argue that ICN is applicable in the IoT domain.
-
-Another implementation of CCN for IoT devices was a thesis project conducted by Yanqui Wu at SICS/KTH\cite{yanqui}. He ported the CCN-lite functionallity into another IoT operating system, Contiki-OS, and implemented the software as an middle-layer between the application- and the transport layer. Although some evaluation was done, there was no further investigation on how well CCN performs at the application layer. \\
-
-%\begin{itemize}
-%\item Either part of the introduction or after the body
-%	\begin{itemize}
-%		\item after the body is eaiser to explain.
-%	\end{itemize}
-%\item Credit is not like money
-%	\begin{itemize}
-%		\item Giving credit to someone else does not take it away from yours.
-%		\item faling to give credit though.
-%	\end{itemize}
-%\item Be honest!
-%	\begin{itemize}
-%		\item acknoledge weaknesses in your work.
-%	\end{itemize}
-
-%\end{itemize}
+When Jacobson et al. publicated the paper \textit{Networking named content} in 2009 it sparked ideas of an alternative approach of communicating in contrast to current IP networking \cite{Jacobson2009}. They implemented a prototype which replaced IP with CCN in the network stack and proved that it could be a potential alternative for the future Internet.\\\\
+Since then, several research papers have been published comparing different ICN alternatives and their potential benefits and trade-offs when implemented as a network service\cite{Ahlgren2012}. Studies prove that it could be a suitable replacement of current IP networking structures, but there is a need for more performance analysis and studies\cite{Ahlgren2012}\cite{Greek-ICN-networking-survey-2014}.\\\\
+However, it was not until the last couple of years that the research community started to investigate the feasibility and applicability of using ICN in the IoT domain. Several studies, the majority being literature studies or theoretic in nature, have been conducted recently or are currently ongoing. There only seem to be two implementation studies available to date.\\\\
+In a conceptual study conducted by Ahlgren et al. \cite{Ahlgreniot}, it is concluded that an advantage with ICN, is that the naming of data is independent of the device that produces it. The decoupling between a producer and consumer of data could improve performance in lossy networks\todo{Behöver koppla named data till IoT-context - Namngivet sensordata // bengt}.Challenges reside in the naming of data that is produced periodically over time where a major issue is to retrieve the \textit{latest} value in that sequence. \todo{Prata mer om hur man hittar senaste värdet. // anders} Potential solutions could be to implement a \textit{one-time subscription}, where the request is stored in the cache at the node until the data becomes available\cite{Ahlgreniot}.\\\\
+Another study by Amadeo et al. \cite{iotchop} argues ICN is by nature close to the IoT domain. They also conclude that there is a need of further investigations regarding if ICN should be implemented as an overlay of existing IP infrastructure, coexist with IP, or if it should be a replacement in the same manner as proposed in \cite{Jacobson2009}.\\\\
+Baccelli et al. were first to port of CCN-lite to the IoT operating system RIOT \cite{icniotexpinwild}\cite{RIOT}. The project was the first trial of implementing ICN without any IP protocol in the IoT domain. They compared their CCN-lite implemententation and a regular 6LowPAN/IPv6/RPL approach and saw that there were several advantages using ICN over IP. Although they identified several areas where further work needs to be done, they argue that ICN is applicable in the IoT domain.\\
+Another implementation of CCN for IoT devices was a thesis project conducted by Yanqui Wu at SICS/KTH\cite{yanqui}. He ported the CCN-lite functionallity into another IoT operating system, Contiki OS, and implemented the software as an middle-layer between the application- and the transport layer. Although some evaluation was done, there was no further investigation on how well CCN performs at the application layer. \\
 
 
-
-%ICN was first mention in the seventies, but it draw much attention to itself in 2006 when Jacobsson described it as a potential sucessor to worldwide IP-network standard. To map it against IoT seemd as an great idea, and there has been several potential 
-%Since jacobsson introduced it, there has been several version and views on how the technology should be implemented, where Content centric networking and PRISM/netinf (whatev) are two major ways of implementing the ICN standard. 
-
-%MQTT is one of the most popular application layer protocols for IoT networks, designed to be a lightweight communication protocol between machine devices[source of popularity][mqtt]. Although its popularity, it comes with shortages such as the dependencies of brokers and TCP only as the transport layer protocol. [Remove??]
-
-%Previously there has been several research efforts concerning the feasibility and applying of ICN in the IoT domain. The absolute majority of these are literature studies and theories, there seem to be only two implementation work available to date. A paper from INRIA was the first major academic project which ported CCN-lite to the IoT operating system RIOT[inthewild][riot]. That project was the first trial of implementing ICN without any IP protocol. They compared their CCN-lite implemententation and a regular 6LowPAN/IPv6/RPL approach and saw that there were several advantages using ICN over IP. Although they identified several areas where further work needs to be done, they argument that ICN is applicable in the IoT domain.
-%Another implementation of CCN for IoT devices was a thesis project conducted by Yanqui Wu at SICS/KTH[ref]. He ported the CCN-lite functionallity into another IoT operating system, Contiki-OS, and lay the software in the application layer instead of the network layer as INRIA. Although some evaluation was done, no further investigation on how well CCN perform at the application layer was done.  

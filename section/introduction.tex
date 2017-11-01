@@ -19,76 +19,37 @@ Information-centric networking (ICN) is a communication paradigm for the future 
 \subsection{Problem statement}
 %The overal objective with this thesis is to make an experimental evaluation of the performance and applicability of using ICN in the IoT/sensor domain. The goal is to assess the feasibility and performance
 
-The purpose of this thesis project is to evaluate the performance and feasibility of using ICN in the IoT-domain. The scenarios are normal usage patterns between devices including producing and consuming data continuously created in a periodic interval. By evaluating the performance of ICN components and the application as a whole, one can provide a comparision between such an application and a network reference point. Ideally it should be possible to divide and present the throughput, and how much delay time, spent operating under ICN. Therefore a part of the goal of this thesis project is to provide an in depth analysis of where most time is spent when using the ICN application. 
+The purpose of this thesis project is to evaluate the performance and feasibility of using the ICN paradigm in the IoT domain. The scenarios are normal usage patterns between devices including producing and consuming data continuously created in a periodic interval. By evaluating the performance of ICN components and the application as a whole, one can provide a comparision between such an application and a network reference \todo{vad menas med ref point och resterande del av meningen. // A} point. Ideally it should be possible \todo{Formulera om. // A} to divide and present the throughput, and how much delay time, spent operating under ICN. Therefore a part of the goal of this thesis project is to provide an in depth analysis of where most time is spent when using the ICN application. 
 
-%Having a network containing only a few devices is one thing, but most often a network is build up of a various amount of nodes consisiting several producers and consumers. Usually the consumers outnumber the producers. 
+%Another goal of the performance is to investigate how well ICN can scale as the network increases in size, main focus is considered when several consumers want to access data that is provided by one producer.
 
-Another part of the performance goal is to investigate how well ICN can scale as the network increases in size, main focus is considered when several consumers want to access data that is provided by one producer.
+ICN is by nature a pull paradigm where a consumer has to initiate a request of a particular data object in order to retrive it. This is in constrast to several IoT systems where the publish/subscribe approach is more common. An example of such a system is MQTT \cite{mqtt} where the producer sends the newly created data towards a broker, which then pushes the data to a user/consumer. By evaluating the feasibility, a major goal is to investigate if it is possible to achive similar outcome with ICN together with a onetime subscription model and if such a system would be stable. With the onetime subscription model, a consumer tries to pull the data from the producers by initiating a request just before the data has been created.
 
-ICN is by nature a pull paradigm where a consumer has to initiate a request of a particular data in order to retrive it. This is in constrast to the several IoT systems where the publish subscribe approach is in greater use. An example of such a system is the MQTT \cite{mqtt} where the producer pushes the data towards the user when it has been created. By evaluating the feasibility, a major goal is to investigate if it is possible to achive similar outcome with ICN together with a onetime subscription model and if such a system would be stable. With the onetime subscription model, a consumer tries to pull the data from the producers by initiating a request just before the data has been created.
+
 
 \subsection{Delimitations}
-CCN will be the only ICN implementation covered in this thesis. Alternative implementations such as Psirp, Netinf among others, will not be covered at all due.
-Furthermore, this thesis will not develop any further functionallity on the current CCN implementation for Contiki-OS. The current implementaion is to be considered sufficient. Exceptions are made for functionallity regarding monitoring and measurement metcis that will have effect on the evaluation. Different cache strategies for the local storage at a CCN node and other functionallities that would be desirable, but not necessary, is considered out of the scope of this thesis. Furthermore, no aspect of power consumption will be taken into account for the thesis.
+CCN will be the only ICN architecture covered in this thesis. Alternative implementations such as Psirp, Netinf among others, will not be covered at all.
+Furthermore, this thesis will not develop any further functionallity on the current CCN implementation for Contiki-OS. The current implementaion is to be considered sufficient. Exceptions are made for functionallity regarding monitoring and measurement metrics that will have effect on the evaluation. Different cache strategies for the local storage at a CCN node and other functionallities that would be desirable, but not necessary, is considered out of the scope of this thesis. Furthermore, no aspect of power consumption will be taken into account for the thesis.
 
-% \begin{itemize}
-% \item Overall The overal objective 
-% The overall objective of this thesis is to make an experimental evaluation of the performance and applicability of using % ICN in the IoT/sensor domain. 
-% Several different tests will be carried out covering a varity of fields where the summary of these results will be put % together to argument of the feasability.
-% 
-% The experimental evaluation will consist
-% 
-% \item Is CCN suitible to be used with IOT?
-% \item How is the feasibility and performance using CCN?
-% What is the performance of the specific ICN implementation, CCN, when it is used on a sensornode. 
-% Questions as what the performance is of the specific ICN implementation, CCN, 
-% 
-% \item Are there better ways of achiving the functionallity of CCN?
-% \item Could the client-server model be replaced with an information-centric model in the IoT domain.
-% For a long time the foundation of all networks has been builed on routing with IP networks and a client-server model. If % the client-server model can be rep
-% 
-% It is to be investigated if the client-server model can be replaced with the information-centric model. Is it always % neccessary to access the source of information, or is it the data that is the interesting.
-% 
-% 
-% \item What is the drawbacks and how would it scale as the network grows in size.
-% Having a network containing only a few devices is on thing, but most often a network is build up of a various amount of % nodes consisiting several producers and consumers. Usually there are more consumers than producers. The thesis will try to % answer the question how well the CCN sensor nodes handles a growing demand for its data while scaling up the network.
-% 
-% \item Develop testing Software
-% \end{itemize}
-
-%\begin{itemize}
-%\item Delimitations.
-%Within this thesis, no further implementation of CCN-lite for Contiki-OS will be carried out. O
-%
-%\item Not develop any further functionallity of the CCN implemitation of Contiki OS.
-%\item Will not compare different ICN implementations such as NDN, DONA et.c.
-%\end{itemize}
 
 \subsection{Research methodology}
-%\begin{itemize}
-%\item Qualitative and quantitiative performance evaluation through experimentation
-%\item [[[[[[[[[[>>>>>Implementation on real hardware (Texas Instruments sensortag)<<<<<]]]]]]]]]]
-%\item Short testing iteration to describe what's happening.
-%\end{itemize}
-\todo{Behöver kompletteras med lite mer generell text om experimentell forskning.}
-Currently there is a CCN-lite implementation for the IoT light-weighted Contiki OS, the implementation was conducted by a former thesis worker Yanqui Wu \cite{yanqui}. In this project, a qualitative and quantitative performance evaluation will be carried out through experimentation with this implementation. The hardware representing the sensors is going to be the Texas Instruments sensortag CC2650 which will run the CCN-lite implementation. Tests regarding scalability will be conducted using emulated sensors.
+\todo{Behöver kompletteras med lite mer generell text om experimentell forskning.// B}
+Currently there is a \todo{Berätta att ccn-lite är en lw impl av ccn, sen har yanqiu portat det till contiki.// a} CCN-lite implementation for the IoT light-weighted Contiki OS, the implementation was conducted by a former thesis worker Yanqiu Wu \cite{yanqui}. In this project, a qualitative and quantitative performance evaluation will be carried out through experimentation with this implementation. The sensor hardware used is the Texas Instruments SensorTag CC2650, which runs the CCN-lite implementation. \\\\
+Since the thesis is based on experiments a large amount of measurements will be conducted. The methodology used will be \todo{Short cycels of what? // a}short cycles and small loops between each measurement. This iterative approach has the advantage that it can give answers to \todo{Formulera om, vad är det som menas? // a}questions that are not specifically asked and it can also be used to see changes over time. 
+In order to make the testing intervals short and feasible, a lot of effort has been put into creating smart scripts that automate testing and representation of the data so it becomes visual to the tester. 
 \\\\
-Since the thesis is based on experiments a lot of measurements will be conducted. The methodology used will be short cycles and small loops between each measurement. This iterative approach has the advantage that it can give answers to questions that are not specifically asked and it can also be used to see changes over time. 
-%The thesis will be based on measurements, hence there will be a lot of them with small loops and short cycles between each test. Once a test has been conducted, it more or less always, leads to that more tests and further questions to be answered.
-In order to make the testing intervals short and fesable, a lot of effort has been put into to create smart scripts that automate testing and representation of the data so it becomes visual to the tester. 
-\\\\
-Different software tools will be programmed to measure the desired performance. 
-In order to evaluate the performance, various types of measuring tools will be conducted. These tools has either a general or a specific purpose. A general purpose tool can for instance collect the measured data from the test, and make it representable. Whereas specific purpose tools can be ones that measure the processing time on a sensor or measure the latency time. 
+Different software tools will be programmed to measure the desired performance metrics. 
+In order to evaluate the performance, various types of measuring tools will be conducted. These tools has either a general or a specific purpose. A general purpose tool can for instance collect the measured data from the test, and make it representable for the user. Specific purpose tools on the other hand can be ones that measure the processing time on a sensor or measure the latency time. 
 
-\subsection{Expected contributions}
-%The main expected contribution of this thesis is to provide arguments whether or not ICN is appropriate to use as an application layer in the IoT domain. To get supporting arguments of that, a performance evaluation and [???] suitable evaluation will be carried out. In order to make these tests, redesign and mostly implementation of an existing CCN-lite application will be made to work on the Contiki-OS platform so it can run appropriately on industry hardware specified later in this thesis. Furthermore, several testing softwares has been developed to make this thesis possible. Although a lot of time and effort has been conducted into these softwares implementations, they will not be covered in this report.
+\subsection{Contributions}
+
 This thesis contribute an experimental evaluation, with performance and feasibility aspects in focus, of using CCN on low power sensor hardware in a typical IoT enviroment.
 
-There are several other expected contributions of this thesis project. One is improving the current CCN-lite application for Contiki-OS, mostly to make it more stable and reliable when runned on industry hardware. Another contribution is the development of latency measurement software, especially for IPv6, for the CCN-lite project. Moreover, software enabling a consumer to retrieve data from the publisher through a one-time subscription model described in prior parts.
+There are several other contributions of this thesis project. One is improving the current CCN-lite application for Contiki-OS, mostly to make it more stable and reliable when run on low power sensor hardware. Another contribution is the development of a tool that calculates the roundtrip times for IPv6 devices to the CCN-lite project. Moreover, software enabling a consumer to retrieve data from the publisher through a one-time subscription model described in later parts.
 
-%Furthermore, several testing softwares have been developed to make this thesis possible. Although a lot of time and effort has been consumed into creating these software implementations, they will not be covered in this report.
 
-Furthermore, several testing softwares have been developed to make this thesis possible. Although a lot of time and effort has been consumed into creating these software implementations, the specific details concerning implementation will not be covered in this report. However, some higher abstractation regarding algorithms and logics will be presented.
+
+Furthermore, several testing tools have been developed to make this thesis possible. Although a lot of time and effort has been consumed into creating these software implementations, the specific details concerning implementation will not be covered in this report. However, some higher abstractation regarding algorithms and logics will be presented.
 
 
 \input{section/related_work.tex}
