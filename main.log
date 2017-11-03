@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  3 NOV 2017 23:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  4 NOV 2017 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,6 +1010,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--22
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--22
+
+ []
+
 [7] <figures/802-15-4-topologies.png, id=279, 490.83376pt x 215.80624pt>
 File: figures/802-15-4-topologies.png Graphic file (type png)
 <use figures/802-15-4-topologies.png>
@@ -1049,12 +1054,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--64
  []
 
 [9 </Users/johan.carlquist/Documents/exjobb/rapport/figures/6lowpan-own.png>]
-Overfull \hbox (10.79788pt too wide) in paragraph at lines 68--75
-\T1/cmr/m/n/10 to be used with con-strained de-vices and net-works, and be-twee
-n M2M communication[[]].
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 68--75
 
  []
@@ -1080,31 +1079,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--6
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 17--25
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--25
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--25
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 30--38
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--38
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
 
  []
 
-<figures/CCN-architecture.png, id=326, 984.67876pt x 650.43pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--38
+
+ []
+
+[11] <figures/CCN-architecture.png, id=327, 984.67876pt x 650.43pt>
 File: figures/CCN-architecture.png Graphic file (type png)
 <use figures/CCN-architecture.png>
 Package pdftex.def Info: figures/CCN-architecture.png used on input line 43.
@@ -1114,14 +1128,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
-)
+[12])
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
-[12])) [13 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-archite
-cture.png>] [14] (/Users/johan.carlquist/Documents/exjobb/rapport/section/imple
-mentation.tex <figures/experiment_setup.png, id=352, 419.5675pt x 300.12125pt>
+[13 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
+ng>])) [14] (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementa
+tion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
+<figures/experiment_setup.png, id=353, 419.5675pt x 300.12125pt>
 File: figures/experiment_setup.png Graphic file (type png)
 <use figures/experiment_setup.png>
-Package pdftex.def Info: figures/experiment_setup.png used on input line 17.
+Package pdftex.def Info: figures/experiment_setup.png used on input line 14.
 (pdftex.def)             Requested size: 369.88583pt x 264.58377pt.
 
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementation/hardwar
@@ -1179,7 +1208,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
 
-<figures/latency.png, id=401, 713.66624pt x 587.19376pt>
+<figures/latency.png, id=402, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
 Package pdftex.def Info: figures/latency.png used on input line 60.
@@ -1309,7 +1338,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
 Here is how much of TeX's memory you used:
  31707 strings out of 493014
  738217 string characters out of 6133351
- 1171259 words of memory out of 5000000
+ 1171257 words of memory out of 5000000
  34522 multiletter control sequences out of 15000+600000
  19028 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1331,10 +1360,10 @@ al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (36 
-pages, 587852 bytes).
+pages, 587527 bytes).
 PDF statistics:
- 609 PDF objects out of 1000 (max. 8388607)
- 540 compressed objects within 6 object streams
+ 610 PDF objects out of 1000 (max. 8388607)
+ 541 compressed objects within 6 object streams
  139 named destinations out of 1000 (max. 500000)
  342 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,11 +1,8 @@
 \section{Implementation}
 The problem with the ICN model, in IoT domain, lays in the nature of ICN with its data driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. In a normal network approach, as in MQTT, the creator of a data can push it toward a user. This is impossible with the ICN paradigm. 
-In order to achive the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of the of ICN must be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.
-
-Through experimentations, the thesis tries to evaluate the performance and sutiability, described in earlier paragraph, of the ICN application CCN.
-
-In the first experiment, an evaluation regarding the latency performance is conducted in section 5, latency performance evaluation. It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.
-
+In order to achive the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of the of ICN must be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.\\\\
+Through experimentations, the thesis tries to evaluate the performance and sutiability, described in earlier paragraph, of the ICN application CCN.\\\\
+In the first experiment, an evaluation regarding the latency performance is conducted in section 5, latency performance evaluation. It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.\\\\
 The other experiment, covering an evaluation of the suitability using CCN is conducted in section 6, suitability evaluation. It covers an analysis regarding the algortihm developed during the thesis and its performance from both a consumer and producers perspective. The algorithm tries to deliver the lowest possible latency, from the time the data has been produced until it is available to the consumer. 
 
 
