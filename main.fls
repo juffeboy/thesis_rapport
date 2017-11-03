@@ -265,6 +265,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithmic.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithmic.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux
 OUTPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.aux

@@ -108,7 +108,13 @@ Additionally, at a smaller sensor period of -2$\%$ compared to the gateway-inter
 
 
 %%%%%%%%%%%%%%%% FIGURES!!! %%%%%%%%%%%%%%%%%%%
+
+
+%\begin{figure}
+%\centering
+
 \begin{figure}\centering\begin{tikzpicture}\begin{axis}[
+%\begin{subfigure}{.5\textwidth}\centering\begin{tikzpicture}[width=.4\linewidth]\begin{axis}[
 title={Roundtrips from gateway},
 xlabel={intervals}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
@@ -126,6 +132,7 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \caption{gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \label{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
+%\end{subfigure}
 
 \begin{figure}\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
@@ -138,6 +145,7 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \end{axis}\end{tikzpicture}
 \caption{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \label{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\end{figure}
 \end{figure}
 
 
