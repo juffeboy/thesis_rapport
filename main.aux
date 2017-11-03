@@ -119,70 +119,72 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Sparrow}{13}{subsubsection.2.3.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}CCN-lite portation}{13}{subsubsection.2.3.2}}
 \citation{CC2650}
-\citation{Firefly}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Implementation}{15}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Setup}{15}{subsection.3.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Hardware}{15}{subsubsection.3.1.1}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.1.1}Texas Instrument CC2650 SensorTag}{15}{paragraph.3.1.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Overview of the experimental setup. The sensor communicates with the radio slip mounted on a Raspberry Pi. Through the slip, a consumer application on the Raspberry is available to issue \textit  {interest} request toward the sensor. The computer provides power to the sensor and in return it receives measurement logs.\relax }}{16}{figure.caption.12}}
+\newlabel{fig:experiment_setup}{{4}{16}{Overview of the experimental setup. The sensor communicates with the radio slip mounted on a Raspberry Pi. Through the slip, a consumer application on the Raspberry is available to issue \textit {interest} request toward the sensor. The computer provides power to the sensor and in return it receives measurement logs.\relax }{figure.caption.12}{}}
+\citation{Firefly}
 \citation{RP3}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.1.2}Zolertia Firefly Slip radio}{16}{paragraph.3.1.1.2}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.1.3}Raspberry Pi 3}{16}{paragraph.3.1.1.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Software}{16}{subsubsection.3.1.2}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.1}Gateway CCN application}{16}{paragraph.3.1.2.1}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.2}Sensor CCN application}{16}{paragraph.3.1.2.2}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.3}Ping6}{17}{paragraph.3.1.2.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Communication between gateway and sensor}{17}{subsubsection.3.1.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.4}Retrieve data}{17}{subsubsection.3.1.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Latency performance evaluation}{18}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Method}{18}{subsection.4.1}}
-\newlabel{eq:1}{{1}{18}{Method}{equation.4.1}{}}
-\newlabel{eq:2}{{2}{18}{Method}{equation.4.2}{}}
-\newlabel{eq:3}{{3}{18}{Method}{equation.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The roundtrip measurement is the time it takes for a client to initiate a request, and get data as a response. Transmission time is the time the bits spent on the wire or radio. Processing time is calculated from the time an interest was received til it was sent back to the requestor.\relax }}{19}{figure.caption.12}}
-\newlabel{fig:latency}{{4}{19}{The roundtrip measurement is the time it takes for a client to initiate a request, and get data as a response. Transmission time is the time the bits spent on the wire or radio. Processing time is calculated from the time an interest was received til it was sent back to the requestor.\relax }{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Results}{20}{subsection.4.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Row one shows the length of the named data in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the application, CCN header and length of named data included. Row two shows the data payload of a ping message, equivialent to the application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.\relax }}{21}{table.caption.13}}
-\newlabel{tab:packetSizes}{{1}{21}{Row one shows the length of the named data in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the application, CCN header and length of named data included. Row two shows the data payload of a ping message, equivialent to the application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.\relax }{table.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 148 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.\relax }}{21}{figure.caption.14}}
-\newlabel{fig:pingRTT}{{5}{21}{Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 148 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies stays stable at around 26 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 41 ms.\relax }}{22}{figure.caption.15}}
-\newlabel{fig:peekwoutdbRTT}{{6}{22}{Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies stays stable at around 26 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 41 ms.\relax }{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies is stable at around 35 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 53 ms.\relax }}{22}{figure.caption.16}}
-\newlabel{fig:peekwdbRTT}{{7}{22}{Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies is stable at around 35 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 53 ms.\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Histogram of ping latencies result. A majority of the roundtrips end up in the 24-28 ms span.\relax }}{23}{figure.caption.17}}
-\newlabel{fig:histPing}{{8}{23}{Histogram of ping latencies result. A majority of the roundtrips end up in the 24-28 ms span.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Histogram of CCN-peek latencies result. Almost all of the roundtrips ended up in the 24-28 ms interval.\relax }}{23}{figure.caption.18}}
-\newlabel{fig:histPeek}{{9}{23}{Histogram of CCN-peek latencies result. Almost all of the roundtrips ended up in the 24-28 ms interval.\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.1.2}Zolertia Firefly Slip radio}{17}{paragraph.3.1.1.2}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.1.3}Raspberry Pi 3}{17}{paragraph.3.1.1.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Software}{17}{subsubsection.3.1.2}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.1}Gateway CCN application}{17}{paragraph.3.1.2.1}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.2}Sensor CCN application}{17}{paragraph.3.1.2.2}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.3}Ping6}{18}{paragraph.3.1.2.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Communication between gateway and sensor}{18}{subsubsection.3.1.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.4}Retrieve data}{18}{subsubsection.3.1.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Latency performance evaluation}{20}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Method}{20}{subsection.4.1}}
+\newlabel{eq:1}{{1}{20}{Method}{equation.4.1}{}}
+\newlabel{eq:2}{{2}{20}{Method}{equation.4.2}{}}
+\newlabel{eq:3}{{3}{20}{Method}{equation.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The roundtrip measurement is the time it takes for a client to initiate a request, and get data as a response. Transmission time is the time the bits spent on the wire or radio. Processing time is calculated from the time an interest was received til it was sent back to the requestor.\relax }}{21}{figure.caption.13}}
+\newlabel{fig:latency}{{5}{21}{The roundtrip measurement is the time it takes for a client to initiate a request, and get data as a response. Transmission time is the time the bits spent on the wire or radio. Processing time is calculated from the time an interest was received til it was sent back to the requestor.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Results}{22}{subsection.4.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Row one shows the length of the named data in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the application, CCN header and length of named data included. Row two shows the data payload of a ping message, equivialent to the application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.\relax }}{23}{table.caption.14}}
+\newlabel{tab:packetSizes}{{1}{23}{Row one shows the length of the named data in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the application, CCN header and length of named data included. Row two shows the data payload of a ping message, equivialent to the application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.\relax }{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 148 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.\relax }}{23}{figure.caption.15}}
+\newlabel{fig:pingRTT}{{6}{23}{Latencies in milliseconds when pinging a sensornode with packet sizes from 93 byte to 148 byte transmitted over the radio. The latencies stays stable at around 27 ms up until 123 byte. After fragmentataion, the latency raise and stay stable at around 43 ms.\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies stays stable at around 26 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 41 ms.\relax }}{24}{figure.caption.16}}
+\newlabel{fig:peekwoutdbRTT}{{7}{24}{Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies stays stable at around 26 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 41 ms.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies is stable at around 35 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 53 ms.\relax }}{24}{figure.caption.17}}
+\newlabel{fig:peekwdbRTT}{{8}{24}{Latencies in milliseconds for peek interest requests of sizes from 93 byte to 148 byte. The latencies is stable at around 35 ms between 93 byte to 123 byte. After fragmentation, the latency raise and stays stable at around 53 ms.\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Histogram of ping latencies result. A majority of the roundtrips end up in the 24-28 ms span.\relax }}{25}{figure.caption.18}}
+\newlabel{fig:histPing}{{9}{25}{Histogram of ping latencies result. A majority of the roundtrips end up in the 24-28 ms span.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Histogram of CCN-peek latencies result. Almost all of the roundtrips ended up in the 24-28 ms interval.\relax }}{25}{figure.caption.19}}
+\newlabel{fig:histPeek}{{10}{25}{Histogram of CCN-peek latencies result. Almost all of the roundtrips ended up in the 24-28 ms interval.\relax }{figure.caption.19}{}}
 \citation{Ahlgreniot}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Suitability evaluation}{24}{section.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Method}{24}{subsection.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.\relax }}{25}{figure.caption.19}}
-\newlabel{fig:onetime}{{10}{25}{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Result}{25}{subsection.5.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Different intervals at the sensor}{26}{subsubsection.5.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{27}{figure.caption.20}}
-\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{11}{27}{gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{27}{figure.caption.21}}
-\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{12}{27}{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{28}{figure.caption.22}}
-\newlabel{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{13}{28}{gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{28}{figure.caption.23}}
-\newlabel{fig:sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{14}{28}{sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{29}{figure.caption.24}}
-\newlabel{fig:gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{15}{29}{gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{29}{figure.caption.25}}
-\newlabel{fig:sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{16}{29}{sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }}{30}{figure.caption.26}}
-\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}{{17}{30}{gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }}{30}{figure.caption.27}}
-\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}{{18}{30}{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }}{31}{figure.caption.28}}
-\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed}{{19}{31}{gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }}{31}{figure.caption.29}}
-\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed}{{20}{31}{sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{32}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{32}{section.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Future work}{32}{subsection.7.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Suitability evaluation}{26}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Method}{26}{subsection.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.\relax }}{27}{figure.caption.20}}
+\newlabel{fig:onetime}{{11}{27}{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Result}{27}{subsection.5.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Different intervals at the sensor}{28}{subsubsection.5.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{29}{figure.caption.21}}
+\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{12}{29}{gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{29}{figure.caption.22}}
+\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{13}{29}{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{30}{figure.caption.23}}
+\newlabel{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{14}{30}{gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{30}{figure.caption.24}}
+\newlabel{fig:sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{15}{30}{sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{31}{figure.caption.25}}
+\newlabel{fig:gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{16}{31}{gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }}{31}{figure.caption.26}}
+\newlabel{fig:sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}{{17}{31}{sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }}{32}{figure.caption.27}}
+\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}{{18}{32}{gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }}{32}{figure.caption.28}}
+\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}{{19}{32}{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }}{33}{figure.caption.29}}
+\newlabel{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed}{{20}{33}{gw/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }}{33}{figure.caption.30}}
+\newlabel{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed}{{21}{33}{sensor/test/alpha/0.1/rtttarget/2.5/diff/0.98/slope/0.15/zommed\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{34}{section.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{34}{section.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Future work}{34}{subsection.7.1}}
 \bibstyle{unsrt}
 \bibdata{sample}
 \bibcite{alanCarlton}{1}
