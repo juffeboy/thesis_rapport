@@ -10,8 +10,8 @@ The other experiment, covering an evaluation of the suitability using CCN is con
 The implementation of the experiments described in previous paragraphs consists of a combination of hardware and software. The setup is shown in figure \ref{fig:experiment_setup}, where the whole system consists of a computer, raspberry pi 3, slip radio and sensor. Together they communicate through various of protocols described both in section 2 and later on in this section. 
 In order to provide logs and data for the experiments, the sensor is connected through USB to the computer. These logs are to verify that the system is correct. All communication between producer, the sensor, and the consumer, a CCN application running on Raspberry Pi, is made through a radio slip that is connected on a Raspberry Pi.
 
-\begin{figure}
-	\includegraphics[width=\textwidth]{figures/experiment_setup.png}
+\begin{figure}\centering
+	\includegraphics[width=0.7\textwidth]{figures/experiment_setup.png}
 	%\caption{Star topology structure on the left, Peer-to-peer on the right. write where it is taken from?}
 	\caption{Overview of the experimental setup. The sensor communicates with the radio slip mounted on a Raspberry Pi. Through the slip, a consumer application on the Raspberry is available to issue \textit{interest} request toward the sensor. The computer provides power to the sensor and in return it receives measurement logs.}
 	\label{fig:experiment_setup}
