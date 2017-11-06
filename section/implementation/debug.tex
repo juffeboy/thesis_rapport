@@ -1,6 +1,8 @@
 \subsubsection{Retrieve data}
-In all experiments, the sensor node is connected via USB to a computer in order to retrieve measurement values. The live command tool TTY captures all these messages from the console that the sensor produce and make them readable for a user. 
+In all experiments, the sensor node is connected via USB to a computer in order to retrieve measurement values. The live command tool TTY captures all these messages from the console that the sensor produces and make them readable for a user. 
 
-After a few experiments were made, the result was that the amount of information printed on the console had a huge impact on the latency.
-After iterating a couple of times, a decision was made that there would be two versions of printing. One printing only a minimum of information and the other one printing all the essential information the evaluation needed. For verification purposes, the minimum printing sends information about whether an interest was responded or not. 
-For the essential printing, information regarding \textit{interest} arrival times, \textit{data} departure times and other metrics values essential to the result were added. The consequence is that this cost a little on the performance on the sensor, one clock tick on the sensor (1/128th second) more than the minimum printing. 
+After a few experiments, the result showed that the amount of information printed on the console had an impact on the latency.
+After several iterations, a decision was made that there would be two versions of printing. One printing only a minimum of information and the other one printing all the essential information the evaluation needed. 
+
+For verification purposes, the minimum printing sends information about whether an interest was responded or not. 
+For the essential printing, information regarding \textit{interest} arrival times, \textit{data} departure times and other metric values essential to the result were added. As a consequence, there is a higher consumption of processing power at the sensor. This is shown in later measurement results when minimum printing takes one tick on the clock (1/128th seconds) longer.
