@@ -16,8 +16,10 @@ The time from when the data was created until it has been received at the
 The aim of this study was to evaluate the useability of ICN in the IoT domain. If it is a suitible candidate that potentially could replace MQTT as an communication paradigm.
 The evaluation considered performance measurements of application components, its overall latency and the feasibility of using IoT in the IoT domain.
 
-The performance evaluation showed that there were no major drawbacks in time when using the CCN application in comparission to 
+The performance evaluation has showed that the CCN-lite application is successful in deliver a low latency between a sensornode and its gateway. 
+When using the CCN peek application to retrieve data from the sensors CCN-lite application, it performs only a few milliseconds slower compared to the ping counterpart.
 
+The optimization of the CCN-lite application code at the sensor shows that part of the long round trip times earlier stated was due to various debug messages that was printed on the console. Furthermore, the sensor was put into sleep mode of a short period of time for each \textit{interest} message it received. 
 
 \begin{itemize}
 \item kort om vad som har gjortst
