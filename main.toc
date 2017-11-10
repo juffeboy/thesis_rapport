@@ -22,7 +22,7 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Sparrow}{13}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}CCN-lite portation}{13}{subsubsection.2.3.2}
 \contentsline {section}{\numberline {3}Implementation}{15}{section.3}
-\contentsline {subsection}{\numberline {3.1}Setup}{15}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}Experimental Setup}{15}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Hardware}{15}{subsubsection.3.1.1}
 \contentsline {paragraph}{\numberline {3.1.1.1}Texas Instrument CC2650 SensorTag}{15}{paragraph.3.1.1.1}
 \contentsline {paragraph}{\numberline {3.1.1.2}Zolertia Firefly Slip radio}{16}{paragraph.3.1.1.2}

@@ -1,14 +1,14 @@
 \section{Implementation}
-The problem with the ICN model, in IoT domain, lays in the nature of ICN with its data driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. In a normal network approach, as in MQTT, the creator of a data can push it toward a user. This is impossible with the ICN paradigm. 
+One percieved disadvantage with the ICN communication model, lays in the nature of ICN with its client-driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. With a different approach, as in MQTT, the creator of a data can push it toward a user, which could potentially lead to low latency from data creation to when it is available at the consumer. \todo{Behöver resonemang om konsekvens för latens här innan du beskriver lösningen (koppla till kap 1.2) / B}This is impossible with the ICN paradigm. 
 In order to achieve the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of ICN has to be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.\\\\
-Through experimentations, this thesis tries to evaluate the performance and suitability described in earlier paragraph, of the ICN application CCN.\\\\
+Through experimentations, this thesis evaluates the performance and suitability described in earlier paragraph, of the ICN application CCN.\\\\
 In the first experiment, in section 5, an evaluation regarding the latency performance is conducted . It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.\\\\
 The other experiment, covering an evaluation of the suitability using CCN can be found in section 6. It covers an analysis regarding the algortihm developed during the thesis and its performance from both a consumer and producers perspective. The algorithm tries to deliver the lowest possible latency, from the time the data has been produced until it is available to the consumer. 
 
 
-\subsection{Setup}
-The implementation of the experiments described in previous paragraphs consists of a combination of hardware and software. The setup is shown in figure \ref{fig:experiment_setup}, where the whole system consists of a computer, raspberry pi 3, slip radio and sensor. Together they communicate through various of protocols described both in section 2 and later on in this section. 
-In order to provide logs and data for the experiments, the sensor is connected through USB to the computer. These logs are to verify that the system is correct. All communication between producer, the sensor, and the consumer, a CCN application running on Raspberry Pi, is made through a radio slip that is connected on a Raspberry Pi.
+\subsection{Experimental Setup}
+The implementation of the experiments described in previous paragraphs consists of a combination of hardware and software. The setup is shown in figure \ref{fig:experiment_setup}, where the whole system consists of a computer, Raspberry Pi 3, Zolertia Firefly and sensor. Together they communicate through various of protocols described both in section 2 and later on in this section. 
+In order to provide logs and data for the experiments, the sensor is connected through USB to the computer. These logs can be read in real time or later use, in order to verify the correctness of the system. All communication between producer, the sensor, and the consumer, a CCN application running on Raspberry Pi, is made through a Zolertia Firefly that is connected on a Raspberry Pi.
 
 \begin{figure}\centering
 	\includegraphics[width=0.7\textwidth]{figures/experiment_setup.png}
@@ -23,3 +23,4 @@ In order to provide logs and data for the experiments, the sensor is connected t
 \input{section/implementation/communication.tex}
 
 \input{section/implementation/debug.tex}
+
