@@ -1,8 +1,13 @@
 \section{Implementation}
-One percieved disadvantage with the ICN communication model, lays in the nature of ICN with its client-driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. With a different approach, as in MQTT, the creator of a data can push it toward a user, which could potentially lead to low latency from data creation to when it is available at the consumer. \todo{Behöver resonemang om konsekvens för latens här innan du beskriver lösningen (koppla till kap 1.2) / B}This is impossible with the ICN paradigm. 
-In order to achieve the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of ICN has to be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.\\\\
-Through experimentations, this thesis evaluates the performance and suitability described in earlier paragraph, of the ICN application CCN.\\\\
-In the first experiment, in section 5, an evaluation regarding the latency performance is conducted . It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.\\\\
+\todo{Annan Rubrik?}
+One percieved disadvantage with the ICN communication model, lays in the nature of ICN with its client-driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. With a different approach, as in MQTT, the creator of a data can push it towards a user, which could potentially lead to low latency from data creation to when it is available at the consumer. This is impossible with the ICN paradigm. If the consumer does not know when the data is created at the producer, it could lead to remarkable longer latency time between data creation and its consumption compared to MQTT.%\todo{Behöver resonemang om konsekvens för latens här innan du beskriver lösningen (koppla till kap 1.2) / B}
+
+In order to achieve the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of ICN has to be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.
+
+Through experimentations, this thesis evaluates the performance and suitability described in earlier paragraph, of the ICN application CCN.
+
+In the first experiment, in section 5, an evaluation regarding the latency performance is conducted . It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.
+
 The other experiment, covering an evaluation of the suitability using CCN can be found in section 6. It covers an analysis regarding the algortihm developed during the thesis and its performance from both a consumer and producers perspective. The algorithm tries to deliver the lowest possible latency, from the time the data has been produced until it is available to the consumer. 
 
 
@@ -23,4 +28,3 @@ In order to provide logs and data for the experiments, the sensor is connected t
 \input{section/implementation/communication.tex}
 
 \input{section/implementation/debug.tex}
-

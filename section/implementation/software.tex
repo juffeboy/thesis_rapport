@@ -1,6 +1,6 @@
 \subsubsection{Software}
 %There are some software running on the hardware in order to make everything to work. \todo{Rewrite all this. Arugment why we need this software on the hardware. Also describe very shortly the ccn application software. Also refer to background.}
-The software setup used in this thesis consists of two CCN-lite applications \ref{CCN-LITE} \ref{yanqui}, Sparrow \ref{Sparrow} and Ping6. The CCN-lite software is used on the Linux platform and the portation described in previous section is used together with Contiki OS on the sensor node. To make them communicate with each other the Sparrow software creates a gateway together with the slip radio on the Raspberry Pi. This enables a reliable wireless communication channel between the router and the sensor.
+The software setup used in this thesis consists of two CCN-lite applications \cite{CCN-LITE} \cite{yanqui}, Sparrow \cite{Sparrow} and Ping6. The CCN-lite software is used on the Linux platform and the portation described in previous section is used together with Contiki OS on the sensor node. To make them communicate with each other the Sparrow software creates a gateway together with the slip radio on the Raspberry Pi. This enables a reliable wireless communication channel between the router and the sensor.
 
 \paragraph{Gateway CCN application}
 %Has the possibility to send CCN interest requests and recieve data them. A peek latency tool has been developed to get the peek times.
@@ -18,5 +18,5 @@ In every period a new content object is created. This object is cached into the 
 
 
 \paragraph{Ping6}
-The command ``live'' tool Ping6 is a utility software for linux systems which use the ICMPv6 protocol to send data over the network. In this thesis, it is used as a reference point for latency times in comparision to the CCN application.
+The command ``live'' tool Ping6 is a utility software for linux systems which use the ICMPv6 protocol to echo reqeuests as data over the network. In this thesis, it is used as a reference point for latency times in comparision to the CCN application.
 
