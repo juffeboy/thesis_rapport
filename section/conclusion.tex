@@ -26,12 +26,23 @@ The optimization of the CCN-lite application code at the sensor shows that part 
 %\end{itemize}
 The suitability evaluation showed that ICN is successful in retreiving low latency values between data creation until it reaches the user. When using of ICNs \textit{PIT} and sending the \textit{interest} messages before the data has been created, ICN can eliminate unnecessary waiting time between data creation and until it is sent. Thereby achiving similar latencies as using MQTT.
 
-The algortihm presented in this thesis is a first shot to pull data that is periodically produced at a fixed interval. The algorithm proved to be successful in retreiving data over long periods of time, no timeouts occured. %In order for it to work properly, it needs a reference time, the length of the interval, 
+The algortihm presented in this thesis is a first attempt to pull data periodically produced at a fixed interval. The algorithm proved to be successful in retreiving data over long periods of time, no timeouts occured during the tests. %In order for it to work properly, it needs a reference time, the length of the interval, 
+
+As the experiment shows presented earlier, the algorithm can fend off high variations in roundtrip times without any issues. It is because of the logics behind the smoothed round trip time that makes the latency values more or less varying. As $\alpha$ grows, the significance of the smoothed round trip decrease. 
+
+Although the variating latencies, it continues to deliver a stable stream of data towards the consumer. 
+Beskriv när brytpunkten sker.
+
+
 
 %In order for it to work properly, it needs a reference time, length of the interval, 
 %It was successful in pulling data even though there was a high $\alpha$,
 %Even though the $\alpha$ parameter was changed, which made the round trip times alternate more, the algorithm proved to be stable and successful in retreiving the data.
-Even though round trips alternated, sometimes because of high $\alpha$, the algorithm proved to stay stable and successful in retreiving the data. 
+
+%Even though round trips alternated, sometimes because of high $\alpha$, the algorithm proved to stay stable and successful in retreiving the data. 
+%Even though the round trip times variated, sometimes due to high $\alpha$, the 
+
+%Även om rundtrip tiderna varierade, oftast på grund av ett högt satt alpha, kunde algorithmen parera för detta och leverera datat stabilt till användaren.
 
 
 \begin{itemize}
