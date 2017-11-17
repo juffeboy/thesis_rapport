@@ -21,19 +21,15 @@ When using the CCN peek application to retrieve data from the sensors CCN-lite a
 
 The optimization of the CCN-lite application code at the sensor shows that part of the long round trip times experienced earlier was due to various debug messages that was printed on the console. Furthermore, the sensor was put into sleep mode of a short period of time for each \textit{interest} message it received. The optimization of the code resulted in around 100 ms faster round trip times compared to before. From round trip times of 130 ms to less than 30 ms.
 
-%\begin{itemize}
-%\item Övergripande, det fungerar
-%\end{itemize}
 The suitability evaluation showed that ICN is successful in retreiving low latency values between data creation until it reaches the user. When using of ICNs \textit{PIT} and sending the \textit{interest} messages before the data has been created, ICN can eliminate unnecessary waiting time between data creation and until it is sent. Thereby achiving similar latencies as using MQTT.
 
 The algortihm presented in this thesis is a first attempt to pull data periodically produced at a fixed interval. The algorithm proved to be successful in retreiving data over long periods of time, no timeouts occured during the tests. %In order for it to work properly, it needs a reference time, the length of the interval, 
 
-As the experiment shows presented earlier, the algorithm can fend off high variations in roundtrip times without any issues. It is because of the logics behind the smoothed round trip time that makes the latency values more or less varying. As $\alpha$ grows, the significance of the smoothed round trip decrease. 
+As the experiment shows presented earlier, the algorithm handles high variations in roundtrip times without any issues. It is because of the logics behind the smoothed round trip time that makes the latency values more or less varying. As $\alpha$ grows, the significance of the smoothed round trip decrease. 
 
-Although the variating latencies, it continues to deliver a stable stream of data towards the consumer. 
-Beskriv när brytpunkten sker.
+The algorithm handles variances in clock drift to a certain degree. When the data producing interval at the sensor is greater than the consumers, the system stays stable. The length of the \textit{interest} messages timeout, at the consumer, is the only variable that then can cause the algorithm to become unstable. When the data producing interval, at the sensor, is negative compared to the consumer the algortihm handles a limited difference in interval length. The difference between the \textit{rtt$\_$target} and \textit{rtt$\_$min} must be greater than the drift between the consumer interval and the producer, otherwise the system will become unstable.
 
-
+The conclusions drawn in this thesis is that the communication paradigm ICN provides can be a suitable alternative, in comparision to MQTT, in the IoT domain. A consumer, which was represented as a border gateway, can receive produced data from the producer with a lowest possible latency when it uses the algorithm provided in this thesis. 
 
 %In order for it to work properly, it needs a reference time, length of the interval, 
 %It was successful in pulling data even though there was a high $\alpha$,
@@ -45,24 +41,24 @@ Beskriv när brytpunkten sker.
 %Även om rundtrip tiderna varierade, oftast på grund av ett högt satt alpha, kunde algorithmen parera för detta och leverera datat stabilt till användaren.
 
 
-\begin{itemize}
-\item Varfor det fungerar
-\item Fungerar bra for olika deklay pa klockan.
-\end{itemize}
-=======
-\begin{itemize}
-\item Total verdict
-TOTAL verdict.
-The two evaluations combined, have shown that it is feasible to use ICN as a communication paradigm in the IoT domian. 
-\end{itemize}
-
-\begin{itemize}
-\item kort om vad som har gjortst
-\item beskrvi performance evaluation
-\item beskriv feasibile evaluation
-\item beskrvi den mer i detalj.
-\item beskriv helheten att det fungerar bra om man kor det i bode kortare och langre tidsserier.
-\end{itemize}
+%\begin{itemize}
+%\item Varfor det fungerar
+%\item Fungerar bra for olika deklay pa klockan.
+%\end{itemize}
+%=======
+%\begin{itemize}
+%\item Total verdict
+%TOTAL verdict.
+%The two evaluations combined, have shown that it is feasible to use ICN as a communication paradigm in the IoT domian. 
+%\end{itemize}
+%
+%\begin{itemize}
+%\item kort om vad som har gjortst
+%\item beskrvi performance evaluation
+%\item beskriv feasibile evaluation
+%\item beskrvi den mer i detalj.
+%\item beskriv helheten att det fungerar bra om man kor det i bode kortare och langre tidsserier.
+%\end{itemize}
 \newpage
 \input{section/future_work.tex}
 
