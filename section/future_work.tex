@@ -1,13 +1,49 @@
 \subsection{Future work}
 %To further explore the usage of ICN in IoT networks there are several interesting aspects to consider.
 This thesis only showed a subset of the performance and suitability of using ICN in IoT networks. There are several other interesting aspects to consider for future studies. 
+In this paper, the communication pattern was only between a gateway and a sensor. One of the more critical aspects is how well ICN would perform if the network would scale and how it would impact the performance overall. 
+In a normal usage pattern, it would likely be several users wanting to access the produced data. A future aspect to consider is how well ICN would perform if the network would scale up and how it would impact the performance. There are indications from this thesis that the sensors processing power is to slow to handle several \textit{interest} messages and deliver responses towards multiple users.
+
+The algorithm presented here gives an user the possiblity to retreive data that is sequentially produced at a fixed interval. Growing out of this, there are several different interesting fields for future studies.
+
+The interval rate at when the producer creates data is known in advance by the consumer. Although this interval does not have to be exact, a rough estimation has to be given, otherwise the consumers algorithm will not work properly. It would be of interest to see if it is possible to develop an algorithm that can handle larger variations in interval length when the data is created. 
 
 
-\begin{itemize}
-\item Scalability
-\end{itemize}
-%The scalability aspect is 
+
+
+
 \begin{itemize}
 \item Interval changes on the sensor. Now the drift is constant. Would be interesting to see how it could handle a variated interval.
 \end{itemize}
+Algoritm, 
+\begin{itemize}
+\item interval changes, drift\\
+
+One is how to handle if the interval changes over time. 
+\end{itemize}
+\begin{itemize}
+\item how to get closer and reduce the overall latency time from a consumers perspective. \\
+Another aspect is how to reduce the overall latency from a consumers perspective. At this moment, the algorithm only provides \\
+Other interesting areas conserns when to send the interest message, how long in advance it can be sent in order to make it efficient. 
+
+\end{itemize}
+\begin{itemize}
+\item Energy consumption, several burts, sleep time\\
+
+Other interesting areas concerns if there can be advantages by sending out a burts of \textit{interest} messages toward the sensor. Instead of sending an \textit{interest} message at the time This would make the round trip times grow for the consumer, but since it is a reasonable assumption that the user knows 
+
+
+Another interesting area concerns if there can be advantages by sending out burts of \textit{interest} messages toward the sensor instead of sending one at a time and wait for the response. This would make the round trip times grow for the consumer, but it can 
+Througout this thesis, there has been an assumption that sending one at the time is the best way to go. This is not by default the best way from a energy consumption perspective.  By sending bursts, the sensor could flag that 
+
+
+\end{itemize}
+\begin{itemize}
+\item Getting the latest sequence\\
+The data produced by IoT devices is normally stamped with a sequence number that indicates when in time the data has been produced. In order to find the latest sequence available there 
+
+There are several ways to find the latest sequence number available at the sensor. Troughout this thesis, the assumption has been made that this is known in advanced. 
+
+\end{itemize}
+
 
