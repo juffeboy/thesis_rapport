@@ -13,23 +13,23 @@
 %\item Its a suitable system. Works flawlessly.
 %\end{itemize} 
 
-The aim of this study was to evaluate the useability of ICN in the IoT domain. If it is a suitible candidate that potentially could replace MQTT as an communication paradigm.
-The evaluation considered performance measurements of application components, its overall latency and the feasibility of using IoT in the IoT domain.
+The aim of this study was to evaluate the applicability of ICN in the IoT domain. If it is a suitible candidate that potentially could replace MQTT as an communication paradigm.
+The evaluation considered performance measurements of application components, its overall latency and the feasibility of using ICN in the IoT domain.
 
-The performance evaluation showed that the CCN-lite application is successful in deliver a low latency between a sensornode and its gateway. 
+The performance evaluation showed that the CCN-lite application is successful in delivering a low latency between a sensornode and its gateway. 
 When using the CCN peek application to retrieve data from the sensors CCN-lite application, it performs only a few milliseconds slower compared to the ping counterpart.
 
-The optimization of the CCN-lite application code at the sensor shows that part of the long round trip times experienced earlier was due to various debug messages that was printed on the console. Furthermore, the sensor was put into sleep mode of a short period of time for each \textit{interest} message it received. The optimization of the code resulted in around 100 ms faster round trip times compared to before. From round trip times of 130 ms to less than 30 ms.
+The optimization of the CCN-lite application code at the sensor shows that part of the long round trip times experienced earlier was due to various debug messages that were printed on the console. Furthermore, the sensor was put into sleep mode for a short period of time for each \textit{interest} message it received. The optimization of the code resulted in around 100 ms faster round trip times compared to before. From round trip times of 130 ms to less than 30 ms.
 
-The suitability evaluation showed that ICN is successful in retreiving low latency values between data creation until it reaches the user. When using of ICNs \textit{PIT} and sending the \textit{interest} messages before the data has been created, ICN can eliminate unnecessary waiting time between data creation and until it is sent. Thereby achiving similar latencies as using MQTT.
+The suitability evaluation showed that ICN is successful in retreiving low latency values between the creation of data until it reaches the user. When using of ICNs \textit{PIT} and sending the \textit{interest} messages before the data has been created, ICN can eliminate unnecessary waiting time between data creation and sending it. Thereby achiving similar latencies as using MQTT.
 
 The algortihm presented in this thesis is a first attempt to pull data periodically produced at a fixed interval. The algorithm proved to be successful in retreiving data over long periods of time, no timeouts occured during the tests. %In order for it to work properly, it needs a reference time, the length of the interval, 
 
-As the experiment shows presented earlier, the algorithm handles high variations in roundtrip times without any issues. It is because of the logics behind the smoothed round trip time that makes the latency values more or less varying. As $\alpha$ grows, the significance of the smoothed round trip decrease. 
+As the experiment shows, the algorithm handles high variations in roundtrip times without any issues. It is because of the logics behind the smoothed round trip time that makes the latency values more or less varying. As $\alpha$ grows, the significance of the smoothed round trip decreases. 
 
-Based on the findings in this thesis, the algorithm handles variances in clock drift to a certain degree. When the data producing interval at the sensor is greater than the consumers, the system stays stable. The length of the \textit{interest} messages timeout, at the consumer, is the only variable that then can cause the algorithm to become unstable. When the data producing interval, at the sensor, is negative compared to the consumer the algortihm handles a limited difference in interval length. The difference between the \textit{rtt$\_$target} and \textit{rtt$\_$min} must be greater than the drift between the consumer interval and the producer, otherwise the system will become unstable.
+Based on the findings in this thesis, the algorithm handles variances in clock drift to a certain degree. When the data producing interval at the sensor is greater than the consumer's, the system stays stable. The length of the \textit{interest} message's timeout, at the consumer is the only variable that then can cause the algorithm to become unstable. When the data producing interval at the sensor is negative compared to the consumer the algortihm handles a limited difference in interval length. The difference between the \textit{rtt$\_$target} and \textit{rtt$\_$min} has to be be greater than the drift between the consumer interval and the producer, otherwise the system will become instable.
 
-The conclusions drawn in this thesis is that the communication paradigm ICN provides can be a suitable alternative, in comparision to MQTT, in the IoT domain. A consumer, which was represented as a border gateway, can receive produced data from the producer with a lowest possible latency when it uses the algorithm provided in this thesis. 
+The conclusion drawn in this thesis is that the communication paradigm ICN provides can be a suitable alternative, in comparision to MQTT, in the IoT domain. A consumer, which was represented as a border gateway, can receive produced data from the producer with lowest possible latency when it uses the algorithm provided in this thesis. 
 
 %In order for it to work properly, it needs a reference time, length of the interval, 
 %It was successful in pulling data even though there was a high $\alpha$,
