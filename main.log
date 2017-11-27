@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  26 NOV 2017 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  28 NOV 2017 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,65 +996,80 @@ LaTeX Warning: Marginpar on page 5 moved.
 ) [5]) [6] (/Users/johan.carlquist/Documents/exjobb/rapport/section/background.
 tex (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/iot.tex
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--22
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--22
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--22
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--22
+Underfull \hbox (badness 10000) in paragraph at lines 19--28
 
  []
 
-[7] <figures/802-15-4-topologies.png, id=296, 490.83376pt x 215.80624pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--28
+
+ []
+
+[7] <figures/802-15-4-topologies.png, id=295, 490.83376pt x 215.80624pt>
 File: figures/802-15-4-topologies.png Graphic file (type png)
 <use figures/802-15-4-topologies.png>
-Package pdftex.def Info: figures/802-15-4-topologies.png used on input line 26.
+Package pdftex.def Info: figures/802-15-4-topologies.png used on input line 32.
 
 (pdftex.def)             Requested size: 369.88583pt x 162.6347pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 
  []
 
 [8 </Users/johan.carlquist/Documents/exjobb/rapport/figures/802-15-4-topologies
-.png>] <figures/6lowpan-own.png, id=315, 522.95375pt x 241.90375pt>
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
+ []
+
+<figures/6lowpan-own.png, id=315, 522.95375pt x 241.90375pt>
 File: figures/6lowpan-own.png Graphic file (type png)
 <use figures/6lowpan-own.png>
-Package pdftex.def Info: figures/6lowpan-own.png used on input line 50.
+Package pdftex.def Info: figures/6lowpan-own.png used on input line 56.
 (pdftex.def)             Requested size: 369.88583pt x 171.10321pt.
 
-Overfull \hbox (2.7443pt too wide) in paragraph at lines 58--64
+Overfull \hbox (2.7443pt too wide) in paragraph at lines 64--70
 \T1/cmr/m/n/10 Message Queu-ing Teleme-try Trans-port(MQTT) is a open lightweig
 ht publish-subscribe
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--64
+Underfull \hbox (badness 10000) in paragraph at lines 64--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--64
+Underfull \hbox (badness 10000) in paragraph at lines 64--70
 
  []
 
 [9 </Users/johan.carlquist/Documents/exjobb/rapport/figures/6lowpan-own.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 68--75
+Underfull \hbox (badness 10000) in paragraph at lines 74--81
 
  []
 
@@ -1123,12 +1138,12 @@ File: figures/CCN-architecture.png Graphic file (type png)
 <use figures/CCN-architecture.png>
 Package pdftex.def Info: figures/CCN-architecture.png used on input line 43.
 (pdftex.def)             Requested size: 369.88583pt x 244.32748pt.
-
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
-[12])
+)
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
 [13 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
 ng>])) [14] (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementa
@@ -1346,7 +1361,7 @@ al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (37 
-pages, 598039 bytes).
+pages, 598434 bytes).
 PDF statistics:
  641 PDF objects out of 1000 (max. 8388607)
  571 compressed objects within 6 object streams
