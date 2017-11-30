@@ -1,14 +1,38 @@
 \section{Discussion}
 This sections discuss the measurements obtained in Section 4 and 5.
-\begin{itemize}
-\item Questionize your result
-\item Arugment that it is cool.
-\item It can handles constant time.
-\item it is not a normal regulator that can change the interval.
-\item that is not the purpose of it either
-\item 
-\end{itemize}
+%\begin{itemize}
+%\item Questionize your result
+%\item Arugment that it is cool.
+%\item It can handles constant time.
+%\item it is not a normal regulator that can change the interval.
+%\item that is not the purpose of it either
+%\end{itemize}
 
 \subsection{Performance evaluation}
+%\begin{itemize}
+%\item Clock, jumping result
+%\item min values
+%\item RTT-values allmänt, diskutera mer utvecklat kring Sparrow. Det tar tid.
+%\end{itemize}
+The performance evaluation was created to measure the overhead it takes to compute the CCN application for IoT devices. Although the results was exciting overall and gave answers to several questions it also opened up fore some speculations on why.
+
+%The difference in peek times when using the debugger to print information or not is around 10 ms in the general case. Altough it is 
+Some of the min values that occurs are around 40 $\%$ less than the median/average value. At first glance, this was thought to be proof that the general latency time could be lowered, but since there are only a few of these outliners there seems to be some other reason why these lower values occurs. They apper more often the lower the data packet is which indicates that it has more to do with something in the transportation layer and how the data is package.
+
+One can argue that the round trip times is generally high, with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. According to the developers of Sparrow, Mats Finne and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Moreover how the pthread is handling some specific polling function. Due to the fact that it is because of the gateway which affects both cases, it does not effect the performance evaluation in any way.
+
 \subsection{Feasiblity evaluation}
+\begin{itemize}
+\item It handles constant time drift
+\item its not a normal regulator that can change interval
+\item Handles the drift very well.
+\end{itemize}
+
 \subsection{Method Critquie}
+To evaluate the usage of ICN in the IoT domain this thesis has provided an
+
+This thesis has provided an evaluation of the usage of ICN in the IoT domain through an experimental approach. The experiments was done
+To test, 
+The performance was tested under realistic scenarios in a controlled envrionment, as well with the suitablility evaluation.
+
+
