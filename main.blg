@@ -33,6 +33,8 @@ Warning--entry type for "RP3" isn't style-file defined
 --line 195 of file sample.bib
 Warning--entry type for "Firefly" isn't style-file defined
 --line 200 of file sample.bib
+Warning--entry type for "Gartner" isn't style-file defined
+--line 205 of file sample.bib
 Warning--empty booktitle in yanqui
 Warning--empty author in 6185525
 Warning--empty author in rfc791
@@ -40,45 +42,45 @@ Warning--empty institution in rfc791
 Warning--empty institution in rfc2460
 Warning--empty institution in rfc4944
 Warning--empty institution in rfc7959
-You've used 24 entries,
+You've used 26 entries,
             1791 wiz_defined-function locations,
-            568 strings with 7476 characters,
-and the built_in function-call counts, 4271 in all, are:
-= -- 353
-> -- 191
+            577 strings with 7699 characters,
+and the built_in function-call counts, 4507 in all, are:
+= -- 370
+> -- 200
 < -- 4
-+ -- 76
-- -- 52
-* -- 225
-:= -- 627
-add.period$ -- 64
-call.type$ -- 24
-change.case$ -- 28
++ -- 80
+- -- 54
+* -- 228
+:= -- 656
+add.period$ -- 68
+call.type$ -- 26
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 195
-empty$ -- 477
-format.name$ -- 52
-if$ -- 996
+cite$ -- 33
+duplicate$ -- 205
+empty$ -- 513
+format.name$ -- 54
+if$ -- 1055
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 26
 missing$ -- 9
-newline$ -- 112
-num.names$ -- 14
-pop$ -- 112
+newline$ -- 120
+num.names$ -- 15
+pop$ -- 125
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 127
+skip$ -- 138
 stack$ -- 0
 substring$ -- 142
-swap$ -- 48
+swap$ -- 50
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 7
-while$ -- 28
-width$ -- 26
-write$ -- 222
-(There were 22 warnings)
+while$ -- 29
+width$ -- 28
+write$ -- 237
+(There were 23 warnings)

@@ -1,18 +1,14 @@
 \subsection{Internet of Things - network stack}
 
-\begin{itemize}
-%	\item Describe the devices similarity, that they often are the same. High level of hetrogenous.
-	\item Normal ISO model stack
-%	\item Can not use a normal ISO model due to high overhead.
-	\item SHORT about zigbee, bluetooth.
-\end{itemize}
+%\begin{itemize}
+%	\item Normal ISO model stack
+%	\item SHORT about zigbee, bluetooth.
+%\end{itemize}
 
 IoT networks is designed after the traditional OSI model, where devices uses the different protocol layers, as shown in figure \ref{fig:ip-6lowpan-stack}, in order to communicate with each other. 
-Due to the nature of IoT devices where performance constrants and power limitations are severe, some regular communication layer protocols are too heavy to be used within the IoT domain.
+Due to the nature of IoT devices where performance constraints and power limitations are in focus, some regular communication layer protocols are too heavy to be used within the IoT domain.
 \\\\
-One such protocol is the wireless 802.11 (WiFi) which has several advantages when considering it for IoT. It is a well established protocol with large support in the industry, especially outside the IoT-domain. The negative aspects of it is the relative high power consumption that makes it infeasible for some cases of IoT. With speeds over 500 mbit/s, it also provides a bandwith that is way above the needs of a constrained sensor device. 
-\\\\
-
+The wireless 802.11 (WiFi) standard is one such protocol where its high power consumption makes it infeasible to use for some IoT devices. With speeds over 500 mbit/s, it also provides a bandwith that is way above the needs of a constrained sensor device. There are several wireless alternative, but the IEEE 802.15.4 standard is focused here because of its simplicity.
 
 
 \subsubsection{IEEE 802.15.4}

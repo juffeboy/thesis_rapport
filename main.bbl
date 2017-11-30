@@ -61,6 +61,14 @@ Emmanuel Baccelli, Christian Mehlis, Oliver Hahm, Thomas~C. Schmidt, and
 Riot.
 \newblock \url{https://riot-os.org/} visited 2017-10-10.
 
+\bibitem{Gartner}
+Forecast: The internet of things, worldwide, 2013.
+\newblock \url{https://www.gartner.com/newsroom/id/2636073} visited 2017-10-20.
+
+\bibitem{TRIAD}
+D.R. Cheriton and M.~Gritter.
+\newblock Triad: A new next-generation internet architecture, 2000.
+
 \bibitem{6185525}
 Ieee standard for local and metropolitan area networks--part 15.4: Low-rate
   wireless personal area networks (lr-wpans) amendment 1: Mac sublayer.
