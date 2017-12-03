@@ -14,7 +14,7 @@ This sections discuss the measurements obtained in Section 4 and 5.
 %\item min values
 %\item RTT-values allmänt, diskutera mer utvecklat kring Sparrow. Det tar tid.
 %\end{itemize}
-The performance evaluation was created to measure the overhead it takes to compute the CCN application for IoT devices. Although the results was exciting overall and gave answers to several questions it also opened up fore some speculations on why.
+The performance evaluation was created to measure the overhead it takes to compute the CCN application for IoT devices. Although the results was exciting overall and gave answers to several questions it also opened up for further speculations.
 
 %The difference in peek times when using the debugger to print information or not is around 10 ms in the general case. Altough it is 
 Some of the min values that occurs are around 40 $\%$ less than the median/average value. At first glance, this was thought to be proof that the general latency time could be lowered, but since there are only a few of these outliners there seems to be some other reason why these lower values occurs. They apper more often the lower the data packet is which indicates that it has more to do with something in the transportation layer and how the data is package.
@@ -22,11 +22,37 @@ Some of the min values that occurs are around 40 $\%$ less than the median/avera
 One can argue that the round trip times is generally high, with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. According to the developers of Sparrow, Mats Finne and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Moreover how the pthread is handling some specific polling function. Due to the fact that it is because of the gateway which affects both cases, it does not effect the performance evaluation in any way.
 
 \subsection{Feasiblity evaluation}
+The suitablility evaluation was created to show the possiblility of retreiving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. The algorithm developed in this thesis was a first attempt to enable such functionallity for ICN in IoT networks.
+
 \begin{itemize}
 \item It handles constant time drift
 \item its not a normal regulator that can change interval
 \item Handles the drift very well.
 \end{itemize}
+
+\begin{itemize}
+\item Jumping results
+\item Lowering RTTmin
+\item interval, the assumption of same length
+\item handle timeouts
+\end{itemize}
+During the develop phase, discussions on how to handle timeouts were sever
+During the develop phase, there were several ideas on how to handle timeouts. The conclusion was that 
+The results shown in Section 5 did not give any timeouts, 
+\begin{itemize}
+\item Getting wrong sequence, error handling.
+\end{itemize}
+
+The algorithm has limited error correcting capabilities and the results does not show any data on how it handles errors. Two issues that can occur is timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. It handles timeouts without any greater difficulties, but it has problems in some cases to recover from when asking the wrong sequence number. 
+
+Timeouts:
+
+
+sequence number:
+Det är ok om den (konsumenten) kommer ligger ett, eller flera nummber, bakom. Men den kan inte hantera om den ligger ett, eller flera, sekvensnummer före.
+
+
+
 
 \subsection{Method Critquie}
 To evaluate the usage of ICN in the IoT domain this thesis has provided an
