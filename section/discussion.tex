@@ -34,22 +34,21 @@ The suitablility evaluation was created to show the possiblility of retreiving d
 \item Jumping results
 \item Lowering RTTmin
 \item interval, the assumption of same length
-\item handle timeouts
 \end{itemize}
-During the develop phase, discussions on how to handle timeouts were sever
-During the develop phase, there were several ideas on how to handle timeouts. The conclusion was that 
-The results shown in Section 5 did not give any timeouts, 
+
 \begin{itemize}
+\item handle timeouts
 \item Getting wrong sequence, error handling.
 \end{itemize}
 
-The algorithm has limited error correcting capabilities and the results does not show any data on how it handles errors. Two issues that can occur is timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. It handles timeouts without any greater difficulties, but it has problems in some cases to recover from when asking the wrong sequence number. 
+The algorithm has limited error correcting capabilities and the results does not show any data on how it handles errors. Two issues that can occur is timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
 
-Timeouts:
+It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occur, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. It is because it saves the previous correlation factor that it is able to keep the ``state'' for some period of time. Due to the test was not configured to focus on timeouts specifically, no further investigations has been carried out.
 
-
-sequence number:
-Det är ok om den (konsumenten) kommer ligger ett, eller flera nummber, bakom. Men den kan inte hantera om den ligger ett, eller flera, sekvensnummer före.
+There are more problems to recover from when the sequence number gets unsynced between the producer and the consumer. 
+It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore it has not been tested specifically either, but within the tests carried out by the thesis, some directions and answers has shown how the system handles such errors when possible.
+Depending on how many data entries the producers \textit{cache} can hold, the consumer can be at most the \textit{cache size minus one} sequence numbers after the current data and still be able to retreive the data. 
+Another possibility is that the size of the producers \textit{pit} is large enough to handle several incoming requests and that it is able to hold them for until their data is produced. 
 
 
 
