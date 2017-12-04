@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1512073617 "main.aux" "main.bbl" "main" 1512337846
+["bibtex main"] 1512073617 "main.aux" "main.bbl" "main" 1512417227
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "main.aux" 1512337846 21303 819dbeb374a4322d54a90e863f89f95c ""
   "main.bcf" 0 -1 0 ""
   "sample.bib" 1511899694 8521 4ea6aee034fd14f9861bb80c31244738 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1512337841 "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf" "main" 1512337846
+  "main.blg"
+["pdflatex"] 1512337841 "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf" "main" 1512417227
   "/Users/johan.carlquist/Documents/exjobb/rapport/main.aux" 1512337846 21303 819dbeb374a4322d54a90e863f89f95c ""
-  "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" 1512337525 1710 0e2bdd9439eb3a11e15af22ad5557eb6 ""
+  "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" 1512337849 1710 0e2bdd9439eb3a11e15af22ad5557eb6 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -244,7 +244,7 @@
   "main.aux" 1512337846 21303 819dbeb374a4322d54a90e863f89f95c ""
   "main.bbl" 1512073617 4932 6a82187f83e1c183efb1d07286e987c1 "bibtex main"
   "main.out" 1512337846 2720 35a49e4c428530ca8b4eb9866e562daa ""
-  "main.tex" 1512337525 1710 0e2bdd9439eb3a11e15af22ad5557eb6 ""
+  "main.tex" 1512337849 1710 0e2bdd9439eb3a11e15af22ad5557eb6 ""
   "main.toc" 1512337846 3982 5b53683dff00c24b7eaf32d6e62b8b52 ""
   "section/abstract.tex" 1511900222 463 69f6130d62143604bf88f2627a1cb1f0 ""
   "section/background.tex" 1512337801 1691 781f65d989895f4ea8bd1333b52719f7 ""
@@ -264,11 +264,11 @@
   "section/resultat/ping-peek.tex" 1512301010 23650 c94da51b6ac2176db8e512685121e95d ""
   "section/resultat/suitable.tex" 1509953308 61461 ff1519ab4517e88508a50950ce99a70c ""
   (generated)
-  "/Users/johan.carlquist/Documents/exjobb/rapport/main.log"
-  "main.toc"
   "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf"
   "main.aux"
-  "main.pdf"
-  "main.lof"
-  "main.log"
   "main.out"
+  "main.log"
+  "main.toc"
+  "main.lof"
+  "main.pdf"
+  "/Users/johan.carlquist/Documents/exjobb/rapport/main.log"
