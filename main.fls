@@ -314,8 +314,14 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT /usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/popularvetenskaplig-sammanfattning.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/popularvetenskaplig-sammanfattning.tex
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/acknowledgements.tex
+INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/acknowledgements.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.toc
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.toc
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm
@@ -325,8 +331,6 @@ OUTPUT /Users/johan.carlquist/Documents/exjobb/rapport/main.toc
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/introduction.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/introduction.tex
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
 INPUT /Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
