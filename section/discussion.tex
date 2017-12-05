@@ -1,12 +1,5 @@
 \section{Discussion}
-This sections discuss the measurements obtained in Section 4 and 5.
-%\begin{itemize}
-%\item Questionize your result
-%\item Arugment that it is cool.
-%\item It can handles constant time.
-%\item it is not a normal regulator that can change the interval.
-%\item that is not the purpose of it either
-%\end{itemize}
+This sections discuss the measurements obtained in Section 4 and 5. %Additionally the methodology used will be discussed.
 
 \subsection{Performance evaluation}
 %\begin{itemize}
@@ -23,26 +16,33 @@ Some of the min values that occur are around 40 $\%$ less than the median/averag
 
 The round trip time is generally high with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. One can aruge that there are two factors affecting the round trip time. According to the developers of the Sparrow software, Mats Finns and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Secondly, it depends on the way pthread is handeling some specific polling function. Since both of these factors are caused by the same software in the gateway, they do not affect the performance evaluation.
 
-\subsection{Feasiblity evaluation}
+\subsection{Suitability evaluation}
 The suitablility evaluation was created to show the possiblility of retreiving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. The algorithm developed in this thesis was a first attempt to enable such functionallity for ICN in IoT networks.
 
-\begin{itemize}
-\item It handles constant time drift
-\item its not a normal regulator that can change interval
-\item Handles the drift very well.
-\end{itemize}
+%\begin{itemize}
+%\item Jumping results
+%\item Lowering RTTmin
+%\item interval, the assumption of same length
+%\end{itemize}
+The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows.
+The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
+A devation has to do with when a value was slightly delayed for some reason. Then it is compensated at the next iteration. If it the delay continues, the algortihm overcompensate which result in a devation towards the otherside. On the other hand, if the delay becomes stable after the compensation, the variation ends.
+One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, has to with the additional tick it takes to consume an \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier with minimum printing and essential printing in the performance evaluation.
 
-\begin{itemize}
-\item Jumping results
-\item Lowering RTTmin
-\item interval, the assumption of same length
-\end{itemize}
+%\begin{itemize}
+%\item It handles constant time drift
+%\item its not a normal regulator that can change interval
+%\item Handles the drift very well.
+%\end{itemize}
+Currently the algortihm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algortihm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initiated value. However, no problem related to the \textit{rtt$\_$min} occured during the thesis.
 
-\begin{itemize}
-\item handle timeouts
-\item Getting wrong sequence, error handling.
-\end{itemize}
+A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algortihmm. 
+As the results show, the system continued to work for differences up to -2$\%$. Initial tests was done with up to -5$\%$, but then the system crashed.
 
+%\begin{itemize}
+%\item handle timeouts
+%\item Getting wrong sequence, error handling.
+%\end{itemize}
 The algorithm has limited error correcting capabilities and the results does not show any data on how it handles errors. Two issues that can occur is timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
 
 It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occur, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. It is because it saves the previous correlation factor that it is able to keep the ``state'' for some period of time. Due to the test was not configured to focus on timeouts specifically, no further investigations has been carried out.
@@ -55,11 +55,11 @@ Another possibility is that the size of the producers \textit{pit} is large enou
 
 
 
-\subsection{Method Critquie}
-To evaluate the usage of ICN in the IoT domain this thesis has provided an
-
-This thesis has provided an evaluation of the usage of ICN in the IoT domain through an experimental approach. The experiments was done
-To test, 
-The performance was tested under realistic scenarios in a controlled envrionment, as well with the suitablility evaluation.
+%\subsection{Method Critquie}
+%To evaluate the usage of ICN in the IoT domain this thesis has provided an
+%
+%This thesis has provided an evaluation of the usage of ICN in the IoT domain through an experimental approach. The experiments was done
+%To test, 
+%The performance was tested under realistic scenarios in a controlled envrionment, as well with the suitablility evaluation.
 
 
