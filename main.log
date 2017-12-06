@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  5 DEC 2017 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  6 DEC 2017 20:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1070,26 +1070,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--48
 <figures/6lowpan-own.png, id=329, 522.95375pt x 241.90375pt>
 File: figures/6lowpan-own.png Graphic file (type png)
 <use figures/6lowpan-own.png>
-Package pdftex.def Info: figures/6lowpan-own.png used on input line 52.
+Package pdftex.def Info: figures/6lowpan-own.png used on input line 54.
 (pdftex.def)             Requested size: 369.88583pt x 171.10321pt.
 
-Overfull \hbox (2.7443pt too wide) in paragraph at lines 60--66
+Overfull \hbox (2.7443pt too wide) in paragraph at lines 62--68
 \T1/cmr/m/n/10 Message Queu-ing Teleme-try Trans-port(MQTT) is a open lightweig
 ht publish-subscribe
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--66
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--66
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
 
  []
 
 [11 </Users/johan.carlquist/Documents/exjobb/rapport/figures/6lowpan-own.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 70--77
+Underfull \hbox (badness 10000) in paragraph at lines 72--79
 
  []
 
@@ -1382,7 +1382,7 @@ al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (41 
-pages, 622558 bytes).
+pages, 622625 bytes).
 PDF statistics:
  668 PDF objects out of 1000 (max. 8388607)
  593 compressed objects within 6 object streams

@@ -1,5 +1,5 @@
 \section{Discussion}
-This sections discuss the measurements obtained in Section 4 and 5. %Additionally the methodology used will be discussed.
+This section discuss the measurements obtained in Section 4 and 5. %Additionally the methodology used will be discussed.
 
 \subsection{Performance evaluation}
 %\begin{itemize}
@@ -7,17 +7,16 @@ This sections discuss the measurements obtained in Section 4 and 5. %Additionall
 %\item min values
 %\item RTT-values allmänt, diskutera mer utvecklat kring Sparrow. Det tar tid.
 %\end{itemize}
-The performance evaluation was created to measure the overhead it takes to compute the CCN application for IoT devices. Although the results were impressive overall and gave answers to several questions, they also opened up for further speculations.
+The latency performance evaluation was set up to measure hte overhead it takes to compute the CCN communication protocol used as an application for communication between IoT devices. Although the results were impressive overall and gave answers to several questions, they also opened up for further speculations.
 
-%The difference in peek times when using the debugger to print information or not is around 10 ms in the general case. Altough it is 
-Some of the min values that occur are around 40 $\%$ less than the median/average value. At first glance, this was thought to be proof that the general latency time could be lowered, but since there are only a few of these outliers there seem to be some other reasons why these lower values occur. They apper more often the lower the data packet is, which indicates that it is linked with something in the transportation layer and how the data is package.
+Some of the min values that occur are around 40 $\%$ less than the median/average value. At first glance, this was thought to be proof that the general latency time could be lowered, but since there are only a few of these outliers there seem to be other reasons why these lower values occur. They appear more often the smaller the data packet is, which indicates that it is linked with something in the transport layer and how the data is packaged.
 %
 %One can argue that the round trip times is generally high, with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. According to the developers of Sparrow, Mats Finne and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Moreover how the pthread is handling some specific polling function. Due to the fact that it is because of the gateway which affects both cases, it does not effect the performance evaluation in any way.
 
-The round trip time is generally high with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. One can aruge that there are two factors affecting the round trip time. According to the developers of the Sparrow software, Mats Finns and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Secondly, it depends on the way pthread is handeling some specific polling function. Since both of these factors are caused by the same software in the gateway, they do not affect the performance evaluation.
+The round trip time is generally high with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. One can argue that there are two factors affecting the round trip time. According to the developers of the Sparrow software, Mats Finns and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Secondly, it depends on the way pthread is handling some specific polling function. Since both of these factors are caused by the same software in the gateway, they do not affect the performance evaluation.
 
 \subsection{Suitability evaluation}
-The suitablility evaluation was created to show the possiblility of retreiving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. The algorithm developed in this thesis was a first attempt to enable such functionallity for ICN in IoT networks.
+The suitablility evaluation was created to show the feasibility of retrieving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. The algorithm developed in this thesis was a first attempt to enable such functionality for ICN in IoT networks.
 
 %\begin{itemize}
 %\item Jumping results
@@ -26,31 +25,31 @@ The suitablility evaluation was created to show the possiblility of retreiving d
 %\end{itemize}
 The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows.
 The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
-A devation has to do with when a value was slightly delayed for some reason. Then it is compensated at the next iteration. If it the delay continues, the algortihm overcompensate which result in a devation towards the otherside. On the other hand, if the delay becomes stable after the compensation, the variation ends.
-One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, has to with the additional tick it takes to consume an \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier with minimum printing and essential printing in the performance evaluation.
+Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algortihm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
+One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume an \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
 
 %\begin{itemize}
 %\item It handles constant time drift
 %\item its not a normal regulator that can change interval
 %\item Handles the drift very well.
 %\end{itemize}
-Currently the algortihm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algortihm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initiated value. However, no problem related to the \textit{rtt$\_$min} occured during the thesis.
+Currently the algortihm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algortihm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initiated value. However, problems related to the \textit{rtt$\_$min}, did not occur during the thesis.
 
-A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algortihmm. 
-As the results show, the system continued to work for differences up to -2$\%$. Initial tests was done with up to -5$\%$, but then the system crashed.
+A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algorithm. 
+As the results show, the system continued to work for differences up to -2$\%$. Initial tests were done with up to -5$\%$. Then however, the system crashed.
 
 %\begin{itemize}
 %\item handle timeouts
 %\item Getting wrong sequence, error handling.
 %\end{itemize}
-The algorithm has limited error correcting capabilities and the results does not show any data on how it handles errors. Two issues that can occur is timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
+The algorithm has limited error correcting capabilities and the results do not show any data on how it handles errors. Two issues that can occur are timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
 
-It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occur, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. It is because it saves the previous correlation factor that it is able to keep the ``state'' for some period of time. Due to the test was not configured to focus on timeouts specifically, no further investigations has been carried out.
+It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occures, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. This is caused by the serving of the previous correlation factor, so that it is able to keep the ``state'' for some period of time. Since the test was not configured to focus on timeouts specifically, no further investigations have been carried out.
 
 There are more problems to recover from when the sequence number gets unsynced between the producer and the consumer. 
-It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore it has not been tested specifically either, but within the tests carried out by the thesis, some directions and answers has shown how the system handles such errors when possible.
+It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore, it has not been tested specifically either, but within the tests carried out by the thesis, some directions and answers have shown how the system handles such errors when they occur.
 Depending on how many data entries the producers \textit{cache} can hold, the consumer can be at most the \textit{cache size minus one} sequence numbers after the current data and still be able to retreive the data. 
-Another possibility is that the size of the producers \textit{pit} is large enough to handle several incoming requests and that it is able to hold them for until their data is produced. 
+Another possibility is that the size of the producers \textit{PIT} is large enough to handle several incoming requests and that it is able to hold them for until their data is produced. 
 
 
 
