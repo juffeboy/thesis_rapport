@@ -13,10 +13,11 @@ Some of the min values that occur are around 40 $\%$ less than the median/averag
 %
 %One can argue that the round trip times is generally high, with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. According to the developers of Sparrow, Mats Finne and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Moreover how the pthread is handling some specific polling function. Due to the fact that it is because of the gateway which affects both cases, it does not effect the performance evaluation in any way.
 
-The round trip time is generally high with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. One can argue that there are two factors affecting the round trip time. According to the developers of the Sparrow software, Mats Finns and Joakim Eriksson, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Secondly, it depends on the way pthread is handling some specific polling function. Since both of these factors are caused by the same software in the gateway, they do not affect the performance evaluation.
+The round trip time is generally high with ping6 commands at around 25 ms compared with general speeds of 1-2 ms in a local network. One can argue that there are two factors affecting the round trip time. According to Niclas Finne and Joakim Eriksson who developed the Sparrow software, which is the border gateway to the sensor network, it is due to settings in the software that set a delay between each fragment when communicating with the serial-radio. Secondly, it depends on the way pthread is handling some specific polling function. Since both of these factors are caused by the same software in the gateway, regardless of whether CCN or ping6 is used, it is likely that it does not affect the relative conclusions/comparisions made from the latency measurement results.
+
 
 \subsection{Suitability evaluation}
-The suitablility evaluation was created to show the feasibility of retrieving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. The algorithm developed in this thesis was a first attempt to enable such functionality for ICN in IoT networks.
+The suitablility evaluation was created to show the feasibility of retrieving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. This in order to show that the latency properties does not get worse with CCN compared with legacy protocols.The algorithm developed in this thesis was a first attempt to enable such functionality for ICN in IoT networks.
 
 %\begin{itemize}
 %\item Jumping results
@@ -25,26 +26,30 @@ The suitablility evaluation was created to show the feasibility of retrieving da
 %\end{itemize}
 The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows.
 The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
-Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algortihm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
-One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume an \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
+Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algorithm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
+One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume a \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
 
 %\begin{itemize}
 %\item It handles constant time drift
 %\item its not a normal regulator that can change interval
 %\item Handles the drift very well.
 %\end{itemize}
-Currently the algortihm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algortihm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initiated value. However, problems related to the \textit{rtt$\_$min}, did not occur during the thesis.
+Currently the algorithm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algorithm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initial value. However, problems related to the \textit{rtt$\_$min}, did not occur during the thesis experiments.
 
-A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algorithm. 
-As the results show, the system continued to work for differences up to -2$\%$. Initial tests were done with up to -5$\%$. Then however, the system crashed.
+A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algorithm. This can occur due to slight inaccuracies in the clock frequency between the sensor and the consumer. 
+As the results show, the system continued to work for differences up to -2$\%$. Initial tests were done with up to -5$\%$. Then however, the system crashed and the algorithm stoped working properly.
+
+\begin{itemize}
+	\item Discuss how this can be handed with a more advanced algorithm that adjust the frequency/interval.
+\end{itemize}
 
 %\begin{itemize}
 %\item handle timeouts
 %\item Getting wrong sequence, error handling.
 %\end{itemize}
-The algorithm has limited error correcting capabilities and the results do not show any data on how it handles errors. Two issues that can occur are timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
+The algorithm has limited error correcting capabilities and the results do not show any data on how it handles errors. Two issues that can occur are \textit{interest} message timeouts and if the algorithm starts to issue \textit{interest} messages with the wrong sequence number. 
 
-It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occures, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. This is caused by the serving of the previous correlation factor, so that it is able to keep the ``state'' for some period of time. Since the test was not configured to focus on timeouts specifically, no further investigations have been carried out.
+It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occures, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. This is caused by the serving of the previous correction factor, so that it is able to keep the ``state'' for some period of time. Because test was not configured to focus on timeouts specifically, no further investigations have been carried out.
 
 There are more problems to recover from when the sequence number gets unsynced between the producer and the consumer. 
 It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore, it has not been tested specifically either, but within the tests carried out by the thesis, some directions and answers have shown how the system handles such errors when they occur.
