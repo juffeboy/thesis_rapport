@@ -39,7 +39,16 @@ Although the purpose is to follow the sequence numbering of the data, it is out 
 %%\item After timeout, Algoritm usage to follow/correct
 %%\item The algoritm.\\
 %%\end{itemize}
+\begin{itemize}
+\item Intro
+\end{itemize}
+The algorithm developed in this project, shown in figure \ref{fig:onetime}, is a first attempt to retreive data with the previously described one time subscription approach together with CCN. It is based on two stages.
+In the first stage, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
+\begin{itemize}
+\item Stage 1.
 
+\item stage 2.
+\end{itemize}
 %\begin{itemize}
 %\item Algorithm
 %\end{itemize}
