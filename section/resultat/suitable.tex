@@ -16,6 +16,7 @@ With the possibility of storing \textit{interest} messages at the sensors, combi
 
 Although the purpose is to follow the sequence numbering of the data, it is out of the scope of this thesis to find the latest sequence number. This is considered to be known for the system in advance.
 
+The expression `data from the \textit{PIT}' from now on should be viewed as when the data is sent directly 
 
 \subsection{Method}
 \begin{itemize}
@@ -32,22 +33,27 @@ Although the purpose is to follow the sequence numbering of the data, it is out 
 	\item Hur detta kan gå till, kommer metoden här att beskriva.
 \end{itemize}
 
-%%\begin{itemize}
-%%\item Follow interval on sensor, becomes a problem due to the fact that there is two different clocks. One on sensor that is producing at a certain interval speed, and one %%at the client that wants to consume at a regular interval speed.
-%%\item Come to the right sensor
-%%\item First timeout, usage of PIT, one time subscription model. Describe the one time subscription model.
-%%\item After timeout, Algoritm usage to follow/correct
-%%\item The algoritm.\\
-%%\end{itemize}
+
 \begin{itemize}
 \item Intro
 \end{itemize}
 The algorithm developed in this project, shown in figure \ref{fig:onetime}, is a first attempt to retreive data with the previously described one time subscription approach together with CCN. It is based on two stages.
-In the first stage, shown on the left hand side of in figure \ref{fig:algortihm/gateway}, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
+In the first stage the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
+%In the first stage, also shown on the left hand side in figures \ref{fig:algortihm/gateway} and \ref{fig:algortihm/sensor}, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
 \begin{itemize}
 \item Stage 1.
+\end{itemize}
+The process of retreiving data from the sensors cache to using its \textit{PIT} is done by sending the next \textit{interest} message in advance. To send it earlier, a factor of the interval is subtracted at each interval. This procedure continues until a timeout has been reached. Then the algorithm sends another issue of the same \textit{interest} message. If the algorithm receives a response to the second message, it assumes that it now has started to make use of the sensors \textit{PIT} and thereby sets the reference time to the time of the timeout. 
 
+The effect of the first part of the algortihm can be seen in on the left-hand side of figure \ref{fig:algortihm/sensor} where the age of the data is successively decreasing because the \textit{interest} message has come in to the sensor earlier compared to the earlier message. From figure \ref{fig:algortihm/gateway}, one can see that the round trip times stays stable during the initiating phase. Note that both these figures contain mockup data for illustration purposes.
+
+During this phase, the minimum latency value achived is saved together with the reference time to be used later on in stage two.
+\begin{itemize}
 \item stage 2.
+
+In the second phase of the algortihm, it tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor. As seen in figure \ref{fig:onetime}, it calculates when to send the next request towards the sensor based on the round trip time of the current interval.
+The age of the data at the sensor shown in figure \ref{fig:algortihm/sensor} are under zero when the \textit{PIT} is used. It shows the time it took from when the \textit{interest} message was received at the sensor until the data was created and sent back towards the issuer. This means that the time it took from the data creation to the time it is sent out from the sensor is zero.
+
 \end{itemize}
 %\begin{itemize}
 %\item Algorithm
