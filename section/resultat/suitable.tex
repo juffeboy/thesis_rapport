@@ -19,19 +19,19 @@ Although the purpose is to follow the sequence numbering of the data, it is out 
 The expression `data from the \textit{PIT}' from now on should be viewed as when the data is sent directly 
 
 \subsection{Method}
-\begin{itemize}
-	\item Först måste vi komma in på rätt intervall. Detta vet vi sen innan då det är utanför scopet i denna uppsats att leta reda på rätt interval. 
-	\item Sedan börjar vi proba med interval tiden för att kunna börja använda oss av PITen.
-	\item När vi får en timeout, så ``vet'' vi att vi har kommit in på pit. För att verifiera det, skickas ett nytt anrop som måste stämma.
-	\item För att kunna nå målet att ``med lägsta möjliga latens erhålla datat som användare från tidpunkten det skapades.'' är algorithmen uppdelad i två steg.
-	\item 1: Gör att vi börjar använda pit
-	\item 2: Proba datat innan det har producerats.
-	\item ---- 
-	\item  Sekvensiellt data stämplat med ett tidsnummer, producerat periodiskt  
-	\item För att kunna nå kort latens från det att datat är producerats \\
-	Bör vi använda oss av CCNs PIT tabell. Genom att skicka interests messages lagon innan datat har producerats, ges vi möjlighet att data börjar skickas mot konsument när det skapats.
-	\item Hur detta kan gå till, kommer metoden här att beskriva.
-\end{itemize}
+%\begin{itemize}
+%	\item Först måste vi komma in på rätt intervall. Detta vet vi sen innan då det är utanför scopet i denna uppsats att leta reda på rätt interval. 
+%	\item Sedan börjar vi proba med interval tiden för att kunna börja använda oss av PITen.
+%	\item När vi får en timeout, så ``vet'' vi att vi har kommit in på pit. För att verifiera det, skickas ett nytt anrop som måste stämma.
+%	\item För att kunna nå målet att ``med lägsta möjliga latens erhålla datat som användare från tidpunkten det skapades.'' är algorithmen uppdelad i två steg.
+%	\item 1: Gör att vi börjar använda pit
+%	\item 2: Proba datat innan det har producerats.
+%	\item ---- 
+%	\item  Sekvensiellt data stämplat med ett tidsnummer, producerat periodiskt  
+%	\item För att kunna nå kort latens från det att datat är producerats \\
+%	Bör vi använda oss av CCNs PIT tabell. Genom att skicka interests messages lagon innan datat har producerats, ges vi möjlighet att data börjar skickas mot %konsument när det skapats.
+%	\item Hur detta kan gå till, kommer metoden här att beskriva.
+%\end{itemize}
 
 
 \begin{itemize}
