@@ -43,7 +43,7 @@ Although the purpose is to follow the sequence numbering of the data, it is out 
 \item Intro
 \end{itemize}
 The algorithm developed in this project, shown in figure \ref{fig:onetime}, is a first attempt to retreive data with the previously described one time subscription approach together with CCN. It is based on two stages.
-In the first stage, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
+In the first stage, shown on the left hand side of in figure \ref{fig:algortihm/gateway}, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
 \begin{itemize}
 \item Stage 1.
 
@@ -65,12 +65,13 @@ When using the pit of CCN, one can not retrieve the same latency values as in th
 In order to calculate when to send the next request towards the sensor, one could subtract the rtt from the interval. 
 However, this makes the system more sensitive to changes in the latencies which could lead to timeouts for a consumer. To solve this issue and make the latencies more stable over time, a smoothed rtt is used in the algortihm. It uses a factor $\alpha$, to decide how the current round trip time should be weighted in comparison to the previous latency values. The greater $\alpha$ becomes, the less importance the older values have. When $\alpha$ becomes smaller, the weighting of older values grows.
 If the latencies of the srtt is high, the \textit{interest} request is sent too early towards the sensor. At the same time, if the srtt latency becomes to short, the request is sent to late.\\\\
-%%\begin{itemize}
-%%\item Corr \\
-%%	The difference in clock time between the sensor and the gw is measured with corr.
-%%\end{itemize}
 
-   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% Algorithm/ Mockup figures %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}
 \begin{algorithm}[H]
  next = reference time\;
@@ -90,6 +91,46 @@ If the latencies of the srtt is high, the \textit{interest} request is sent too 
 \end{algorithm}
 \caption{Algorithm that makes it possible for a consumer to follow the creation of data with a certain interval.}
     \label{fig:onetime}
+\end{figure}
+
+
+
+\begin{figure}\centering\begin{tikzpicture}\begin{axis}[
+title={Age of data at sensor},
+xlabel={intervals}, ylabel={Age of data},
+xmin=0, xmax=20,ymin=-50, ymax=50,
+xtick={5,10,15,20},
+ytick={-50,-40,-30,-20,-10,0,10,20,30,40,50},
+legend pos=north east, grid style={dotted,gray},ymajorgrids=true,]
+\addplot[ mark=x, draw=none ] coordinates {(0,50)(1,40)(2,30)(3,20)(4,10)(5,5)};\addlegendentry{Cache}
+\addplot[mark=triangle] coordinates {(6,-5)(7,-10)(8,-13)(9,-12)(10,-10)(11,-9)(12,-8)(13,-10)(14,-10)(15,-12)(16,-11)(17,-10)(18,-11)(19,-9)(20,-10)};\addlegendentry{PIT}
+\end{axis}\end{tikzpicture}
+\caption{
+The time it takes for an interest message to be consumed in relation to the creation of the data.
+If the interest message can be responded directly after it has been receieved at the sensor, then the response is coming from the sensors cache. When one uses the sensors PIT, the sensor receives an interest message before the datas creation, making it possible to achive low latency times from data production until it reaches the consumer.
+}
+\label{fig:algortihm/sensor}
+%\end{figure}
+\end{figure}
+
+
+\begin{figure}\centering\begin{tikzpicture}\begin{axis}[
+title={Latency times at the gateway},
+xlabel={intervals}, ylabel={Round trip time},
+xmin=0, xmax=20,ymin=0, ymax=50,
+xtick={5,10,15,20},
+ytick={0,10,20,30,40,50},
+legend pos=north east, grid style={dotted,gray},ymajorgrids=true,]
+\addplot[ mark=x, draw=none ] coordinates {(0,10)(1,11)(2,12)(3,11)(4,10)(5,12)};\addlegendentry{Cache}
+
+\addplot[mark=triangle, color=black!100] coordinates {(6,25)(7,25)(8,26)(9,25)(10,26)(11,27)(12,26)(13,27)(14,26)(15,28)(16,27)(17,27)(18,28)(19,26)(20,26)};\addlegendentry{PIT}
+\addplot[color=gray!90] coordinates {(0,25)(1,25)(2,25)(3,25)(4,25)(5,25)(6,25)(7,25)(8,25)(9,25)(10,25)(11,25)(12,25)(13,25)(14,25)(15,25)(16,25)(17,25)(18,25)(19,25)(20,25)};\addlegendentry{rtt target}
+\addplot[color=gray!20] coordinates {(0,10)(1,10)(2,10)(3,10)(4,10)(5,10)(6,10)(7,10)(8,10)(9,10)(10,10)(11,10)(12,10)(13,10)(14,10)(15,10)(16,10)(17,10)(18,10)(19,10)(20,10)};\addlegendentry{rtt min}
+\addplot[draw=black, fill=black!20] coordinates {(0,0)(1,0)(2,0)(3,0)(4,0)(5,0)(6,0)(7,0)(8,0)(9,0)(10,0)(11,0)(12,0)(13,0)(14,0)(15,0)(16,0)(17,0)(18,0)(19,0)(20,0)};
+\end{axis}\end{tikzpicture}
+\caption{Round trip times when using the algorithm. Up until the fifth interval, the algorithm fetches data and calculates the lowest latency by retreiving the data from the sensor's cache. When it starts to use the PIT, the algortihm tries to acheive round trip times close to the rtt target which is a factor of the calculated rtt min.}
+\label{fig:algortihm/gateway}
+%\end{figure}
 \end{figure}
 
 
