@@ -16,7 +16,7 @@ With the possibility of storing \textit{interest} messages at the sensors, combi
 
 Although the purpose is to follow the sequence numbering of the data, it is out of the scope of this thesis to find the latest sequence number. This is considered to be known for the system in advance.
 
-The expression `data from the \textit{PIT}' from now on should be viewed as when the data is sent directly 
+The expression `data from the \textit{PIT}' is equvivalent to once the data has been created, the sensor looks in the \textit{PIT} for a corresponding \textit{interest} message to consume and thereafter send the data towards the requestor. When the data is not from the \textit{PIT}, it comes from the cache.
 
 \subsection{Method}
 %\begin{itemize}
@@ -34,37 +34,38 @@ The expression `data from the \textit{PIT}' from now on should be viewed as when
 %\end{itemize}
 
 
-\begin{itemize}
-\item Intro
-\end{itemize}
+%\begin{itemize}
+%\item Intro
+%\end{itemize}
 The algorithm developed in this project, shown in figure \ref{fig:onetime}, is a first attempt to retreive data with the previously described one time subscription approach together with CCN. It is based on two stages.
 In the first stage the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
 %In the first stage, also shown on the left hand side in figures \ref{fig:algortihm/gateway} and \ref{fig:algortihm/sensor}, the consumer tries to go from receiving the data from the sensors cache to receive it by using the sensors \textit{PIT} instead. This process is done by reducing the interval that each \textit{interest} message is sent until it reaches a steady round trip times when receiving data from the \textit{PIT}. In the second stage, the algorithm tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor.
-\begin{itemize}
-\item Stage 1.
-\end{itemize}
+%\begin{itemize}
+%\item Stage 1.
+%\end{itemize}
 The process of retreiving data from the sensors cache to using its \textit{PIT} is done by sending the next \textit{interest} message in advance. To send it earlier, a factor of the interval is subtracted at each interval. This procedure continues until a timeout has been reached. Then the algorithm sends another issue of the same \textit{interest} message. If the algorithm receives a response to the second message, it assumes that it now has started to make use of the sensors \textit{PIT} and thereby sets the reference time to the time of the timeout. 
 
 The effect of the first part of the algortihm can be seen in on the left-hand side of figure \ref{fig:algortihm/sensor} where the age of the data is successively decreasing because the \textit{interest} message has come in to the sensor earlier compared to the earlier message. From figure \ref{fig:algortihm/gateway}, one can see that the round trip times stays stable during the initiating phase. Note that both these figures contain mockup data for illustration purposes.
 
 During this phase, the minimum latency value achived is saved together with the reference time to be used later on in stage two.
-\begin{itemize}
-\item stage 2.
+%begin{itemize}
+%item stage 2.
+%end{itemize}
 
 In the second phase of the algortihm, it tries to fetch data at a certain interval in order to receive the data as soon as it has been created on the sensor. As seen in figure \ref{fig:onetime}, it calculates when to send the next request towards the sensor based on the round trip time of the current interval.
-The age of the data at the sensor shown in figure \ref{fig:algortihm/sensor} are under zero when the \textit{PIT} is used. It shows the time it took from when the \textit{interest} message was received at the sensor until the data was created and sent back towards the issuer. This means that the time it took from the data creation to the time it is sent out from the sensor is zero.
+The age of the data at the sensor shown in figure \ref{fig:algortihm/sensor} are under zero when the \textit{PIT} is used. It shows the time it took from when the \textit{interest} message was received at the sensor until the data was created and sent back towards the issuer. This means that the time it took from the data creation to the time it is sent out from the sensor is almost zero, or the processing time, which can be deduced from figure \ref{fig:latency} in the performance evaluation.
 
-\end{itemize}
 %\begin{itemize}
 %\item Algorithm
 %\end{itemize}
-The algorithm developed in this project, shown in figure \ref{fig:onetime}, is a first attempt to retreive data with the previously described one time subscription approach. 
-The algorithm tries to fetch data at a certain interval in order to recieve the data as soon as it has been created on the sensor. It calculates when to send the next request towards the sensor, based on the round trip time of the current interval. The smoothed round trip time (srtt) technique makes the system more tolerant when handeling a latency value differs substantially from usual. One must set a round trip target (rtt$\_$target) that the algortihm follows. It is a factor of the minimum round trip time (rtt$\_$min). In the algortihm, there is a background correction factor that is calculated at every interval. This correction time is the difference between the srtt and the rtt$\_$target. It represents the difference in time between the two systems. Together with the interval rate at which the data is produced and when the current interval started, the correction factor is added in order to decide when to send the next request. \\\\
+The smoothed round trip time (srtt) technique makes the system more tolerant when handeling a latency value differs substantially from usual. One must set a round trip target (\textit{rtt$\_$target}) that the algortihm follows. It is a factor of the minimum round trip time (\textit{rtt$\_$min}). In the algortihm, there is a background correction factor that is calculated at every interval. This correction time is the difference between the srtt and the \textit{rtt$\_$target}. It represents the difference in time between the two systems. Together with the interval rate at which the data is produced and when the current interval started, the correction factor is added in order to decide when to send the next request. 
+
 %\begin{itemize}
 %\item diff rttmin rtt$\_$target
 %\end{itemize}
-The reason for using the rtt$\_$target is the need to send the \textit{interest} request at a comfortable distance before the data has been created.
-When using the pit of CCN, one can not retrieve the same latency values as in the previous measurement where the data was replied directly from the sensors cache. Instead, one must set a round trip target that is related to the rtt$\_$min. The difference between rtt$\_$target and rtt$\_$min defines how long the time span which the algorithm can regulate is. The smaller the differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences of the two intervals between the sensor and the gateway. If it gets less, the algortihm stops working properly.\\\\
+The reason for using the \textit{rtt$\_$target} is the need to send the \textit{interest} request at a comfortable distance before the data has been created.
+When using the \textit{PIT} of CCN, one can not retrieve the same latency values as in the previous measurement where the data was replied directly from the sensors cache. Instead, one must set a round trip target that is related to the rtt$\_$min. The difference between \textit{rtt$\_$target} and \textit{rtt$\_$min} defines how long the time span which the algorithm can regulate is. The smaller the differences, the more vulnerable the system becomes for variations of rtt. The minimum difference must be greater than the differences of the two intervals between the sensor and the gateway. If it gets less, the algortihm stops working properly.
+
 %\begin{itemize}
 %\item Smoothed RTT
 %\end{itemize}
@@ -191,7 +192,8 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[ color=gray!60 ] coordinates {(0,87.0175)(1,87.0175)(2,87.0175)(3,87.0175)(4,87.0175)(5,87.0175)(6,87.0175)(7,87.0175)(8,87.0175)(9,87.0175)(10,87.0175)(11,87.0175)(12,87.0175)(13,87.0175)(14,87.0175)(15,87.0175)(16,87.0175)(17,87.0175)(18,87.0175)(19,87.0175)(20,87.0175)(21,87.0175)(22,87.0175)(23,87.0175)(24,87.0175)(25,87.0175)(26,87.0175)(27,87.0175)(28,87.0175)(29,87.0175)(30,87.0175)(31,87.0175)(32,87.0175)(33,87.0175)(34,87.0175)(35,87.0175)(36,87.0175)(37,87.0175)(38,87.0175)(39,87.0175)(40,87.0175)(41,87.0175)(42,87.0175)(43,87.0175)(44,87.0175)(45,87.0175)(46,87.0175)(47,87.0175)(48,87.0175)(49,87.0175)(50,87.0175)(51,87.0175)(52,87.0175)(53,87.0175)(54,87.0175)(55,87.0175)(56,87.0175)(57,87.0175)(58,87.0175)(59,87.0175)(60,87.0175)(61,87.0175)(62,87.0175)(63,87.0175)(64,87.0175)(65,87.0175)(66,87.0175)(67,87.0175)(68,87.0175)(69,87.0175)(70,87.0175)(71,87.0175)(72,87.0175)(73,87.0175)(74,87.0175)(75,87.0175)(76,87.0175)(77,87.0175)(78,87.0175)(79,87.0175)(80,87.0175)(81,87.0175)(82,87.0175)(83,87.0175)(84,87.0175)(85,87.0175)(86,87.0175)(87,87.0175)(88,87.0175)(89,87.0175)(90,87.0175)(91,87.0175)(92,87.0175)(93,87.0175)(94,87.0175)(95,87.0175)(96,87.0175)(97,87.0175)(98,87.0175)(99,87.0175)(100,87.0175)};\addlegendentry{rtt/target}
 \addplot[ color=gray!50  ] coordinates {(0,34.807)(1,34.807)(2,34.807)(3,34.807)(4,34.807)(5,34.807)(6,34.807)(7,34.807)(8,34.807)(9,34.807)(10,34.807)(11,34.807)(12,34.807)(13,34.807)(14,34.807)(15,34.807)(16,34.807)(17,34.807)(18,34.807)(19,34.807)(20,34.807)(21,34.807)(22,34.807)(23,34.807)(24,34.807)(25,34.807)(26,34.807)(27,34.807)(28,34.807)(29,34.807)(30,34.807)(31,34.807)(32,34.807)(33,34.807)(34,34.807)(35,34.807)(36,34.807)(37,34.807)(38,34.807)(39,34.807)(40,34.807)(41,34.807)(42,34.807)(43,34.807)(44,34.807)(45,34.807)(46,34.807)(47,34.807)(48,34.807)(49,34.807)(50,34.807)(51,34.807)(52,34.807)(53,34.807)(54,34.807)(55,34.807)(56,34.807)(57,34.807)(58,34.807)(59,34.807)(60,34.807)(61,34.807)(62,34.807)(63,34.807)(64,34.807)(65,34.807)(66,34.807)(67,34.807)(68,34.807)(69,34.807)(70,34.807)(71,34.807)(72,34.807)(73,34.807)(74,34.807)(75,34.807)(76,34.807)(77,34.807)(78,34.807)(79,34.807)(80,34.807)(81,34.807)(82,34.807)(83,34.807)(84,34.807)(85,34.807)(86,34.807)(87,34.807)(88,34.807)(89,34.807)(90,34.807)(91,34.807)(92,34.807)(93,34.807)(94,34.807)(95,34.807)(96,34.807)(97,34.807)(98,34.807)(99,34.807)(100,34.807)};\addlegendentry{rtt/min}
 \end{axis}\end{tikzpicture}
-\caption{gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Latency values from the gateway when $\alpha$=0.1, \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. The result shows that when $\alpha$ is low, there are small variances of the srtt and the correction factor which gives the system these smooth values.}
 \label{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
 %\end{subfigure}
@@ -205,7 +207,8 @@ ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
 legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[  ] coordinates {(0,-62.5)(1,-62.5)(2,-62.5)(3,-62.5)(4,-62.5)(5,-62.5)(6,-62.5)(7,-62.5)(8,-70.3125)(9,-62.5)(10,-62.5)(11,-62.5)(12,-62.5)(13,-62.5)(14,-62.5)(15,-62.5)(16,-62.5)(17,-62.5)(18,-62.5)(19,-62.5)(20,-62.5)(21,-62.5)(22,-62.5)(23,-62.5)(24,-62.5)(25,-62.5)(26,-62.5)(27,-62.5)(28,-70.3125)(29,-62.5)(30,-62.5)(31,-62.5)(32,-62.5)(33,-62.5)(34,-62.5)(35,-54.6875)(36,-54.6875)(37,-62.5)(38,-62.5)(39,-62.5)(40,-62.5)(41,-62.5)(42,-62.5)(43,-62.5)(44,-62.5)(45,-70.3125)(46,-62.5)(47,-62.5)(48,-62.5)(49,-70.3125)(50,-62.5)(51,-62.5)(52,-62.5)(53,-62.5)(54,-62.5)(55,-62.5)(56,-54.6875)(57,-62.5)(58,-70.3125)(59,-62.5)(60,-62.5)(61,-70.3125)(62,-70.3125)(63,-62.5)(64,-62.5)(65,-62.5)(66,-62.5)(67,-62.5)(68,-62.5)(69,-54.6875)(70,-62.5)(71,-62.5)(72,-62.5)(73,-62.5)(74,-70.3125)(75,-62.5)(76,-62.5)(77,-62.5)(78,-62.5)(79,-62.5)(80,-62.5)(81,-62.5)(82,-62.5)(83,-62.5)(84,-62.5)(85,-62.5)(86,-62.5)(87,-62.5)(88,-54.6875)(89,-54.6875)(90,-62.5)(91,-62.5)(92,-62.5)(93,-62.5)(94,-62.5)(95,-62.5)(96,-62.5)(97,-62.5)(98,-62.5)(99,-62.5)(100,-62.5)};\addlegendentry{seq}
 \end{axis}\end{tikzpicture}
-\caption{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Age of the data when $\alpha$=0.1, \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. There are small variations in the age of the data, which is expected considering the latencies from \ref{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}.}
 \label{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 %\end{figure}
 \end{figure}
@@ -227,7 +230,8 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[ color=gray!60 ] coordinates {(0,87.7775)(1,87.7775)(2,87.7775)(3,87.7775)(4,87.7775)(5,87.7775)(6,87.7775)(7,87.7775)(8,87.7775)(9,87.7775)(10,87.7775)(11,87.7775)(12,87.7775)(13,87.7775)(14,87.7775)(15,87.7775)(16,87.7775)(17,87.7775)(18,87.7775)(19,87.7775)(20,87.7775)(21,87.7775)(22,87.7775)(23,87.7775)(24,87.7775)(25,87.7775)(26,87.7775)(27,87.7775)(28,87.7775)(29,87.7775)(30,87.7775)(31,87.7775)(32,87.7775)(33,87.7775)(34,87.7775)(35,87.7775)(36,87.7775)(37,87.7775)(38,87.7775)(39,87.7775)(40,87.7775)(41,87.7775)(42,87.7775)(43,87.7775)(44,87.7775)(45,87.7775)(46,87.7775)(47,87.7775)(48,87.7775)(49,87.7775)(50,87.7775)(51,87.7775)(52,87.7775)(53,87.7775)(54,87.7775)(55,87.7775)(56,87.7775)(57,87.7775)(58,87.7775)(59,87.7775)(60,87.7775)(61,87.7775)(62,87.7775)(63,87.7775)(64,87.7775)(65,87.7775)(66,87.7775)(67,87.7775)(68,87.7775)(69,87.7775)(70,87.7775)(71,87.7775)(72,87.7775)(73,87.7775)(74,87.7775)(75,87.7775)(76,87.7775)(77,87.7775)(78,87.7775)(79,87.7775)(80,87.7775)(81,87.7775)(82,87.7775)(83,87.7775)(84,87.7775)(85,87.7775)(86,87.7775)(87,87.7775)(88,87.7775)(89,87.7775)(90,87.7775)(91,87.7775)(92,87.7775)(93,87.7775)(94,87.7775)(95,87.7775)(96,87.7775)(97,87.7775)(98,87.7775)(99,87.7775)(100,87.7775)};\addlegendentry{rtt/target}
 \addplot[ color=gray!50  ] coordinates {(0,35.111)(1,35.111)(2,35.111)(3,35.111)(4,35.111)(5,35.111)(6,35.111)(7,35.111)(8,35.111)(9,35.111)(10,35.111)(11,35.111)(12,35.111)(13,35.111)(14,35.111)(15,35.111)(16,35.111)(17,35.111)(18,35.111)(19,35.111)(20,35.111)(21,35.111)(22,35.111)(23,35.111)(24,35.111)(25,35.111)(26,35.111)(27,35.111)(28,35.111)(29,35.111)(30,35.111)(31,35.111)(32,35.111)(33,35.111)(34,35.111)(35,35.111)(36,35.111)(37,35.111)(38,35.111)(39,35.111)(40,35.111)(41,35.111)(42,35.111)(43,35.111)(44,35.111)(45,35.111)(46,35.111)(47,35.111)(48,35.111)(49,35.111)(50,35.111)(51,35.111)(52,35.111)(53,35.111)(54,35.111)(55,35.111)(56,35.111)(57,35.111)(58,35.111)(59,35.111)(60,35.111)(61,35.111)(62,35.111)(63,35.111)(64,35.111)(65,35.111)(66,35.111)(67,35.111)(68,35.111)(69,35.111)(70,35.111)(71,35.111)(72,35.111)(73,35.111)(74,35.111)(75,35.111)(76,35.111)(77,35.111)(78,35.111)(79,35.111)(80,35.111)(81,35.111)(82,35.111)(83,35.111)(84,35.111)(85,35.111)(86,35.111)(87,35.111)(88,35.111)(89,35.111)(90,35.111)(91,35.111)(92,35.111)(93,35.111)(94,35.111)(95,35.111)(96,35.111)(97,35.111)(98,35.111)(99,35.111)(100,35.111)};\addlegendentry{rtt/min}
 \end{axis}\end{tikzpicture}
-\caption{gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Latency values from the gateway when $\alpha$=0.9, \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. The result shows that when $\alpha$ is higher, the variances of the srtt and the correction factor grows in frequency. The algortihm has still no issues to function normally.}
 \label{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
 
@@ -240,7 +244,8 @@ ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
 legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[  ] coordinates {(0,-62.5)(1,-62.5)(2,-54.6875)(3,-62.5)(4,-62.5)(5,-70.3125)(6,-62.5)(7,-54.6875)(8,-70.3125)(9,-70.3125)(10,-46.875)(11,-62.5)(12,-62.5)(13,-70.3125)(14,-70.3125)(15,-62.5)(16,-62.5)(17,-62.5)(18,-62.5)(19,-62.5)(20,-70.3125)(21,-70.3125)(22,-62.5)(23,-54.6875)(24,-62.5)(25,-62.5)(26,-70.3125)(27,-54.6875)(28,-62.5)(29,-62.5)(30,-70.3125)(31,-62.5)(32,-70.3125)(33,-70.3125)(34,-70.3125)(35,-54.6875)(36,-62.5)(37,-62.5)(38,-70.3125)(39,-70.3125)(40,-62.5)(41,-62.5)(42,-62.5)(43,-62.5)(44,-70.3125)(45,-54.6875)(46,-62.5)(47,-62.5)(48,-54.6875)(49,-62.5)(50,-70.3125)(51,-62.5)(52,-54.6875)(53,-62.5)(54,-62.5)(55,-70.3125)(56,-62.5)(57,-62.5)(58,-62.5)(59,-62.5)(60,-62.5)(61,-70.3125)(62,-70.3125)(63,-70.3125)(64,-62.5)(65,-54.6875)(66,-62.5)(67,-62.5)(68,-54.6875)(69,-62.5)(70,-54.6875)(71,-70.3125)(72,-54.6875)(73,-62.5)(74,-62.5)(75,-70.3125)(76,-62.5)(77,-62.5)(78,-62.5)(79,-54.6875)(80,-62.5)(81,-54.6875)(82,-62.5)(83,-78.125)(84,-62.5)(85,-62.5)(86,-62.5)(87,-62.5)(88,-62.5)(89,-31.25)(90,-39.0625)(91,-46.875)(92,-54.6875)(93,-54.6875)(94,-54.6875)(95,-54.6875)(96,-54.6875)(97,-62.5)(98,-62.5)(99,-62.5)(100,-62.5)};\addlegendentry{seq}
 \end{axis}\end{tikzpicture}
-\caption{sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Age of the data when $\alpha$=0.9, \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. The frequency of the variations of the aged data increases because of the higher srtt described in figure \ref{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}.}
 \label{fig:sensor/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
 
@@ -263,7 +268,8 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[ color=gray!60 ] coordinates {(0,87.6925)(1,87.6925)(2,87.6925)(3,87.6925)(4,87.6925)(5,87.6925)(6,87.6925)(7,87.6925)(8,87.6925)(9,87.6925)(10,87.6925)(11,87.6925)(12,87.6925)(13,87.6925)(14,87.6925)(15,87.6925)(16,87.6925)(17,87.6925)(18,87.6925)(19,87.6925)(20,87.6925)(21,87.6925)(22,87.6925)(23,87.6925)(24,87.6925)(25,87.6925)(26,87.6925)(27,87.6925)(28,87.6925)(29,87.6925)(30,87.6925)(31,87.6925)(32,87.6925)(33,87.6925)(34,87.6925)(35,87.6925)(36,87.6925)(37,87.6925)(38,87.6925)(39,87.6925)(40,87.6925)(41,87.6925)(42,87.6925)(43,87.6925)(44,87.6925)(45,87.6925)(46,87.6925)(47,87.6925)(48,87.6925)(49,87.6925)(50,87.6925)(51,87.6925)(52,87.6925)(53,87.6925)(54,87.6925)(55,87.6925)(56,87.6925)(57,87.6925)(58,87.6925)(59,87.6925)(60,87.6925)(61,87.6925)(62,87.6925)(63,87.6925)(64,87.6925)(65,87.6925)(66,87.6925)(67,87.6925)(68,87.6925)(69,87.6925)(70,87.6925)(71,87.6925)(72,87.6925)(73,87.6925)(74,87.6925)(75,87.6925)(76,87.6925)(77,87.6925)(78,87.6925)(79,87.6925)(80,87.6925)(81,87.6925)(82,87.6925)(83,87.6925)(84,87.6925)(85,87.6925)(86,87.6925)(87,87.6925)(88,87.6925)(89,87.6925)(90,87.6925)(91,87.6925)(92,87.6925)(93,87.6925)(94,87.6925)(95,87.6925)(96,87.6925)(97,87.6925)(98,87.6925)(99,87.6925)(100,87.6925)};\addlegendentry{rtt/target}
 \addplot[ color=gray!50  ] coordinates {(0,35.077)(1,35.077)(2,35.077)(3,35.077)(4,35.077)(5,35.077)(6,35.077)(7,35.077)(8,35.077)(9,35.077)(10,35.077)(11,35.077)(12,35.077)(13,35.077)(14,35.077)(15,35.077)(16,35.077)(17,35.077)(18,35.077)(19,35.077)(20,35.077)(21,35.077)(22,35.077)(23,35.077)(24,35.077)(25,35.077)(26,35.077)(27,35.077)(28,35.077)(29,35.077)(30,35.077)(31,35.077)(32,35.077)(33,35.077)(34,35.077)(35,35.077)(36,35.077)(37,35.077)(38,35.077)(39,35.077)(40,35.077)(41,35.077)(42,35.077)(43,35.077)(44,35.077)(45,35.077)(46,35.077)(47,35.077)(48,35.077)(49,35.077)(50,35.077)(51,35.077)(52,35.077)(53,35.077)(54,35.077)(55,35.077)(56,35.077)(57,35.077)(58,35.077)(59,35.077)(60,35.077)(61,35.077)(62,35.077)(63,35.077)(64,35.077)(65,35.077)(66,35.077)(67,35.077)(68,35.077)(69,35.077)(70,35.077)(71,35.077)(72,35.077)(73,35.077)(74,35.077)(75,35.077)(76,35.077)(77,35.077)(78,35.077)(79,35.077)(80,35.077)(81,35.077)(82,35.077)(83,35.077)(84,35.077)(85,35.077)(86,35.077)(87,35.077)(88,35.077)(89,35.077)(90,35.077)(91,35.077)(92,35.077)(93,35.077)(94,35.077)(95,35.077)(96,35.077)(97,35.077)(98,35.077)(99,35.077)(100,35.077)};\addlegendentry{rtt/min}
 \end{axis}\end{tikzpicture}
-\caption{gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Latency values from the gateway when $\alpha$=1 \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. Although the system stays intact when not using the srtt, the frequencies of the variations of srtt and the correlation factor continues to grow. Yet, the main functionality of retreiving data without issues is untouched.}
 \label{fig:gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
 
@@ -276,7 +282,8 @@ ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
 legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[  ] coordinates {(0,-70.3125)(1,-62.5)(2,-54.6875)(3,-70.3125)(4,-62.5)(5,-62.5)(6,-62.5)(7,-62.5)(8,-62.5)(9,-62.5)(10,-54.6875)(11,-70.3125)(12,-62.5)(13,-70.3125)(14,-62.5)(15,-54.6875)(16,-62.5)(17,-70.3125)(18,-39.0625)(19,-46.875)(20,-54.6875)(21,-62.5)(22,-62.5)(23,-62.5)(24,-62.5)(25,-70.3125)(26,-62.5)(27,-54.6875)(28,-62.5)(29,-62.5)(30,-70.3125)(31,-62.5)(32,-62.5)(33,-70.3125)(34,-62.5)(35,-54.6875)(36,-70.3125)(37,-62.5)(38,-70.3125)(39,-62.5)(40,-62.5)(41,-62.5)(42,-70.3125)(43,-54.6875)(44,-62.5)(45,-62.5)(46,-70.3125)(47,-62.5)(48,-62.5)(49,-62.5)(50,-70.3125)(51,-62.5)(52,-54.6875)(53,-62.5)(54,-70.3125)(55,-62.5)(56,-54.6875)(57,-62.5)(58,-70.3125)(59,-70.3125)(60,-62.5)(61,-62.5)(62,-62.5)(63,-62.5)(64,-62.5)(65,-62.5)(66,-70.3125)(67,-70.3125)(68,-54.6875)(69,-70.3125)(70,-70.3125)(71,-62.5)(72,-62.5)(73,-62.5)(74,-62.5)(75,-70.3125)(76,-62.5)(77,-62.5)(78,-70.3125)(79,-70.3125)(80,-54.6875)(81,-70.3125)(82,-70.3125)(83,-70.3125)(84,-54.6875)(85,-62.5)(86,-62.5)(87,-70.3125)(88,-62.5)(89,-62.5)(90,-62.5)(91,-62.5)(92,-62.5)(93,-62.5)(94,-70.3125)(95,-70.3125)(96,-62.5)(97,-54.6875)(98,-70.3125)(99,-70.3125)(100,-70.3125)};\addlegendentry{seq}
 \end{axis}\end{tikzpicture}
-\caption{sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+%\caption{sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
+\caption{Age of the data when $\alpha$=1.0, \textit{rtt$\_$target}=2.5 and there is no artifical difference in interval length between the gateway and sensor clocks. The frequency of the variations of the aged data is high because of the high srtt and correction factor described in figure \ref{fig:gw/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}.}
 \label{fig:sensor/test/alpha/1.0/rtttarget/2.5/diff/1.0/slope/0.15/zommed}
 \end{figure}
 
@@ -300,10 +307,11 @@ legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[ color=gray!60 ] coordinates {(0,87.6925)(1,87.6925)(2,87.6925)(3,87.6925)(4,87.6925)(5,87.6925)(6,87.6925)(7,87.6925)(8,87.6925)(9,87.6925)(10,87.6925)(11,87.6925)(12,87.6925)(13,87.6925)(14,87.6925)(15,87.6925)(16,87.6925)(17,87.6925)(18,87.6925)(19,87.6925)(20,87.6925)(21,87.6925)(22,87.6925)(23,87.6925)(24,87.6925)(25,87.6925)(26,87.6925)(27,87.6925)(28,87.6925)(29,87.6925)(30,87.6925)(31,87.6925)(32,87.6925)(33,87.6925)(34,87.6925)(35,87.6925)(36,87.6925)(37,87.6925)(38,87.6925)(39,87.6925)(40,87.6925)(41,87.6925)(42,87.6925)(43,87.6925)(44,87.6925)(45,87.6925)(46,87.6925)(47,87.6925)(48,87.6925)(49,87.6925)(50,87.6925)(51,87.6925)(52,87.6925)(53,87.6925)(54,87.6925)(55,87.6925)(56,87.6925)(57,87.6925)(58,87.6925)(59,87.6925)(60,87.6925)(61,87.6925)(62,87.6925)(63,87.6925)(64,87.6925)(65,87.6925)(66,87.6925)(67,87.6925)(68,87.6925)(69,87.6925)(70,87.6925)(71,87.6925)(72,87.6925)(73,87.6925)(74,87.6925)(75,87.6925)(76,87.6925)(77,87.6925)(78,87.6925)(79,87.6925)(80,87.6925)(81,87.6925)(82,87.6925)(83,87.6925)(84,87.6925)(85,87.6925)(86,87.6925)(87,87.6925)(88,87.6925)(89,87.6925)(90,87.6925)(91,87.6925)(92,87.6925)(93,87.6925)(94,87.6925)(95,87.6925)(96,87.6925)(97,87.6925)(98,87.6925)(99,87.6925)(100,87.6925)};\addlegendentry{rtt/target}
 \addplot[ color=gray!50  ] coordinates {(0,35.077)(1,35.077)(2,35.077)(3,35.077)(4,35.077)(5,35.077)(6,35.077)(7,35.077)(8,35.077)(9,35.077)(10,35.077)(11,35.077)(12,35.077)(13,35.077)(14,35.077)(15,35.077)(16,35.077)(17,35.077)(18,35.077)(19,35.077)(20,35.077)(21,35.077)(22,35.077)(23,35.077)(24,35.077)(25,35.077)(26,35.077)(27,35.077)(28,35.077)(29,35.077)(30,35.077)(31,35.077)(32,35.077)(33,35.077)(34,35.077)(35,35.077)(36,35.077)(37,35.077)(38,35.077)(39,35.077)(40,35.077)(41,35.077)(42,35.077)(43,35.077)(44,35.077)(45,35.077)(46,35.077)(47,35.077)(48,35.077)(49,35.077)(50,35.077)(51,35.077)(52,35.077)(53,35.077)(54,35.077)(55,35.077)(56,35.077)(57,35.077)(58,35.077)(59,35.077)(60,35.077)(61,35.077)(62,35.077)(63,35.077)(64,35.077)(65,35.077)(66,35.077)(67,35.077)(68,35.077)(69,35.077)(70,35.077)(71,35.077)(72,35.077)(73,35.077)(74,35.077)(75,35.077)(76,35.077)(77,35.077)(78,35.077)(79,35.077)(80,35.077)(81,35.077)(82,35.077)(83,35.077)(84,35.077)(85,35.077)(86,35.077)(87,35.077)(88,35.077)(89,35.077)(90,35.077)(91,35.077)(92,35.077)(93,35.077)(94,35.077)(95,35.077)(96,35.077)(97,35.077)(98,35.077)(99,35.077)(100,35.077)};\addlegendentry{rtt/min}
 \end{axis}\end{tikzpicture}
-\caption{gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
+%\caption{gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
+\caption{Latency values from the gateway when $\alpha$=0.1 \textit{rtt$\_$target}=2.5 and there is an artifical drift in length of the sensors interval of +2$\%$ compared to the gateway. The algortihm has no issues to handle a positiv drift in time, where the intervals between producing content is longer on the sensor compared to the gateway. The algortihm handles this drift by sending its \textit{interest} messages earlier towards the sensor, resulting in higher srtt times overall.
+}
 \label{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
 \end{figure}
-
 
 
 \begin{figure}\centering\begin{tikzpicture}\begin{axis}[
@@ -315,7 +323,8 @@ ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
 legend pos=north west, grid style={dotted,gray},ymajorgrids=true,]
 \addplot[  ] coordinates {(0,-70.3125)(1,-85.9375)(2,-85.9375)(3,-85.9375)(4,-78.125)(5,-70.3125)(6,-70.3125)(7,-62.5)(8,-70.3125)(9,-70.3125)(10,-70.3125)(11,-70.3125)(12,-78.125)(13,-85.9375)(14,-78.125)(15,-78.125)(16,-85.9375)(17,-85.9375)(18,-85.9375)(19,-78.125)(20,-85.9375)(21,-85.9375)(22,-78.125)(23,-78.125)(24,-78.125)(25,-78.125)(26,-78.125)(27,-70.3125)(28,-70.3125)(29,-78.125)(30,-78.125)(31,-70.3125)(32,-70.3125)(33,-78.125)(34,-78.125)(35,-78.125)(36,-78.125)(37,-85.9375)(38,-85.9375)(39,-85.9375)(40,-85.9375)(41,-85.9375)(42,-93.75)(43,-78.125)(44,-78.125)(45,-62.5)(46,-78.125)(47,-70.3125)(48,-70.3125)(49,-70.3125)(50,-78.125)(51,-78.125)(52,-78.125)(53,-78.125)(54,-85.9375)(55,-85.9375)(56,-78.125)(57,-78.125)(58,-78.125)(59,-78.125)(60,-70.3125)(61,-70.3125)(62,-70.3125)(63,-70.3125)(64,-62.5)(65,-62.5)(66,-62.5)(67,-70.3125)(68,-70.3125)(69,-70.3125)(70,-78.125)(71,-85.9375)(72,-85.9375)(73,-85.9375)(74,-85.9375)(75,-85.9375)(76,-93.75)(77,-85.9375)(78,-78.125)(79,-85.9375)(80,-78.125)(81,-70.3125)(82,-70.3125)(83,-70.3125)(84,-70.3125)(85,-70.3125)(86,-70.3125)(87,-70.3125)(88,-78.125)(89,-78.125)(90,-46.875)(91,-70.3125)(92,-85.9375)(93,-85.9375)(94,-78.125)(95,-78.125)(96,-85.9375)(97,-85.9375)(98,-78.125)(99,-78.125)(100,-78.125)};\addlegendentry{seq}
 \end{axis}\end{tikzpicture}
-\caption{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
+%\caption{sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
+\caption{Age of the data when $\alpha$=0.1, \textit{rtt$\_$target}=2.5 and there is an artifical drift in length of the sensors interval of +2$\%$ compared to the gateway.  One can see that the age of the grew compared when there was no drift. This is because of the algortihm is sending the \textit{interest} messages earlier.}
 \label{fig:sensor/test/alpha/0.1/rtttarget/2.5/diff/1.02/slope/0.15/zommed}
 \end{figure}
 
