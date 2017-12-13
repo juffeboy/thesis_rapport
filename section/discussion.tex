@@ -36,12 +36,15 @@ One of the reasons why the deviations are approximately the same in size, +- 7-9
 %\end{itemize}
 Currently the algorithm has a small startup curve in order to retreive the \textit{rtt$\_$min}-value before using the PIT of the sensor. After this value is set, there are currently no possibility to recaclulate it or change it later on. This is a known drawback with this algorithm, which could lead to system failure if the \textit{rtt$\_$min} becomes lower than its initial value. However, problems related to the \textit{rtt$\_$min}, did not occur during the thesis experiments.
 
-A parable with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algorithm. This can occur due to slight inaccuracies in the clock frequency between the sensor and the consumer. 
-As the results show, the system continued to work for differences up to -2$\%$. Initial tests were done with up to -5$\%$. Then however, the system crashed and the algorithm stoped working properly.
+A problem with lowering the \textit{rtt$\_$min} is when the interval length on the sensor node is a little shorter in comparison to the interval length set in the algorithm. This can occur due to slight inaccuracies in the clock frequency between the sensor and the consumer. 
+As the results show, the system continued to work for differences up to -2$\%$. Initial tests were done with up to -5$\%$. Then however, the system crashed and the algorithm stoped working properly. With a more advanced algortihm where the consumer could adjust its interval based after the interval on the sensor, problems like these could cease to exist.
 
-\begin{itemize}
-	\item Discuss how this can be handed with a more advanced algorithm that adjust the frequency/interval.
-\end{itemize}
+%\begin{itemize}
+%	\item Discuss how this can be handed with a more advanced algorithm that adjust the frequency/interval.
+%	With a more advanced algortihm that can adjust the interval length, errors like these could potentially b 
+%	Om vi hade en mer avancerad algortihm som skulle kunna justera intervallet utefter klockan som sensorn har, skulle problem som dessa kunna upphöra.
+%	
+%\end{itemize}
 
 %\begin{itemize}
 %\item handle timeouts
@@ -52,8 +55,7 @@ The algorithm has limited error correcting capabilities and the results do not s
 It handles timeouts without any greater difficulties for shorter periods of time. Although not shown in the data of the thesis, when a timeout occures, the algorithm continues to successfully send \textit{interest} messages for the next sequence number. This is caused by the serving of the previous correction factor, so that it is able to keep the ``state'' for some period of time. Because test was not configured to focus on timeouts specifically, no further investigations have been carried out.
 
 There are more problems to recover from when the sequence number gets unsynced between the producer and the consumer. 
-It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore, it has not been tested specifically either, but within the tests carried out by the thesis, some directions and answers have shown how the system handles such errors when they occur.
-Depending on how many data entries the producers \textit{cache} can hold, the consumer can be at most the \textit{cache size minus one} sequence numbers after the current data and still be able to retreive the data. 
+It has not been a task for this thesis to provide any recovery capabilities or the abillity to reconfigure the minimum latency time. Therefore, it has not been tested specifically either, but initial tests carried out by the thesis, shows that the system tolerates a limited numbers of suchs errors. Depending on how many data entries the producers \textit{cache} can hold, the consumer can be at most the \textit{cache size minus one} sequence numbers after the current data and still be able to retreive the data. 
 Another possibility is that the size of the producers \textit{PIT} is large enough to handle several incoming requests and that it is able to hold them for until their data is produced. 
 
 
