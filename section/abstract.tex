@@ -1,17 +1,38 @@
 \begin{abstract}
- Your abstract.
- \begin{itemize}
- 	\item Written last
- 	\item Sell your idea!\\
- 	make the reader wnat to stay with you
- 	\item Single paragraph, 100-200 words
- 	\item for parths/sentences
- 	\begin{enumerate}
- 		\item What is your problem
-		\item How did you solve it
-		\item What are the results
-		\item Conclusions (what it means for the futrue)
- 	\end{enumerate}
- 	\item Make sure the abstract stands on its own!
- 	\end{itemize}
+% Your abstract.
+% \begin{itemize}
+% 	\item Written last
+% 	\item Sell your idea!\\
+% 	make the reader wnat to stay with you
+% 	\item Single paragraph, 100-200 words
+% 	\item for parths/sentences
+% 	\begin{enumerate}
+% 		\item What is your problem
+% 		The market of IoT devices continues to grow at a rapid speed as well as constrained wireless sensor networks.
+% 		Today, the main network paradigm is \textit{host centric} where a users have to specify which host they want to %receive their data from. Information-centric networking is a new paradigm for the future internet, which is based %on \textit{named data} instead of \textit{named hosts}. With ICN, a user sends a request for a perticular data on %the network, any router or server containing the data will respond to the request.
+%
+%
+%		\item How did you solve it
+%	\end{enumerate}
+%	By creating an algortihm that follow the interval of the sensor, one can acheive similar 
+%	\begin{enumerate}
+%		\item What are the results
+%		\item Conclusions (what it means for the futrue)
+% 	\end{enumerate}
+% 	\item Make sure the abstract stands on its own!
+% 	\end{itemize}
+The market of IoT devices continues to grow at a rapid speed as well as constrained wireless sensor networks.
+Today, the main network paradigm is \textit{host centric} where a users have to specify which host they want to receive their data from. Information-centric networking is a new paradigm for the future internet, which is based on \textit{named data} instead of \textit{named hosts}. With ICN, a user sends a request for a perticular data on the network, any router or server containing the data will respond to the request.
+
+In order to achieve low latency between data creation and its consumption, as well as being able to follow the sequential production of data, an algorithm was created for these purposes during this thesis. This algorithm uses a `one-time subscription' approach to initiate a \textit{interest} message before the data has been created at the sensor.
+
+The result of this algorithm shows that a consumer can retrieve the data with minimum latency from its creation by the sensor, without using a publish/subscribe system such as MQTT or similar. The study shows that it can handle larger variations of clock drift from the sensor. 
+The performance evaluation carried out which analysed the Content Centric Network application on the sensor shows that the application has little impact on the overall round trip time in the network.
+
+Based on the results, this thesis concluded that the ICN paradigm, together with a 'one-time subscription' model, can be a suitable option for communication within the IoT domain where consumers ask for sequentially produced data. 
+
+
+
+
+
 \end{abstract}

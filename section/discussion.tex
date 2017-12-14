@@ -1,13 +1,13 @@
 \section{Discussion}
 This section discuss the measurements obtained in Section 4 and 5. %Additionally the methodology used will be discussed.
-
+\todo{Add more text /A}
 \subsection{Performance evaluation}
 %\begin{itemize}
 %\item Clock, jumping result
 %\item min values
 %\item RTT-values allmänt, diskutera mer utvecklat kring Sparrow. Det tar tid.
 %\end{itemize}
-The latency performance evaluation was set up to measure hte overhead it takes to compute the CCN communication protocol used as an application for communication between IoT devices. Although the results were impressive overall and gave answers to several questions, they also opened up for further speculations.
+The latency performance evaluation was set up to measure the overhead it takes to compute the CCN communication protocol used as an application for communication between IoT devices. Although the results were impressive overall and gave answers to several questions, they also opened up for further speculations.
 
 Some of the min values that occur are around 40 $\%$ less than the median/average value. At first glance, this was thought to be proof that the general latency time could be lowered, but since there are only a few of these outliers there seem to be other reasons why these lower values occur. They appear more often the smaller the data packet is, which indicates that it is linked with something in the transport layer and how the data is packaged.
 %
@@ -17,14 +17,14 @@ The round trip time is generally high with ping6 commands at around 25 ms compar
 
 
 \subsection{Suitability evaluation}
-The suitablility evaluation was created to show the feasibility of retrieving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. This in order to show that the latency properties does not get worse with CCN compared with legacy protocols.The algorithm developed in this thesis was a first attempt to enable such functionality for ICN in IoT networks.
+The suitablility evaluation was created to show the feasibility of retrieving data from a sensor that is sequentially produced at a fixed interval with the lowest latency possible. This in order to show that the latency properties does not get worse with CCN compared with legacy protocols. The algorithm developed in this thesis was a first attempt to enable such functionality for ICN in IoT networks.
 
 %\begin{itemize}
 %\item Jumping results
 %\item Lowering RTTmin
 %\item interval, the assumption of same length
 %\end{itemize}
-The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows.
+The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows. \todo{Rewrite this paragraph. Seemed to be confusing. }
 The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
 Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algorithm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
 One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume a \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
