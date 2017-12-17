@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex main"] 1513526876 "main.aux" "main.bbl" "main" 1513526912
+["bibtex main"] 1513546118 "main.aux" "main.bbl" "main" 1513546170
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1513526911 29450 0f35549c5576c84acedca6bfd1db8cc6 ""
+  "main.aux" 1513546169 29196 3fedf11a8fc90305566b8fbbf7b5aa63 ""
   "main.bcf" 0 -1 0 ""
   "sample.bib" 1511899694 8521 4ea6aee034fd14f9861bb80c31244738 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1513526905 "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf" "main" 1513526912
-  "/Users/johan.carlquist/Documents/exjobb/rapport/main.aux" 1513526911 29450 0f35549c5576c84acedca6bfd1db8cc6 ""
+["pdflatex"] 1513546163 "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf" "main" 1513546170
+  "/Users/johan.carlquist/Documents/exjobb/rapport/main.aux" 1513546169 29196 3fedf11a8fc90305566b8fbbf7b5aa63 ""
   "/Users/johan.carlquist/Documents/exjobb/rapport/main.tex" 1513518131 1860 4b4b367e557005d5f7c380b3d04aab77 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -248,11 +248,11 @@
   "figures/CCN-architecture.png" 1509751797 94523 781b120b87d50b0f3dba67acc79ef677 ""
   "figures/experiment_setup.png" 1509748182 23050 ae3707827573e039d211a493b319c772 ""
   "figures/latency.png" 1507229845 39161 4d2ad8c9823763e7af28989f9239bf5c ""
-  "main.aux" 1513526911 29450 0f35549c5576c84acedca6bfd1db8cc6 ""
-  "main.bbl" 1513526876 4932 6a82187f83e1c183efb1d07286e987c1 "bibtex main"
-  "main.out" 1513526911 2656 2c6ee64bf40fd686cde88047224ce883 ""
+  "main.aux" 1513546169 29196 3fedf11a8fc90305566b8fbbf7b5aa63 ""
+  "main.bbl" 1513546118 4932 6a82187f83e1c183efb1d07286e987c1 "bibtex main"
+  "main.out" 1513546169 2656 2c6ee64bf40fd686cde88047224ce883 ""
   "main.tex" 1513518131 1860 4b4b367e557005d5f7c380b3d04aab77 ""
-  "main.toc" 1513526911 3908 8f025d0c33a0d4f4f3cdd2d11738741e ""
+  "main.toc" 1513546169 3908 dbb8982e2d92d0cd87708d7f9639e3e5 ""
   "section/abstract.tex" 1513288430 2758 5b16db4d2761c7b7dc45e2822935c4a9 ""
   "section/acknowledgements.tex" 1512926714 998 28520d18054a2ee1350007e5a2b64442 ""
   "section/background.tex" 1513274738 1951 193e77a7870b486c0abcc6f16d31757a ""
@@ -271,13 +271,13 @@
   "section/popularvetenskaplig-sammanfattning.tex" 1512457803 114 20898ce8f38860c58d4c33e2ffddbb0c ""
   "section/related_work.tex" 1513274748 3212 016972238eb2349ce333b0c70db83c95 ""
   "section/resultat/ping-peek.tex" 1512301010 23650 c94da51b6ac2176db8e512685121e95d ""
-  "section/resultat/suitable.tex" 1513526904 73533 a4844183f76ba9446d95af0933e0f5c4 ""
+  "section/resultat/suitable.tex" 1513546162 72767 55fb2b001c99f5fc416d6e3d58074179 ""
   (generated)
+  "main.log"
   "main.pdf"
   "/Users/johan.carlquist/Documents/exjobb/rapport/main.log"
-  "main.out"
-  "main.log"
+  "main.aux"
   "/Users/johan.carlquist/Documents/exjobb/rapport/main.pdf"
   "main.toc"
-  "main.aux"
+  "main.out"
   "main.lof"
