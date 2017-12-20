@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 DEC 2017 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 DEC 2017 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,30 +955,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
-[5]
-Overfull \hbox (2.44519pt too wide) in paragraph at lines 43--43
-[][][][]\T1/cmr/m/n/10 Formulera 
- []
-
-
-Overfull \hbox (2.44519pt too wide) in paragraph at lines 43--43
-[][][][]\T1/cmr/m/n/10 Formulera 
- []
-
-
-Overfull \hbox (2.44519pt too wide) in paragraph at lines 43--43
-[][][][]\T1/cmr/m/n/10 Formulera 
- []
-
-
-Overfull \hbox (2.44519pt too wide) in paragraph at lines 43--43
-[][][][]\T1/cmr/m/n/10 Formulera 
- []
-
-
-LaTeX Warning: Marginpar on page 6 moved.
-
-(/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
+[5] (/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--9
 
  []
@@ -1038,7 +1015,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--24
 
  []
 
-[9] <figures/802-15-4-topologies.png, id=305, 490.83376pt x 215.80624pt>
+[9] <figures/802-15-4-topologies.png, id=303, 490.83376pt x 215.80624pt>
 File: figures/802-15-4-topologies.png Graphic file (type png)
 <use figures/802-15-4-topologies.png>
 Package pdftex.def Info: figures/802-15-4-topologies.png used on input line 28.
@@ -1055,7 +1032,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
-<figures/6lowpan-own.png, id=321, 522.95375pt x 241.90375pt>
+<figures/6lowpan-own.png, id=319, 522.95375pt x 241.90375pt>
 File: figures/6lowpan-own.png Graphic file (type png)
 <use figures/6lowpan-own.png>
 Package pdftex.def Info: figures/6lowpan-own.png used on input line 54.
@@ -1141,7 +1118,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--38
 
  []
 
-[13] <figures/CCN-architecture.png, id=354, 984.67876pt x 650.43pt>
+[13] <figures/CCN-architecture.png, id=352, 984.67876pt x 650.43pt>
 File: figures/CCN-architecture.png Graphic file (type png)
 <use figures/CCN-architecture.png>
 Package pdftex.def Info: figures/CCN-architecture.png used on input line 43.
@@ -1155,7 +1132,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--74
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
 [15 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
 ng>])) [16] (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementa
-tion.tex <figures/experiment_setup.png, id=378, 419.5675pt x 300.12125pt>
+tion.tex <figures/experiment_setup.png, id=376, 419.5675pt x 300.12125pt>
 File: figures/experiment_setup.png Graphic file (type png)
 <use figures/experiment_setup.png>
 Package pdftex.def Info: figures/experiment_setup.png used on input line 19.
@@ -1216,7 +1193,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
 
-<figures/latency.png, id=427, 713.66624pt x 587.19376pt>
+<figures/latency.png, id=425, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
 Package pdftex.def Info: figures/latency.png used on input line 60.
@@ -1310,13 +1287,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31766 strings out of 493014
- 739406 string characters out of 6133351
- 1067218 words of memory out of 5000000
- 34524 multiletter control sequences out of 15000+600000
+ 31748 strings out of 493014
+ 739014 string characters out of 6133351
+ 1061239 words of memory out of 5000000
+ 34508 multiletter control sequences out of 15000+600000
  21633 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,21n,92p,2116b,4899s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,21n,92p,2116b,4871s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -1337,10 +1314,10 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (45 
-pages, 658923 bytes).
+pages, 657887 bytes).
 PDF statistics:
- 750 PDF objects out of 1000 (max. 8388607)
- 665 compressed objects within 7 object streams
- 187 named destinations out of 1000 (max. 500000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 662 compressed objects within 7 object streams
+ 185 named destinations out of 1000 (max. 500000)
  358 words of extra memory for PDF output out of 10000 (max. 10000000)
 
