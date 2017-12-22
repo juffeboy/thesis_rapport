@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Using ICN for IoT}{14}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}CCN-lite}{15}{subsubsection.2.2.3}
 \contentsline {subsection}{\numberline {2.3}Contiki-OS}{15}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Sparrow}{16}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.1}Sparrow}{15}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}CCN-lite portation}{16}{subsubsection.2.3.2}
 \contentsline {section}{\numberline {3}Implementation}{17}{section.3}
 \contentsline {subsection}{\numberline {3.1}Experimental Setup}{17}{subsection.3.1}
