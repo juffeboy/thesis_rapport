@@ -1,5 +1,5 @@
 \section{Implementation}
-\todo{Annan Rubrik?}
+%\todo{Annan Rubrik?}
 One percieved disadvantage with the ICN communication model, lays in the nature of ICN with its client-driven communication paradigm as described earlier. The data will only pass through the network if it has been requested. With a different approach, as in MQTT, the creator of a data can push it towards a user, which could potentially lead to low latency from data creation to when it is available at the consumer. This is impossible with the ICN paradigm. If the consumer does not know when the data is created at the producer, it could lead to remarkable longer latency time between data creation and its consumption compared to MQTT.%\todo{Behöver resonemang om konsekvens för latens här innan du beskriver lösningen (koppla till kap 1.2) / B}
 
 In order to achieve the same functionality, where the consumer retrieves the data from the sensor, an \textit{interest} request must have been initiated. Together with a one time subscription approach ICN could give the same functionality, as in MQTT, when data is produced periodically over time. To make such a system feasible, the performance of ICN has to be good enough so the system is not a bottleneck to itself. The optimal case is if the consumer could retreive the data as soon as it has been produced.

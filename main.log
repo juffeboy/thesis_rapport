@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 DEC 2017 20:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  27 DEC 2017 21:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1040,13 +1040,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--38
 
  []
 
-<figures/CCN-architecture.png, id=352, 984.67876pt x 650.43pt>
+<figures/CCN-architecture.png, id=351, 984.67876pt x 650.43pt>
 File: figures/CCN-architecture.png Graphic file (type png)
 <use figures/CCN-architecture.png>
 Package pdftex.def Info: figures/CCN-architecture.png used on input line 47.
 (pdftex.def)             Requested size: 369.88583pt x 244.32748pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--78
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
 
  []
 
@@ -1054,7 +1054,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--78
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
 [15 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
 ng>])) [16] (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementa
-tion.tex <figures/experiment_setup.png, id=376, 419.5675pt x 300.12125pt>
+tion.tex <figures/experiment_setup.png, id=375, 419.5675pt x 300.12125pt>
 File: figures/experiment_setup.png Graphic file (type png)
 <use figures/experiment_setup.png>
 Package pdftex.def Info: figures/experiment_setup.png used on input line 19.
@@ -1115,7 +1115,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
 
-<figures/latency.png, id=425, 713.66624pt x 587.19376pt>
+<figures/latency.png, id=423, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
 Package pdftex.def Info: figures/latency.png used on input line 60.
@@ -1209,13 +1209,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31748 strings out of 493014
- 739014 string characters out of 6133351
- 1061239 words of memory out of 5000000
- 34508 multiletter control sequences out of 15000+600000
+ 31721 strings out of 493014
+ 738426 string characters out of 6133351
+ 1055288 words of memory out of 5000000
+ 34484 multiletter control sequences out of 15000+600000
  21633 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,21n,92p,2116b,4871s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,21n,92p,2116b,4839s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -1236,10 +1236,10 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (45 
-pages, 657948 bytes).
+pages, 657432 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
- 662 compressed objects within 7 object streams
- 185 named destinations out of 1000 (max. 500000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 663 compressed objects within 7 object streams
+ 182 named destinations out of 1000 (max. 500000)
  358 words of extra memory for PDF output out of 10000 (max. 10000000)
 

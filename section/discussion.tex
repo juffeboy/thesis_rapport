@@ -24,10 +24,19 @@ The suitablility evaluation was created to show the feasibility of retrieving da
 %\item Lowering RTTmin
 %\item interval, the assumption of same length
 %\end{itemize}
-The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows. \todo{Rewrite this paragraph. Seemed to be confusing. }
-The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
-Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algorithm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
-One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume a \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
+
+
+%The varying round trips shown in the result section have several explanations. The deviation is greater as $\alpha$ grows. %\todo{Rewrite this paragraph. Seemed to be confusing. }
+%The alternation between values increases as the value on $\alpha$ grows, which in turn impact the \textit{srtt}. 
+%Deviations can be traced back to values which are for some reason slightly delayed. This is compensated at the next iteration. If it the delay continues, the algorithm overcompensates which results in a devation towards the other side. On the other hand, if the delay becomes stable after the compensation, the variation ends.
+%One of the reasons why the deviations are approximately the same in size, +- 7-9 ms, is the additional tick it takes to consume a \textit{PIT} entry at the sensor node. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
+
+
+The varying round trips shown in the result section have several explanations. As $\alpha$ grows, the significance of the previous rtt value decreases and instead the importance of the current rtt value grows, which provides less smoothing effect for the srtt.
+When comparing figure \ref{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}, with low $\alpha$, to figure \ref{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}, with high $\alpha$, one can see that the number of deviations increases as $\alpha$ grows.
+
+A Deviation has to do with when a srtt value was slightly delayed for some reason and becomes compensated at the next iteration in order to `repar/catch up' that slight delay. One can see this occur at interval 59 in figure \ref{fig:gw/test/alpha/0.9/rtttarget/2.5/diff/1.0/slope/0.15/zommed}, where the latency first decreases and in the next interval, it bounce back up and the latency becomes greater. When the delays continues, which it does in the previous example, the algortihm overcompensates which result in a deviation on the other side. On the other hand, when the delay becomes stable after compsensation, the deviation ends, which is seen in figure \ref{fig:gw/test/alpha/0.1/rtttarget/2.5/diff/1.0/slope/0.15/zommed}. One of the reasons the deviation are approximatly the same in size, 7-9 ms, is the additional tick it takes to consume a \textit{PIT} entry at the sensor node. The clock resolution on the sensor is 1/128th of a second, which equals 7.8125 ms. This difference is similar to the difference described earlier concerning minimum printing and essential printing in the performance evaluation.
+
 
 %\begin{itemize}
 %\item It handles constant time drift
