@@ -3,13 +3,28 @@
 \bibitem{alanCarlton}
 Alan Carlton.
 \newblock {Information-centric networking could fix these Internet problems}
-  kernel description, 2016.
+  kernel description.
+\newblock
+  \url{https://www.computerworld.com/article/3072218/software-defined-networking/information-centric-networking-could-fix-these-internet-problems.html}
+  visited 2017-09-20, 2016.
+
+\bibitem{Ahlgreniot}
+Anders Lindgren, Fehmi~Ben Abdesslem, Bengt Ahlgren, Olov Schelen, and
+  Adeel~Mohammad Malik.
+\newblock Design choices for the iot in information-centric networks.
+\newblock {\em IEEE Consumer Communications and Networking Conference}, 2016.
 
 \bibitem{Ahlgren2012}
 Bengt Ahlgren, Christian Dannewits, Claudio Imbreenda, Dirk Kutscher, and
   Börje Ohlman.
 \newblock A survey of information-centric networking.
 \newblock {\em IEEE Communications Magazine}, 50(7), 2012.
+
+\bibitem{chipmakersarebetting}
+Chip-makers are betting that moores law wont matter in the internet of things.
+\newblock
+  \url{https://qz.com/218514/chip-makers-are-betting-that-moores-law-wont-matter-in-the-internet-of-things/}
+  visited 2017-09-20.
 
 \bibitem{mqtt}
 Mqtt.
@@ -39,12 +54,6 @@ George Xylomenos, Christopher~N Ververidis, Vasilios~A Siris, Nikos Fotiou,
 \newblock A survey of information-centric networking research.
 \newblock {\em IEEE Communications Surveys \& Tutorials}, 16(2):1024--1049,
   2014.
-
-\bibitem{Ahlgreniot}
-Anders Lindgren, Fehmi~Ben Abdesslem, Bengt Ahlgren, Olov Schelen, and
-  Adeel~Mohammad Malik.
-\newblock Design choices for the iot in information-centric networks.
-\newblock {\em IEEE Consumer Communications and Networking Conference}, 2016.
 
 \bibitem{iotchop}
 M.~Amadeo, C.~Campolo, J.~Quevedo, D.~Corujo, A.~Molinaro, A.~Iera, R.~L.

@@ -6,35 +6,37 @@ Database file #1: sample.bib
 Warning--entry type for "alanCarlton" isn't style-file defined
 --line 6 of file sample.bib
 Warning--I'm ignoring rfc4944's extra "howpublished" field
---line 46 of file sample.bib
+--line 47 of file sample.bib
 Warning--I'm ignoring rfc2460's extra "howpublished" field
---line 56 of file sample.bib
+--line 57 of file sample.bib
 Warning--I'm ignoring rfc791's extra "howpublished" field
---line 65 of file sample.bib
+--line 66 of file sample.bib
 Warning--entry type for "radio-electronic-802-15-4" isn't style-file defined
---line 108 of file sample.bib
+--line 109 of file sample.bib
 Warning--entry type for "contiki-os" isn't style-file defined
---line 114 of file sample.bib
+--line 115 of file sample.bib
 Warning--entry type for "mqtt" isn't style-file defined
---line 119 of file sample.bib
+--line 120 of file sample.bib
 Warning--entry type for "MQTT-SN" isn't style-file defined
---line 132 of file sample.bib
+--line 133 of file sample.bib
 Warning--I'm ignoring rfc7959's extra "howpublished" field
---line 145 of file sample.bib
+--line 146 of file sample.bib
 Warning--entry type for "Sparrow" isn't style-file defined
---line 171 of file sample.bib
+--line 172 of file sample.bib
 Warning--entry type for "RIOT" isn't style-file defined
---line 176 of file sample.bib
+--line 177 of file sample.bib
 Warning--entry type for "CCN-LITE" isn't style-file defined
---line 183 of file sample.bib
+--line 184 of file sample.bib
 Warning--entry type for "CC2650" isn't style-file defined
---line 189 of file sample.bib
+--line 190 of file sample.bib
 Warning--entry type for "RP3" isn't style-file defined
---line 195 of file sample.bib
+--line 196 of file sample.bib
 Warning--entry type for "Firefly" isn't style-file defined
---line 200 of file sample.bib
+--line 201 of file sample.bib
+Warning--entry type for "chipmakersarebetting" isn't style-file defined
+--line 206 of file sample.bib
 Warning--entry type for "Gartner" isn't style-file defined
---line 205 of file sample.bib
+--line 212 of file sample.bib
 Warning--empty booktitle in yanqui
 Warning--empty author in 6185525
 Warning--empty author in rfc791
@@ -42,45 +44,45 @@ Warning--empty institution in rfc791
 Warning--empty institution in rfc2460
 Warning--empty institution in rfc4944
 Warning--empty institution in rfc7959
-You've used 26 entries,
+You've used 27 entries,
             1791 wiz_defined-function locations,
-            577 strings with 7699 characters,
-and the built_in function-call counts, 4507 in all, are:
-= -- 370
-> -- 200
+            581 strings with 8089 characters,
+and the built_in function-call counts, 4618 in all, are:
+= -- 381
+> -- 201
 < -- 4
-+ -- 80
++ -- 81
 - -- 54
 * -- 228
-:= -- 656
-add.period$ -- 68
-call.type$ -- 26
-change.case$ -- 30
+:= -- 668
+add.period$ -- 71
+call.type$ -- 27
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 205
-empty$ -- 513
+cite$ -- 34
+duplicate$ -- 210
+empty$ -- 531
 format.name$ -- 54
-if$ -- 1055
+if$ -- 1085
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 27
 missing$ -- 9
-newline$ -- 120
+newline$ -- 125
 num.names$ -- 15
-pop$ -- 125
+pop$ -- 130
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 138
+skip$ -- 143
 stack$ -- 0
 substring$ -- 142
-swap$ -- 50
+swap$ -- 51
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 7
 while$ -- 29
-width$ -- 28
-write$ -- 237
-(There were 23 warnings)
+width$ -- 29
+write$ -- 246
+(There were 24 warnings)
