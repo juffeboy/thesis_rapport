@@ -1,7 +1,13 @@
 
 \section{Latency performance evaluation}
 %\subsection{Purpose}
-The purpose of this experiment is to measure the roundtrip time, latency, between a sensornode and a border gateway using ping and CCN peek commands. The results show which of these alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is to large, then CCN would be considered not suitable to be used for a IoT device. From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
+The purpose of this experiment is to measure and compare the roundtrip time, latency, between a sensornode and a border gateway using both ping and CCN peek commands. The results show which of these two alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. 
+
+From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is too large, then CCN would be considered not suitable to be used for a IoT device. 
+
+During these measurements, the data is always available at the sensor for instant access, regardless if the ping or peek is used, there is no delay for the data to be produced. 
+
+From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
 
 %%[Make the nice picture and write about why that picture is interesting. This could be something in the beginning of the result section, the arguments could be around it. Showing the roundtrip time and processing time.]
 

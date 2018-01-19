@@ -1,6 +1,11 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
+Case mismatch error between cite keys CCN-lite and CCN-LITE
+---line 32 of file main.aux
+ : \citation{CCN-lite
+ :                   }
+I'm skipping whatever remains of this command
 The style file: unsrt.bst
 Database file #1: sample.bib
 Warning--entry type for "alanCarlton" isn't style-file defined
@@ -85,4 +90,4 @@ warning$ -- 7
 while$ -- 29
 width$ -- 29
 write$ -- 246
-(There were 24 warnings)
+(There was 1 error message)

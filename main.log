@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  30 DEC 2017 19:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 JAN 2018 00:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,8 +941,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--7
 \openout6 = `main.toc'.
 
 [4] (/Users/johan.carlquist/Documents/exjobb/rapport/section/introduction.tex [
-5] (/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex [6
-]
+5]
+
+LaTeX Warning: Citation `CCN-lite' on page 6 undefined on input line 73.
+
+[6] (/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
@@ -1069,74 +1072,74 @@ cation.tex [19])
 ex)) [20]
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/resultat/ping-peek.tex
 
-Overfull \hbox (37.62517pt too wide) detected at line 33
+Overfull \hbox (37.62517pt too wide) detected at line 39
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--52
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--52
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--52
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--52
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 54--57
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
 
  []
 
 <figures/latency.png, id=416, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
-Package pdftex.def Info: figures/latency.png used on input line 60.
+Package pdftex.def Info: figures/latency.png used on input line 66.
 (pdftex.def)             Requested size: 345.8119pt x 284.5288pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--95
 
  []
 
-[22 </Users/johan.carlquist/Documents/exjobb/rapport/figures/latency.png>] [23]
+[22] [23 </Users/johan.carlquist/Documents/exjobb/rapport/figures/latency.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 101.
+               Default added (so using `tbp') on input line 107.
 
 ) [24] [25] [26] (/Users/johan.carlquist/Documents/exjobb/rapport/section/resul
 tat/suitable.tex [27]
@@ -1228,6 +1231,9 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 860E05E92964BF04D6B42100D12FD805;2596.
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
  )
 (\end occurred inside a group at level 1)
@@ -1235,10 +1241,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31626 strings out of 493014
- 736549 string characters out of 6133351
- 1037764 words of memory out of 5000000
- 34397 multiletter control sequences out of 15000+600000
+ 31627 strings out of 493014
+ 736559 string characters out of 6133351
+ 1040798 words of memory out of 5000000
+ 34398 multiletter control sequences out of 15000+600000
  21633 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,21n,92p,2116b,4737s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1262,7 +1268,7 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (45 
-pages, 656937 bytes).
+pages, 657221 bytes).
 PDF statistics:
  744 PDF objects out of 1000 (max. 8388607)
  659 compressed objects within 7 object streams

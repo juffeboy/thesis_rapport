@@ -14,7 +14,7 @@ When an \textit{interest} message is received at the sensor, a lookup in the cac
 An advantage is that this provides a possibility to ask for data that has not yet been produced. 
 A consumer could potentially issue an \textit{interest} message a short time before the \textit{data} has been produced, which would firstly get the data directly to the user, and secondly reduce the latency on the network. 
 \\\\
-In every period a new content object is created. This object is cached into the \textit{content storage} to be retreived later on by an \textit{interest} request. There is also a lookup in the PIT to see if the newly created object already has an pending \textit{interest} request. If so, the object will be sent out towards the issuer and the request is to be considered consumed. Once the storage is full, the content will be removed from the \textit{content storage} in a FIFO-queue fashion.
+In every period a new content object is created. This object is cached into the \textit{content storage} to be retreived later on by an \textit{interest} request. There is also a lookup in the \textit{pending interest table} to see if the newly created object already has an pending \textit{interest} request. If so, the object will be sent out towards the issuer and the request is to be considered consumed. Once the storage is full, the content will be removed from the \textit{content storage} in a FIFO-queue fashion.
 
 
 \paragraph{Ping6}

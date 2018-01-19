@@ -6,14 +6,14 @@ In order to achieve the same functionality, where the consumer retrieves the dat
 
 Through experimentations, this thesis evaluates the performance and suitability described in earlier paragraph, of the ICN application CCN.
 
-In the first experiment, in section 5, an evaluation regarding the latency performance is conducted . It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.
+In the first experiment, in section 5, an evaluation regarding the latency performance is conducted. It covers differences in latency times between ping- and CCN peek requests between a consumer and a producer. The result provides arguments in favor of CCN, and they are later on used in the algorithm described in the second experiment.
 
 The other experiment, covering an evaluation of the suitability using CCN can be found in section 6. It covers an analysis regarding the algortihm developed during the thesis and its performance from both a consumer and producers perspective. The algorithm tries to deliver the lowest possible latency, from the time the data has been produced until it is available to the consumer. 
 
 
 \subsection{Experimental Setup}
 The implementation of the experiments described in previous paragraphs consists of a combination of hardware and software. The setup is shown in figure \ref{fig:experiment_setup}, where the whole system consists of a computer, Raspberry Pi 3, Zolertia Firefly and sensor. Together they communicate through various of protocols described both in section 2 and later on in this section. 
-In order to provide logs and data for the experiments, the sensor is connected through USB to the computer. These logs can be read in real time or later use, in order to verify the correctness of the system. All communication between producer, the sensor, and the consumer, a CCN application running on Raspberry Pi, is made through a Zolertia Firefly that is connected on a Raspberry Pi.
+In order to provide logs and data for the experiments, the sensor is connected through USB to the computer. These logs can be read in real time or for later use, in order to verify the correctness of the system. All communication between producer, the sensor, and the consumer, a CCN application running on Raspberry Pi, is made through a Zolertia Firefly that is connected on a Raspberry Pi.
 
 \begin{figure}\centering
 	\includegraphics[width=0.7\textwidth]{figures/experiment_setup.png}
