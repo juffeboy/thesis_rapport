@@ -5,10 +5,11 @@ As a user, one always want to receive the data as soon as it has been produced a
 
 Communication protocols such as MQTT has a low latency between data creation and consumption by nature because the producer pushes the data towards the consumer when the data has been created. In ICN however, it is not possible by nature to push the data towards the consumer in the same manner as with MQTT. 
 
-With the possibility of storing \textit{interest} messages at the sensors, combined with the `one time subscription' approach, described by Ahlgren et al in \cite{Ahlgreniot} where the consumer sends an \textit{interest} message in advance for future data, it could be possible to achive the similar low latency with ICN as with MQTTs push mechanism. The result shows how such a system perfoms over time and if it is a suitable alternative to the publish subscribe approach.
+With the possibility of storing \textit{interest} messages at the sensors, combined with the `one time subscription' approach, described by Ahlgren et al in \cite{Ahlgreniot} where the consumer sends an \textit{interest} message in advance for future data, it could be possible to achive the similar low latency with ICN as with MQTTs push mechanism. 
+A visual representation of this is illustrated in figure \ref{fig:latency-one-time}, where a user sends an interest message for the data named ``s1'' before it has been created at the sensor. Thereby subscribing for the data s1 and making use of the sensors pit in order to acheive low latency between data creation and retrieval of data. The result shows how such a system perfoms over time and if it is a suitable alternative to the publish subscribe approach.
 
 The purpose of this experiment is to show that the latency between data creation and retrieval at the consumer does not have to be affected when using ICN. 
-A key goal is to enable the consumer to receive the data as soon as it has been produced at the sensor. The interval when the data is produced could be of arbitray, but fixed, periodic length. 
+A key goal is to enable the consumer to receive the data as soon as it has been produced at the sensor. The rate when the data is produced could be of arbitray, but fixed, periodic length. 
 
 Although the purpose is to follow the sequence numbering of the data, it is out of the scope of this thesis to find the latest sequence number. This is considered to be known for the system in advance.
 
@@ -19,9 +20,12 @@ The expression `data from the \textit{PIT}' is equvivalent to once the data has 
     \centering
     \includegraphics[width=\textwidth,height=15cm,keepaspectratio]{figures/latency-one-time-sub.png}
     %\caption{Star topology structure on the left, Peer-to-peer on the right. write where it is taken from?}
-    \caption{The imagine.}
-    \label{fig:latency}
+    \caption{A users sends an interest message for data ``s1'' towards the sensor in advance in order to acheive low latency from data creation to receival. The idea is that this works for sequentially produced data over longer periods of time.}
+    \label{fig:latency-one-time}
 \end{figure}
+
+
+
 
 \subsection{Method}
 %\begin{itemize}
