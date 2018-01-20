@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 JAN 2018 00:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  20 JAN 2018 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,7 +801,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 \pgf@layerbox@f=\box51
 \pgf@layerboxsaved@f=\box52
-(/Users/johan.carlquist/Documents/exjobb/rapport/main.aux)
+(/Users/johan.carlquist/Documents/exjobb/rapport/main.aux
+
+LaTeX Warning: Label `fig:latency' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -1072,90 +1076,104 @@ cation.tex [19])
 ex)) [20]
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/resultat/ping-peek.tex
 
-Overfull \hbox (37.62517pt too wide) detected at line 39
+Overfull \hbox (0.91617pt too wide) in paragraph at lines 41--42
+[]\T1/cmr/m/n/10 Both tools are used in the sim-i-lar way as in fig-ure [][]11[
+][], where the re-questor/consumer
+ []
+
+
+Overfull \hbox (37.62517pt too wide) detected at line 48
 [][]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--58
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--58
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--58
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--58
-
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-
- []
-
-<figures/latency.png, id=416, 713.66624pt x 587.19376pt>
+[21] <figures/latency.png, id=413, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
-Package pdftex.def Info: figures/latency.png used on input line 66.
+Package pdftex.def Info: figures/latency.png used on input line 65.
 (pdftex.def)             Requested size: 345.8119pt x 284.5288pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
+Underfull \hbox (badness 10000) in paragraph at lines 56--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
+Underfull \hbox (badness 10000) in paragraph at lines 56--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
+Underfull \hbox (badness 10000) in paragraph at lines 56--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
+Underfull \hbox (badness 10000) in paragraph at lines 56--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
+Underfull \hbox (badness 10000) in paragraph at lines 72--75
+
+ []
+
+[22 </Users/johan.carlquist/Documents/exjobb/rapport/figures/latency.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 77--83
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--95
-
- []
-
-[22] [23 </Users/johan.carlquist/Documents/exjobb/rapport/figures/latency.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 107.
-
-) [24] [25] [26] (/Users/johan.carlquist/Documents/exjobb/rapport/section/resul
-tat/suitable.tex [27]
-Underfull \hbox (badness 10000) in paragraph at lines 64--67
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--67
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
 
  []
 
-[28] [29] [30] [31] [32] [33] [34] [35] [36] [37]) [38] (/Users/johan.carlquist
-/Documents/exjobb/rapport/section/discussion.tex [39]) [40] (/Users/johan.carlq
-uist/Documents/exjobb/rapport/section/conclusion.tex [41] (/Users/johan.carlqui
-st/Documents/exjobb/rapport/section/future_work.tex [42])) [43] (/Users/johan.c
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--131
+
+ []
+
+[24]) [25] [26] [27] (/Users/johan.carlquist/Documents/exjobb/rapport/section/r
+esultat/suitable.tex <figures/latency-one-time-sub.png, id=465, 723.70375pt x 8
+28.09375pt>
+File: figures/latency-one-time-sub.png Graphic file (type png)
+<use figures/latency-one-time-sub.png>
+Package pdftex.def Info: figures/latency-one-time-sub.png used on input line 20
+.
+(pdftex.def)             Requested size: 369.89015pt x 423.24463pt.
+[28] [29 </Users/johan.carlquist/Documents/exjobb/rapport/figures/latency-one-t
+ime-sub.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
+
+ []
+
+[30] [31] [32] [33] [34] [35] [36] [37] [38] [39]) [40] (/Users/johan.carlquist
+/Documents/exjobb/rapport/section/discussion.tex [41]) [42] (/Users/johan.carlq
+uist/Documents/exjobb/rapport/section/conclusion.tex [43] (/Users/johan.carlqui
+st/Documents/exjobb/rapport/section/future_work.tex [44])) [45] (/Users/johan.c
 arlquist/Documents/exjobb/rapport/main.bbl (/usr/local/texlive/2016/texmf-dist/
 tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
@@ -1203,7 +1221,7 @@ Overfull \hbox (66.56595pt too wide) in paragraph at lines 18--22
 tter-[]in-[]the-[]internet-[]of-[]things/$[][]
  []
 
-[44]
+[46]
 Underfull \hbox (badness 10000) in paragraph at lines 92--97
 []\T1/cmr/m/n/10 Ian Poole.  Ieee 802.15.4 tech-nol-ogy and stan-dard.  [][]$\T
 1/cmtt/m/n/10 http :
@@ -1223,7 +1241,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--151
 rrypi . org / products /
  []
 
-) [45]
+) [47]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
 (/Users/johan.carlquist/Documents/exjobb/rapport/main.aux)
@@ -1234,6 +1252,9 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
  )
 (\end occurred inside a group at level 1)
@@ -1241,10 +1262,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31627 strings out of 493014
- 736559 string characters out of 6133351
- 1040798 words of memory out of 5000000
- 34398 multiletter control sequences out of 15000+600000
+ 31636 strings out of 493014
+ 736770 string characters out of 6133351
+ 1033673 words of memory out of 5000000
+ 34403 multiletter control sequences out of 15000+600000
  21633 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,21n,92p,2116b,4737s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1267,11 +1288,11 @@ xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (45 
-pages, 657221 bytes).
+Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (47 
+pages, 692545 bytes).
 PDF statistics:
- 744 PDF objects out of 1000 (max. 8388607)
- 659 compressed objects within 7 object streams
- 177 named destinations out of 1000 (max. 500000)
- 350 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 757 PDF objects out of 1000 (max. 8388607)
+ 668 compressed objects within 7 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 355 words of extra memory for PDF output out of 10000 (max. 10000000)
 

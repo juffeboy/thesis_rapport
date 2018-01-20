@@ -1,11 +1,13 @@
 
 \section{Latency performance evaluation}
 %\subsection{Purpose}
-The purpose of this experiment is to measure and compare the roundtrip time, latency, between a sensornode and a border gateway using both ping and CCN peek commands. The results show which of these two alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest. 
+In this section a latency performance evaluation of CCN in the IoT will be conducted in order to see if CCN is any performance barrier. The result and thoughts from this section will lay as a foundation of the buildup and usage of the algorthim presented in the next section.
 
-From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is too large, then CCN would be considered not suitable to be used for a IoT device. 
+The purpose of this experiment is to measure and compare the roundtrip time, latency, between a sensornode and a border gateway using both ping and CCN peek commands. The results show which of these two alternatives has the lowest latency, how much they differ and if there is a common pattern between them. It is also interesting to see how much time it takes for a sensor node to consume an CCN interest, i.e receieve an interest message and respond it with the requested data. 
 
 During these measurements, the data is always available at the sensor for instant access, regardless if the ping or peek is used, there is no delay for the data to be produced. 
+
+From a more overview perspectrive, it is very important that the processing time of a CCN interest does not take to long time or to much resources and that it should be feasible for a sensor to deal with. If the computation time of returning data is too large, then CCN would be considered not suitable to be used for a IoT device. 
 
 From here on, latency and round trip time is used interchangeably aswell as CCN peek and peek.
 
@@ -31,9 +33,16 @@ From here on, latency and round trip time is used interchangeably aswell as CCN 
 %The roundtrip time in both cases is calculated as:
 %\begin{center}\textit{latency (roundtrip) = 2 x transmission time + processing time}\end{center}
 %where transmission time is the time it takes to transfer the data on the radio and processing time is the time it takes for a node to process the request. Queueing delay is %a possibility in the system, such delay is here included under processing time.
+
+
 %\\\\
-The roundtrip time is be measured using the ping6 command live tool which uses the ICMPv6 protocol. A similar tool has been developed to measure the latency for a CCN-peek request. Both tools are used in the similar way as in figure \ref{fig:latency}, where the requestor/consumer is on the left-hand side and the sensor/producer is on the right-hand side. Time is represented on the Y-axis going from the top of the figure to the bottom. 
-The latency is measured in time units from the requestors perspective, it starts when the interest/ping has been sent from the requestor and stops when the requested data has been replyed from the sensor. As seen in figure \ref{fig:latency}, one can translate the roundtrip-calculation into the equation:
+In order to have a reference point to relate to when the round trip time is measured, the ping6 command live tool is used  which uses the ICMPv6 protocol to communicate between active devices. A similar tool with the ability to calculate and measure the round trip times for CCN-peek requests has been developed for the gateway CCN-lite application described in \textit{section 3.1.2.1}. CCN-peek starts by issues an \textit{interest} message for a data that is available at the sensor and stops when that data has been responded.
+
+Both tools are used in the similar way as in figure \ref{fig:latency}, where the requestor/consumer is on the left-hand side and the sensor/producer is on the right-hand side. Time is represented on the Y-axis going from the top of the figure to the bottom. The latency is measured in time units from the requestors perspective, it starts when the interest/ping has been sent from the requestor and stops when the requested data has been replyed from the sensor. As figure \ref{fig:latency} illustrates, the requested data that the ping command and interest message search for is always available directly at the sensor. 
+
+The ping6 command is used as a reference point in relation to CCN-peek because ping6 does not have any, or neglectable, processing time at the sensor. This fact enables us to calculate how long the processing time could be when using CCN-peek for latency measurements if all other components in the round trip time stays the same.
+
+As seen in figure \ref{fig:latency}, one can translate the roundtrip-calculation for both ping6 and CCN-peek into the equation:
 \begin{equation} \label{eq:1}
 \textit{latency (roundtrip) = interest transmission time + data transmission time + processing time}
 \end{equation}
@@ -51,17 +60,7 @@ In this experiment, the bourder router will perform 100 consecutive latency meas
 %The only variable that is changable in this experiment is the packet size, both of the ping and of the searched peek interest.
 The only variable that is varied in this experiment is the packet size of the outgoing data transmitted on the radio link towards the sensor.
 \\\\
-%The only variable that differs in the measurements is the payload of the ping and the size of the searched peek interest[rewrite this]. 
-Ping and peek differs how the total packet size transmitted over the radio is choosen. With the Ping approach, one adds an extra data payload in the request by setting a flag and assigning how much extra payload the packet size should contain. For Peek on the other hand, in order to change the packet size one has to adjust the naming of the data to a suitable length. The shortest name a data can have is just one single character (which equals to one byte). In this experiment, the length of the named data will be of \textit{1 + 5 * X}.
-\\\\
-There is an underlaying assumption that the size of the outgoing packets from the wireless radio has to be the same in both cases ping and peek. The size of the interest packet and the data packet should also be of the length. The reason the time spent on transmissioning the bits on the wireless link should be kept the same in both cases, is that otherwise it could affect the result giving shorter roundtrip times for one system. The latency times is therefore the same in equation \ref{eq:1} and \ref{eq:2}. 
-
-
-Ping and peek use the same network protocols up until 6LowPAN(IP layer), the header sizes of UDP and ICMPv6 are the same at 8 byte each. But CCN has an application header of 16 bytes and the shortest name possible of the named data is one byte. To make a ping message equal to the CCN header and the name, the experiment will use a ping payload of \textit{17 + 5 * X}. 
-\\\\Table \ref{tab:packetSizes} shows the mapping of the size of named CCN peek data, the ping payload and how big their total size will be on the 802.15.4 radio link. The total packet range is an interval of five bytes from 93 up to 148 bytes. 
-Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 148 bytes.
-
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{figures/latency.png}
     %\caption{Star topology structure on the left, Peer-to-peer on the right. write where it is taken from?}
@@ -69,7 +68,44 @@ Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one fram
     \label{fig:latency}
 \end{figure}
 
+%The only variable that differs in the measurements is the payload of the ping and the size of the searched peek interest[rewrite this]. 
+Ping and peek differs how the total packet size transmitted over the radio is choosen. With the Ping approach, one adds  extra payload of data in the request by setting a flag and assigning how much extra payload the packet size should contain. For Peek on the other hand, in order to change the packet size one has to adjust the size of the data's name, i.e instead of sensor$\_$temperature, it could be sensor$\_$livingroom$\_$temperature, which would add 11 characters to the packet size transmitted on the radio. The shortest name a data can have is just one single character (which equals to one byte). In this experiment, the length of the named data will be of \textit{1 + 5 * X}.
+\\\\
+There is an underlaying assumption that the size of the outgoing packets from the wireless radio has to be the same in both cases ping and peek. The size of the interest packet and the data packet should also be of the same length. The reason the time spent on transmissioning the bits on the wireless link should be kept the same in both cases, is that otherwise it could affect the result giving shorter roundtrip times for one system. The latency is therefore the same in \ref{eq:1} and \ref{eq:2}, where the transmission time is the same in both equations.
 
+
+Ping and peek use the same network protocols up until 6LowPAN(IP layer), the header sizes of UDP and ICMPv6 are the same at 8 byte each. But CCN has an application header of 16 bytes and the shortest name possible of the named data is one byte. To make a ping message equal to the CCN header and the name, the experiment will use a ping payload of \textit{17 + 5 * X}. 
+\\\\
+%Table \ref{tab:packetSizes} shows the mapping of the size of named CCN peek data, the ping payload and how big their total size will be on the 802.15.4 radio link. The total packet range is an interval of five bytes from 93 up to 148 bytes. 
+%Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 148 bytes.
+Table \ref{tab:packetSizes} shows the mapping of the size of named CCN peek data, the ping payload and how big the total packet size will be when it is transmitted on the 802.15.4 radio link.
+Row one shows the length of the named data in bytes, i.e the data with the name ``sensor'' would correspond to six bytes in size. In parenthethis, next to the size of the named data, one sees the total CCN peek application size, where the CCN header and the length of the named data is included. With the data named as ``sensor'', this would equal to 22 bytes in total.
+
+The second row in table \ref{tab:packetSizes}, shows the additional payload of a ping message, where the size of this payload has to be equvivialent to the total CCN-peek application showed in parenthethis one row above.
+
+Row three shows the total amount of data that is transmitted on the 802.15.4 radio link towards the sensor.
+The total packet range in these experiments is an interval of five bytes from 93 up to 148 bytes. 
+Even though 802.15.4 has a MTU limit at 127 bytes for sending data into one frame on the wire, it can be interesting to see how the latency varies when fragmentated as well. Therefore latency measurements are of packet size up to 148 bytes.
+
+
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}
+{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
+\cline{1-13}
+CCN Peek & 1 (17) & 6 (22) & 11 (27) & 16 (32) & 21 (37) & 26 (42) & 31 (47) & 36 (52) & 41 (57) & 46 (62) & 51 (67) & 56 (72) &  \\ \cline{1-13}
+Ping     & 17     & 22     & 27      & 32      & 37      & 42      & 47      & 52      & 57      & 62      & 67      & 72      &  \\ \cline{1-13}
+802.15.4 & 93     & 98     & 103     & 108     & 113     & 118     & 123     & 128     & 133     & 138     & 143     & 148     &  \\ \cline{1-13}
+\end{tabular}
+}
+\caption{Row one shows the length of the datas name in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the CCN peek application, where the CCN header and the length of the named data is included. Row two shows the data payload of a ping message, which is equivialent to the CCN-peek application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.}
+
+\label{tab:packetSizes}
+\end{table}
+\newpage
 
 \subsection{Results}
 %\begin{itemize}
@@ -104,21 +140,7 @@ All measurements show a five to ten milliseconds difference between the minimium
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{\textwidth}{!}
-{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
-\cline{1-13}
-CCN Peek & 1 (17) & 6 (22) & 11 (27) & 16 (32) & 21 (37) & 26 (42) & 31 (47) & 36 (52) & 41 (57) & 46 (62) & 51 (67) & 56 (72) &  \\ \cline{1-13}
-Ping     & 17     & 22     & 27      & 32      & 37      & 42      & 47      & 52      & 57      & 62      & 67      & 72      &  \\ \cline{1-13}
-802.15.4 & 93     & 98     & 103     & 108     & 113     & 118     & 123     & 128     & 133     & 138     & 143     & 148     &  \\ \cline{1-13}
-\end{tabular}
-}
-\caption{Row one shows the length of the named data in bytes, if the data is named ``sensor'' it is equal to six bytes. The number in the parenthethis show the size of the application, CCN header and length of named data included. Row two shows the data payload of a ping message, equivialent to the application data. Row three shows the total amount of data sent on the 802.15.4 radio toward the sensor node.}
 
-\label{tab:packetSizes}
-\end{table}
 
 
 
