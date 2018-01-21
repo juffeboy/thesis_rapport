@@ -124,10 +124,17 @@ If the latencies of the srtt is high, the \textit{interest} request is sent too 
 \end{figure}
 
 \newpage 
+
+
 % mockup data
 A mockup testrun of the algorithm can be seen in figure \ref{fig:algortihm/sensor} and \ref{fig:algortihm/gateway}, where \ref{fig:algortihm/sensor} shows data from a sensors/producer perspective and figure \ref{fig:algortihm/gateway} shows it from the gateway/consumer perspective.
-The age of data is illustraded on the Y-axis in figure \ref{fig:algortihm/sensor}, which represents the time it takes for an interest message to be consumed in relation to the creation of the data. If the interest message can be responded directly after it has been receieved at the sensor, then the response is coming from the sensors cache and the age is positive on the y-axis. When one uses the sensors PIT, the age values on the Y-axis becomes negative and the sensor receives an interest message before the creation of the data. This makes it possible to achive low latency times from data production until it reaches the consumer.
+The age of data is illustraded on the Y-axis in figure \ref{fig:algortihm/sensor}, which represents the time when the data was created in relation to the time when an interest was received of that data. Formalized, the Y-axis is equal to the equation:
+\begin{equation} \label{eq:4}
+\textit{Age of data = Time data generated - time interest received}
+\end{equation} 
+If the interest message can be responded directly after it has been receieved at the sensor, then the response is coming from the sensors cache and the age is positive on the y-axis. When one uses the sensors PIT, the age values on the Y-axis becomes negative and the sensor receives an interest message before the creation of the data. This makes it possible to achive low latency times from data production until it reaches the consumer.
 The round trip times from a gateways perspective is shown on the Y-axis in figure \ref{fig:algortihm/gateway}. 
+In both figure \ref{fig:algortihm/sensor} and \ref{fig:algortihm/gateway}, the X-axis represents a time line where data is generated periodically and named sequentially with a fixed rate that is set before-hand. If nothing else is mentioned, the rate is one data value generated every second.
 
 % Continue mockup
 The effect of the first stage of the algortihm can be seen in on the left-hand side of figure \ref{fig:algortihm/sensor} where the age of the data is successively decreasing because the \textit{interest} message has come in to the sensor earlier compared to the earlier message. From figure \ref{fig:algortihm/gateway}, one can see that the round trip times stays stable during the initiating phase. Note that both these figures contain mockup data for illustration purposes.
@@ -146,7 +153,7 @@ The age of the data at the sensor shown in figure \ref{fig:algortihm/sensor} are
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age of data},
+xlabel={Data sequence number}, ylabel={Age of data},
 xmin=0, xmax=20,ymin=-50, ymax=50,
 xtick={5,10,15,20},
 ytick={-50,-40,-30,-20,-10,0,10,20,30,40,50},
@@ -163,7 +170,7 @@ The time it takes for an interest message to be consumed in relation to the crea
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Latency times at the gateway},
-xlabel={intervals}, ylabel={Round trip time},
+xlabel={Data sequence number}, ylabel={Round trip time},
 xmin=0, xmax=20,ymin=0, ymax=50,
 xtick={5,10,15,20},
 ytick={0,10,20,30,40,50},
@@ -208,7 +215,7 @@ When $\alpha$ is set to 1, there is no smoothing, therefore the correction is on
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 %\begin{subfigure}{.5\textwidth}\centering\begin{tikzpicture}[width=.4\linewidth]\begin{axis}[
 title={Roundtrips from gateway},
-xlabel={intervals}, ylabel={latency in ms},
+xlabel={Data sequence number}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
 xtick={100,200,300,400,500,600},
 xmin=000, xmax=100,ymin=-20, ymax=160,
@@ -229,7 +236,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age in ms},
+xlabel={Data sequence number}, ylabel={Age in ms},
 xmin=000, xmax=100,ymin=-120, ymax=20,
 xtick={20,40,60,80},
 ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
@@ -246,7 +253,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 %%%%%%%5
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Roundtrips from gateway},
-xlabel={intervals}, ylabel={latency in ms},
+xlabel={Data sequence number}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
 xtick={100,200,300,400,500,600},
 xmin=000, xmax=100,ymin=-20, ymax=160,
@@ -266,7 +273,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age in ms},
+xlabel={Data sequence number}, ylabel={Age in ms},
 xmin=000, xmax=100,ymin=-120, ymax=20,
 xtick={20,40,60,80},
 ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
@@ -284,7 +291,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Roundtrips from gateway},
-xlabel={intervals}, ylabel={latency in ms},
+xlabel={Data sequence number}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
 xtick={100,200,300,400,500,600},
 xmin=000, xmax=100,ymin=-20, ymax=160,
@@ -304,7 +311,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age in ms},
+xlabel={Data sequence number}, ylabel={Age in ms},
 xmin=000, xmax=100,ymin=-120, ymax=20,
 xtick={20,40,60,80},
 ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
@@ -344,7 +351,7 @@ Additionally, at a smaller sensor period of -2$\%$ compared to the gateway-inter
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Roundtrips from gateway},
-xlabel={intervals}, ylabel={latency in ms},
+xlabel={Data sequence number}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
 xtick={100,200,300,400,500,600},
 xmin=000, xmax=100,ymin=-20, ymax=160,
@@ -366,7 +373,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age in ms},
+xlabel={Data sequence number}, ylabel={Age in ms},
 xmin=000, xmax=100,ymin=-120, ymax=20,
 xtick={20,40,60,80},
 ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
@@ -383,7 +390,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Roundtrips from gateway},
-xlabel={intervals}, ylabel={latency in ms},
+xlabel={Data sequence number}, ylabel={latency in ms},
 xmin=0, xmax=700,ymin=-20, ymax=160,
 xtick={100,200,300,400,500,600},
 xmin=000, xmax=100,ymin=-20, ymax=160,
@@ -404,7 +411,7 @@ legend pos= outer north east, grid style={dotted,gray},ymajorgrids=true,]
 
 \begin{figure}[H]\centering\begin{tikzpicture}\begin{axis}[
 title={Age of data at sensor},
-xlabel={intervals}, ylabel={Age in ms},
+xlabel={Data sequence number}, ylabel={Age in ms},
 xmin=000, xmax=100,ymin=-120, ymax=20,
 xtick={20,40,60,80},
 ytick={-120,-110, -100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20},
