@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  21 JAN 2018 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  21 JAN 2018 19:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,11 +941,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--7
 \openout6 = `main.toc'.
 
 [4] (/Users/johan.carlquist/Documents/exjobb/rapport/section/introduction.tex [
-5]
-
-LaTeX Warning: Citation `CCN-lite' on page 6 undefined on input line 73.
-
-[6] (/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.tex
+5] [6] (/Users/johan.carlquist/Documents/exjobb/rapport/section/related_work.te
+x
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
@@ -977,7 +974,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--24
 
  []
 
-[9] <figures/802-15-4-topologies.png, id=295, 490.83376pt x 215.80624pt>
+[9] <figures/802-15-4-topologies.png, id=297, 490.83376pt x 215.80624pt>
 File: figures/802-15-4-topologies.png Graphic file (type png)
 <use figures/802-15-4-topologies.png>
 Package pdftex.def Info: figures/802-15-4-topologies.png used on input line 28.
@@ -994,7 +991,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
-<figures/6lowpan-own.png, id=311, 522.95375pt x 241.90375pt>
+<figures/6lowpan-own.png, id=313, 522.95375pt x 241.90375pt>
 File: figures/6lowpan-own.png Graphic file (type png)
 <use figures/6lowpan-own.png>
 Package pdftex.def Info: figures/6lowpan-own.png used on input line 54.
@@ -1026,7 +1023,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--38
 
  []
 
-<figures/CCN-architecture.png, id=344, 984.67876pt x 650.43pt>
+<figures/CCN-architecture.png, id=346, 984.67876pt x 650.43pt>
 File: figures/CCN-architecture.png Graphic file (type png)
 <use figures/CCN-architecture.png>
 Package pdftex.def Info: figures/CCN-architecture.png used on input line 47.
@@ -1040,7 +1037,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--79
 (/Users/johan.carlquist/Documents/exjobb/rapport/section/background/contiki.tex
 [15 </Users/johan.carlquist/Documents/exjobb/rapport/figures/CCN-architecture.p
 ng>])) [16] (/Users/johan.carlquist/Documents/exjobb/rapport/section/implementa
-tion.tex <figures/experiment_setup.png, id=368, 419.5675pt x 300.12125pt>
+tion.tex <figures/experiment_setup.png, id=370, 419.5675pt x 300.12125pt>
 File: figures/experiment_setup.png Graphic file (type png)
 <use figures/experiment_setup.png>
 Package pdftex.def Info: figures/experiment_setup.png used on input line 19.
@@ -1076,7 +1073,7 @@ Overfull \hbox (37.62517pt too wide) detected at line 48
 [][]
  []
 
-[21] <figures/latency.png, id=413, 713.66624pt x 587.19376pt>
+[21] <figures/latency.png, id=415, 713.66624pt x 587.19376pt>
 File: figures/latency.png Graphic file (type png)
 <use figures/latency.png>
 Package pdftex.def Info: figures/latency.png used on input line 65.
@@ -1142,7 +1139,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--131
  []
 
 [24]) [25] [26] [27] (/Users/johan.carlquist/Documents/exjobb/rapport/section/r
-esultat/suitable.tex <figures/latency-one-time-sub.png, id=465, 723.70375pt x 8
+esultat/suitable.tex <figures/latency-one-time-sub.png, id=467, 723.70375pt x 8
 28.09375pt>
 File: figures/latency-one-time-sub.png Graphic file (type png)
 <use figures/latency-one-time-sub.png>
@@ -1239,9 +1236,6 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 860E05E92964BF04D6B42100D12FD805;2596.
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
  )
 (\end occurred inside a group at level 1)
@@ -1249,10 +1243,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31639 strings out of 493014
- 736810 string characters out of 6133351
- 1034232 words of memory out of 5000000
- 34405 multiletter control sequences out of 15000+600000
+ 31638 strings out of 493014
+ 736800 string characters out of 6133351
+ 1034196 words of memory out of 5000000
+ 34404 multiletter control sequences out of 15000+600000
  21633 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,21n,92p,2116b,4737s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1276,10 +1270,10 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on /Users/johan.carlquist/Documents/exjobb/rapport/main.pdf (47 
-pages, 689912 bytes).
+pages, 690664 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
- 674 compressed objects within 7 object streams
+ 765 PDF objects out of 1000 (max. 8388607)
+ 676 compressed objects within 7 object streams
  181 named destinations out of 1000 (max. 500000)
  355 words of extra memory for PDF output out of 10000 (max. 10000000)
 

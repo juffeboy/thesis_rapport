@@ -22,15 +22,14 @@
 % 	\item Make sure the abstract stands on its own!
 % 	\end{itemize}
 The market of IoT devices continues to grow at a rapid speed as well as constrained wireless sensor networks.
-Today, the main network paradigm is \textit{host centric} where a users have to specify which host they want to receive their data from. Information-centric networking is a new paradigm for the future internet, which is based on \textit{named data} instead of \textit{named hosts}. With ICN, a user sends a request for a perticular data on the network, any router or server containing the data will respond to the request.
+Today, the main network paradigm is \textit{host centric} where a users have to specify which host they want to receive their data from. Information-centric networking is a new paradigm for the future internet, which is based on \textit{named data} instead of \textit{named hosts}. With ICN, a user needs to send a request for a perticular data in order to retrieve it. When sent, any participant in the network, router or server, containing the data will respond to the request.
 
-In order to achieve low latency between data creation and its consumption, as well as being able to follow the sequential production of data, an algorithm was created for these purposes during this thesis. This algorithm uses a `one-time subscription' approach to initiate a \textit{interest} message before the data has been created at the sensor.
+In order to achieve low latency between data creation and its consumption, as well as being able to follow data which is sequentially produced at a fixed rate, an algortihm was developed. This algortihm calculates and determines when to send the next interest message towards the sensor. It uses a `one time subscription' approach to send its interest message in advance of the creation of the data, thereby enabling a low latency from data creation to consumption.
 
-The result of this algorithm shows that a consumer can retrieve the data with minimum latency from its creation by the sensor, without using a publish/subscribe system such as MQTT or similar. The study shows that it can handle larger variations of clock drift from the sensor. 
+The result of this algorithm shows that a consumer can retrieve the data with minimum latency from its creation by the sensor over an extended period of time, without using a publish/subscribe system such as MQTT or similar which pushes their data towards their consumers. 
 The performance evaluation carried out which analysed the Content Centric Network application on the sensor shows that the application has little impact on the overall round trip time in the network.
 
 Based on the results, this thesis concluded that the ICN paradigm, together with a 'one-time subscription' model, can be a suitable option for communication within the IoT domain where consumers ask for sequentially produced data. 
-
 
 
 
