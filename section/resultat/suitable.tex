@@ -93,7 +93,8 @@ If the latencies of the srtt is high, the \textit{interest} request is sent too 
    		\If{Timeout}{
         	reference$\_$time = time$\_$start + interval$\_$time;
             
-            Break;
+            \textbf{Break While};
+           
         }
    }
    \If{rtt < rtt$\_$min}{
@@ -106,7 +107,7 @@ If the latencies of the srtt is high, the \textit{interest} request is sent too 
    sleep(next$\_$time); 
 }
 
- next = reference$\_$time\;
+ next$\_$time = reference$\_$time\;
  rtt$\_$target = rtt$\_$min * \textit{x}\;
  $\alpha$ = 0 <= $\alpha$ <= 1\;
  \While{True}{
